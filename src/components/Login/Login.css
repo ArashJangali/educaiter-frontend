@@ -1,0 +1,92 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #282c34;
+    height: 100vh; 
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 2em;
+}
+
+.login p {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 21rem;
+    align-items: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 2.2em;
+    border-radius: 2em;
+}
+
+.login input {
+    margin-bottom: 0.8em;
+    padding: 0.7em;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.login button {
+    padding: 0.5em;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: rgb(0, 123, 167);
+    color: #ffffff;
+    border: none;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.login button:hover {
+    background-color: rgb(0, 154, 210);
+}
+
+.or {
+    border: 1px solid rgba(172, 204, 26, 0.3);
+    border-radius: 5px;
+    padding: 0.2em;
+}
+
+.oauth {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+}
+
+.oauth-buttons {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.forgot-password {
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+/* Media query for larger screens */
+@media screen and (min-width: 600px) {
+    .login form {
+        width: 60%;
+    }
+}
+
+
+@media screen and (min-width: 900px) {
+    .login form {
+        width: 40%;
+    }
+}
+

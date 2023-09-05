@@ -1,0 +1,24 @@
+/* 
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+    overflow: auto;
+    background-color: #282c34;
+}
+
+.dashboard-content {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.dashboard-panel {
+    flex: 1 0 auto;
+    margin: 10px;
+    min-width: 300px; 
+    max-width: 600px; 
+} */

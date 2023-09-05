@@ -1,0 +1,34 @@
+.cancel {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #282c34;
+    height: 100vh;
+    justify-content: center;
+}
+
+.img-container img {
+    width: 12em;
+    height: 10em;
+    color: beige;
+}
+
+
+button {
+    padding: 0.5em;
+    font-size: 1.2em;
+    border-radius: 20px;
+    background: linear-gradient(to bottom, #282c34  0%, #282c34 100%);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+    border: 0.5px solid rgba(255, 255, 255, 0.021);
+    cursor: pointer;
+    margin-top: 1em;
+  }
+  
+
+  button:hover {
+    background: linear-gradient(to bottom, #282c34 0%, #1b2944 100%);
+    border: 0.5px solid rgba(23, 21, 21, 0.438);
+    color: rgba(240, 248, 255, 0.583);
+  }

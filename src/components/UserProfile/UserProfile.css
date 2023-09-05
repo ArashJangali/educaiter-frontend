@@ -1,0 +1,213 @@
+.profile-container {
+    background-color: #282c34;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    height: 100vh;
+    text-align: center;
+}
+
+.profile-container p {
+    border-bottom: 2px solid #4747471a;
+}
+
+.profile-picture {
+    border-radius: 5rem;
+    max-width: 20rem;
+    max-height: 10rem;
+    ;
+}
+
+.profile-picture img {
+    border-radius: 5rem;
+    max-width: 20rem;
+    max-height: 10rem;
+    border: solid 2px #76ff03;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 20px;
+    background-color: #76ff03;
+}
+
+.edit-profile-btn {
+    cursor: pointer;
+    background: linear-gradient(to bottom, #282c34 0%, #282c34 100%);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+    border: 0.5px solid rgba(255, 255, 255, 0.021);
+}
+
+.edit-profile-btn:hover {
+    background: linear-gradient(to bottom, #282c34 0%, #1b2944 100%);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+    border: 0.5px solid rgba(23, 21, 21, 0.438);
+    color: rgba(240, 248, 255, 0.583);
+}
+
+.submit-profile-btn {
+    cursor: pointer;
+    background: linear-gradient(to bottom, #282c34 0%, #282c34 100%);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+    border: 0.5px solid rgba(255, 255, 255, 0.021);
+}
+
+.submit-profile-btn:hover {
+    background: linear-gradient(to bottom, #282c34 0%, #1b2944 100%);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+    border: 0.5px solid rgba(23, 21, 21, 0.438);
+    color: rgba(240, 248, 255, 0.583);
+}
+
+.profile-form {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #282c34;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    height: 100vh
+}
+
+
+.profile-form input {
+    max-width: 30%;
+    margin: 0.3em auto;
+}
+
+.img-file-input {
+    margin: 0;
+    display: none
+}
+
+::file-selector-button {
+    display: none;
+}
+
+.upload-img-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    cursor: pointer;
+    background-color: #282c34;
+    color: #1b2944;
+    border: solid 1px #1b2944;
+    border-radius: 10px;
+    padding: 0.6em;
+    font-size: 1em;
+    margin: 1em;
+}
+
+.custom-file-upload:hover {
+    background-color: rgba(203, 211, 169, 0.05);
+}
+
+.back-button {
+    cursor: pointer;
+    background: linear-gradient(to bottom, #282c34 0%, #282c34 100%);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+    border: 0.5px solid rgba(255, 255, 255, 0.021);
+}
+
+.back-button:hover {
+    background: linear-gradient(to bottom, #282c34 0%, #1b2944 100%);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+    border: 0.5px solid rgba(23, 21, 21, 0.438);
+    color: rgba(240, 248, 255, 0.583);
+}
+
+.avatar-img {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+}
+
+.avatar-btn {
+    cursor: pointer;
+    background: linear-gradient(to bottom, #282c34 0%, #282c34 100%);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+    border: 0.5px solid rgba(255, 255, 255, 0.021);
+}
+
+.avatar-btn:hover {
+    background: linear-gradient(to bottom, #282c34 0%, #1b2944 100%);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+    border: 0.5px solid rgba(23, 21, 21, 0.438);
+    color: rgba(240, 248, 255, 0.583);
+}
+
+.btn-h1 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 50%;
+}
+
+.back-button {
+    margin-bottom: -3.3em;
+    background: linear-gradient(to bottom, #2f894c4b 0%, #3d5688 100%);
+}
+
+/* Mobile devices */
+@media (max-width: 767px) {
+    .profile-container, .profile-form {
+      padding: 1em;
+    }
+
+    .back-button {
+        padding: 0.25em;
+        margin-bottom: 0.5em;
+        margin-left: -0.2em;
+    }
+  
+    .btn-h1 {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .upload-img-container {
+        width: 90%;
+    }
+    .profile-form input, .upload-img-container {
+      max-width: 100%;
+    }
+  }
+  
+  /* Tablet devices */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .profile-form input, .upload-img-container {
+      max-width: 60%;
+    }
+
+    .back-button {
+        margin-left: -3em;
+    }
+    
+  }
+  
+  /* Desktop devices */
+  @media (min-width: 1025px) {
+    .profile-form input, .upload-img-container {
+      max-width: 30%;
+    }
+  }
+  

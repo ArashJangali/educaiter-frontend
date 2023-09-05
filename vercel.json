@@ -1,0 +1,6 @@
+{
+    "rewrites": [
+      { "source": "/api/:path*", "destination": "/Users/arashjangali/Desktop/AI-learning-platform/ai-app/server/routes/:path*" }
+    ]
+  }
+  

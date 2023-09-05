@@ -1,0 +1,417 @@
+.subscription-page {
+    background-color: #282c34;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    height: auto;
+  }
+  
+  .subscription-page .left-side {
+    background-color: #282c34;
+    padding: 2em;
+    width: 100%;
+   
+  }
+  
+  .subscription-page .left-side h1,
+  .subscription-page .left-side p {
+    margin-bottom: 1em;
+    
+  }
+  
+  .subscription-page .left-side .pricing-plans {
+    margin-top: 2em;
+    
+  }
+  
+  .subscription-page .left-side h1,
+.subscription-page .left-side p,
+.subscription-page .left-side .pricing-plans h2,
+.subscription-page .left-side .pricing-plans p,
+.subscription-page .form-container .payment-security h2,
+.subscription-page .form-container .payment-security p {
+    font-size: 1.5em; /* Adjust as needed */
+}
+
+.tier-card p,
+.current-plan {
+    font-size: 1em; /* Adjust as needed */
+}
+
+  .subscription-page .left-side .pricing-plans h2,
+  .subscription-page .left-side .pricing-plans p {
+    margin-bottom: 1em;
+   
+  }
+  
+  .subscription-page .left-side .tier {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  
+  .subscription-page .left-side .tier button {
+    padding: 0.5em 1em;
+    margin-top: 0.5em;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    top: 0;
+    bottom: 0;
+    left: auto;
+
+    
+  }
+  
+  .subscription-page .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 3em;
+    background-color: #282c34;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    color: white;
+  }
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+
+  /* Modal content */
+.modal-content {
+  background-color: #282c34;
+  padding: 20px;
+  border-radius: 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 50%;
+  text-align: center;
+}
+
+/* Modal text */
+.modal-content p {
+  margin-bottom: 10px;
+}
+
+.modal-content button {
+  color: #c3c0c0;
+  padding: 0.7rem;
+  border-radius: 15px;
+  background: linear-gradient(to bottom, #282c34 0%, #282c34 100%);
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+  border: 0.5px solid rgba(23, 21, 21, 0.438);
+}
+
+.modal-content button:hover {
+  background: linear-gradient(to bottom, #282c34 0%, #1b2944 100%);
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+  border: 0.5px solid rgba(23, 21, 21, 0.438);
+  color: rgba(240, 248, 255, 0.583);
+}
+
+
+.error-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.error-modal-content {
+  background-color: #282c34;
+  padding: 20px;
+  border-radius: 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 50%;
+  text-align: center;
+}
+
+
+.error-modal-content button {
+  color: #c3c0c0;
+  padding: 0.7rem;
+  border-radius: 15px;
+  background: linear-gradient(to bottom, #282c34 0%, #282c34 100%);
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+  border: 0.5px solid rgba(23, 21, 21, 0.438);
+}
+
+.error-modal-content button:hover {
+  background: linear-gradient(to bottom, #282c34 0%, #1b2944 100%);
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+  border: 0.5px solid rgba(23, 21, 21, 0.438);
+  color: rgba(240, 248, 255, 0.583);
+}
+
+  
+  .subscription-page .form-container form {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    border:#22253723 1px solid;
+    border-radius: 10px;
+    margin: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+  }
+  
+  .subscription-page .form-container form .CardElement {
+    padding: 1em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .subscription-page .form-container form button {
+    color: #aaa;
+    border: solid 0.5px rgba(255, 255, 255, 0.5);
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: 0.4s all ease-in-out;
+    width: 50%;
+  }
+
+  .subscription-page .form-container form button:hover {
+    color: #282c34;
+    background: rgba(255, 255, 255, 0.2);
+}
+  
+  .subscription-page .form-container form button:disabled {
+    background-color: #aaa;
+    color: #333;
+}
+  
+  .subscription-page .form-container .payment-security {
+    margin-top: 2em;
+  }
+  
+  .subscription-page .form-container .payment-security h2,
+  .subscription-page .form-container .payment-security p {
+    margin-bottom: 1em;
+    font-size: 12px;
+    max-width: 50%;
+/* view height units to fill the screen vertically */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  input {
+    padding: 15px; 
+    color:  #ffffff; /* Change text color to black */
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    margin: 0 auto
+}
+
+input:focus {
+    border-color: #aaa; 
+}
+
+label {
+    margin: 0 auto;
+    color: #ffffff00;
+}
+
+.tier-list {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 5rem;
+    
+  }
+  
+  .tier-card {
+    flex: 0 1 300px; /* Adjust this value as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, #282c34 0%, #282c34 100%);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+    border: 2.5px solid rgba(255, 255, 255, 0.021);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+  }
+
+  .tier-card p {
+    color: #939ea2;
+  }
+
+  .current-plan {
+    border: 2px solid rgb(62, 109, 134) !important;
+    flex: 0 1 300px; /* Adjust this value as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, #282c34 0%, #282c34 100%);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+    border: 2.5px solid rgba(255, 255, 255, 0.021);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+    color: #939ea2;
+  }
+
+ 
+
+ .current-plan button:disabled,
+ .current-plan button[disabled] {
+  background: linear-gradient(to bottom, #282c34  0%, #282c34 100%);
+  border: 1.5px solid rgb(62, 109, 134);
+    cursor:default;
+}
+
+.current-plan button:disabled:hover,
+.current-plan button[disabled]:hover {
+  background: linear-gradient(to bottom, #282c34  0%, #282c34 100%);
+  border: 1.5px solid rgb(62, 109, 134);
+  color: #aaa;
+}
+  
+  button:hover {
+    color: #282c34;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* view height units to fill the screen vertically */
+    width: 100%;
+    box-sizing: border-box;
+    padding: 2rem;
+  }
+
+  @media (min-width: 1200px) {
+ 
+    
+    .subscription-page  {
+        height: 100vh !important;
+    }
+}
+
+  /* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .tier-list {
+        padding: 2rem;
+    }
+    
+    .subscription-page .form-container form {
+        width: 60%;
+    }
+}
+
+@media (max-width: 800px) {
+    .tier-card {
+        /* flex: 1 0 100%;  */
+        margin: 2.5rem;
+        margin-top: 6rem;
+    }
+
+    .current-plan {
+      margin: 2.5rem;
+    }
+
+    .tier-list {
+      flex-direction: column !important;
+      justify-content: center;
+      align-items: center;
+    }
+   
+    .payment-security h2,
+    .payment-security p {
+        max-width: 80%;
+    }
+
+    .form-container {
+        padding: 1em;
+    }
+
+    .subscription-page .form-container form {
+        padding: 1em;
+    }
+
+    .form-container form {
+      width: 80%;
+  }
+  
+}
+
+@media (max-width: 500px) {
+  .subscription-page .form-container form {
+    padding: 1em;
+}
+
+.subscription-page {
+  height: auto;
+
+}
+
+.subscription-page .form-container {
+    padding: 1em;
+}
+
+
+
+.tier-card {
+  /* flex: 1 0 100%;  */
+  margin: 2.5rem;
+  margin-top: 6rem;
+}
+
+.current-plan {
+margin: 2.5rem;
+}
+
+
+    .tier-list {
+      flex-direction: column !important;
+justify-content: center;
+align-items: center;
+    }
+   
+    .subscription-page .form-container .payment-security {
+        max-width: 100%;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    .subscription-page .form-container form button {
+        width: 70%;
+    }
+
+    .payment-security h2,
+    .payment-security p {
+        max-width: 90%;
+    }
+}
+
+

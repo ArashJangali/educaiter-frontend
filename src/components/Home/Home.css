@@ -1,0 +1,217 @@
+.home {
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    color: #607D8B;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: #282c34;
+    margin-top: 0.5em;
+}
+
+.home-header {
+    padding: 3.5rem;
+    background-color: #282c34;
+    color: white;
+   
+}
+
+.home-main {
+    padding: 1.5rem 0rem;
+    flex: 1 0 auto; 
+    background-color: #282c34;
+    color: white;
+}
+
+.home-footer {
+    margin-bottom: 1.5rem;
+    background-color: #282c34;
+    color: rgba(255, 255, 255, 0.167);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+.home-main-intro,
+.home-main-features,
+.home-main-cta {
+    padding: 4em;
+   
+}
+
+.home-main-intro {
+    background-image: url('../../../public/head.png');
+    background-size: 32%; /* Change this to make the image smaller */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: 105% 90% ;; /* Centers the image */
+    z-index: 1000;
+}
+
+.home-main-intro p {
+    max-width: 32%;
+    text-align: left;
+    opacity: 80%;
+}
+
+.sequence {
+    max-width: 60%;
+    position: relative;
+    margin-left: -23em;
+ 
+}
+
+
+.home-main-intro h2 {
+    max-width: 60%;
+    text-align: left;
+}
+
+.home-main-features ul {
+    
+    list-style-type: disc;
+    list-style-position: inside;
+ 
+}
+
+
+
+.home-main-features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2em;
+
+}
+
+.home-main-features h3 {
+    width: 100%;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.feature-card {
+    width: 32%; /* Card width */
+    margin: 1em;
+    padding: 1.9em;
+    border-radius: 20px;
+    background: linear-gradient(to bottom, #282c34 0%, #282c34 100%);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+    border: 2.5px solid rgba(255, 255, 255, 0.021);
+}
+
+
+.feature-card h4 {
+    margin: 0;
+    padding-bottom: 1em;
+    font-size: 1.3em;
+    text-align: left;
+}
+
+.feature-card p {
+    margin: 0;
+    color: #334949dc;
+    text-align: left;
+}
+
+
+.home-main-cta button {
+    padding: 0.7em;
+    font-size: 1.2em;
+    border-radius: 20px;
+    background: linear-gradient(to bottom, #282c34  0%, #282c34 100%);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+    border: 0.5px solid rgba(255, 255, 255, 0.021);
+    cursor: pointer;
+    margin-top: 1em;
+}
+
+.home-main-cta button:hover {
+    background: linear-gradient(to bottom, #282c34 0%, #1b2944 100%);
+    border: 0.5px solid rgba(23, 21, 21, 0.438);
+    color: rgba(240, 248, 255, 0.583);
+}
+
+.home-main-cta p {
+    margin-top: -0.2rem;
+    opacity: 50%;
+}
+
+.animation-container {
+    margin-left: -5em;
+    max-width: 82%;
+    height: 15em;
+}
+
+
+.feature-img {
+    opacity: 25%;
+width: 30%;
+background-color: #282c34;
+
+}
+
+.feature-card:hover p {
+    color: #375151;
+}
+
+
+/* Mobile Styles */
+@media only screen and (max-width: 600px) {
+    .home-main-intro p,
+    .sequence,
+    .home-main-intro h2,
+    .feature-card {
+        max-width: 100%;
+    }
+
+
+    .sequence {
+        margin-left: 0;
+        height: 3.5em;
+    }
+
+    .home-main-features {
+        padding: 1em;
+    }
+
+    .feature-card {
+        width: 100%;
+    }
+
+    .animation-container {
+        margin-left: -4.9em;
+        max-width: 100%;
+        height: 8em;
+    }
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 600px) and (max-width: 1200px) {
+    .home-main-intro p,
+    .home-main-intro h2 {
+        max-width: 100%;
+    }
+
+    .sequence {
+        max-width: 100%;
+        margin-left: 0;
+        height: 3.5em;
+    }
+
+
+    .feature-card {
+        width: 48%; /* Adjusted for 2 columns */
+    }
+
+    .animation-container {
+        margin-left: -4.9em;
+        max-width: 100%;
+        height: 8em;
+    }
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 1200px) {
+    /* Your existing styles here */
+}

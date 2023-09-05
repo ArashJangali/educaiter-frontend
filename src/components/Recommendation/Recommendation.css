@@ -1,0 +1,160 @@
+.recommendation-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #282c34;
+    height: 100vh;
+    padding: 20px;
+}
+
+.date-picker-container {
+   margin-left: 0 !important;
+   margin-bottom: 20px;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
+}
+.recommendation-container .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+    font-size: 12px;
+}
+
+.buttons button {
+    cursor: pointer;
+    background: linear-gradient(to bottom, #282c34  0%, #282c34 100%);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+    border: 0.5px solid rgba(255, 255, 255, 0.021);
+}
+
+.buttons button:hover {
+    background: linear-gradient(to bottom, #282c34 0%, #1b2944 100%);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+    border: 0.5px solid rgba(23, 21, 21, 0.438);
+    color: rgba(240, 248, 255, 0.583);
+}
+
+.buttons {
+    margin-top: 40px;
+}
+
+.incorrect-recommendation {
+    color: #fff;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    overflow: scroll !important;
+    padding: 2em;
+    border: 1px solid #76777b5b;
+    border-radius: 20px;
+    width: 50%;
+    background: linear-gradient(to bottom, #282c34 0%, #282c34 100%);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+    border: 2.5px solid rgba(255, 255, 255, 0.021);
+    max-height: 300px;
+}
+
+.guide {
+    display: flex;
+    flex-direction: row;
+    min-width: 100%;
+    min-height: 50%;
+}
+
+.guide h4 {
+    text-align: center;
+}
+
+.recommendation {
+    color: #fff;
+    overflow: scroll;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    padding: 2em;
+    border: 1px solid #76777b5b;
+    overflow: scroll;
+    border-radius: 20px;
+    width: 50%;
+    background: linear-gradient(to bottom, #282c34 0%, #282c34 100%);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+    border: 2.5px solid rgba(255, 255, 255, 0.021);
+    max-height: 300px;
+}
+
+.subject-button .selected {
+    background: linear-gradient(to bottom, #282c34 0%, #1b2944 100%);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+    border: 0.5px solid rgba(23, 21, 21, 0.438);
+    color: rgba(240, 248, 255, 0.583);
+  }
+
+
+
+  @media (max-width: 600px) {
+    .buttons {
+        width: 50%;
+    }
+
+    .date-picker-container {
+        margin-top: 180px;
+        margin-bottom: 90px;
+    }
+  
+}
+/* Your existing CSS */
+
+@media (max-width: 600px) {
+  
+
+    .recommendation-container .buttons {
+        display: flex;
+        flex-direction: row;
+        font-size: 8px;
+        margin-bottom: 0.01em;
+        margin-top: 6em;
+    }
+.recommendation-container {
+    overflow-y: scroll !important;
+}
+
+    .incorrect-recommendation, .recommendation {
+        width: 80%;
+        margin-bottom: 30px;
+        min-height: 200px !important;
+
+    }
+    .recommendation {
+        margin-bottom: 80px;
+        overflow: scroll;
+    }
+
+    .incorrect-recommendation  {
+        margin-top: 120px;
+        overflow: scroll;
+    }
+    .guide {
+        flex-direction: column;
+      justify-content: space-around;
+        align-items: center;
+       
+    }
+
+     .review-button {
+      margin-top: 120px !important;
+        max-width: 200px;
+        font-size: 10px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .review-button {
+        background: antiquewhite !important;
+    }
+    .review-button:hover {
+        color: rgb(11, 8, 4) !important;
+    }
+}
