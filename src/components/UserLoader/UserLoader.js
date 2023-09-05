@@ -9,10 +9,13 @@ export default function UserLoader({ children }) {
 
   useEffect(() => {
     const fetchUserData = async () => {
+    
+
       try {
         // make a request to an authenticated endpoint that verifies the JWT and returns user's data
         const response = await axios.get("/me", { withCredentials: true });
 
+        console.log("Response data: ", response.data);
         
         // If token is valid, the server should return the user data
         if (response.status === 200) {
