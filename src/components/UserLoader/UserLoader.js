@@ -15,11 +15,11 @@ export default function UserLoader({ children }) {
         // make a request to an authenticated endpoint that verifies the JWT and returns user's data
         const response = await axios.get("/me", { withCredentials: true });
 
-        console.log("Response data: ", response.data);
-        
+   
+
         // If token is valid, the server should return the user data
         if (response.status === 200) {
-          console.log('userloader', response.data)
+        
           setUser(response.data);
      
         } else {
