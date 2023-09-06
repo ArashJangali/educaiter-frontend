@@ -103,12 +103,15 @@
     .date-picker-container {
         margin-top: 300px !important;
         margin-bottom: 130px;
-        margin-right: 335px;
+        margin-right: 305px;
         max-width: 80px;
         min-height: 100px !important;
         height: 100%;
     }
-  
+  .react-datepicker-wrapper {
+    width: 100px;
+    margin-right: 10px;
+  }
 }
 /* Your existing CSS */
 
@@ -149,14 +152,14 @@
     }
 
      .review-button {
-    margin-top: 195px !important;
+    margin-top: 175px !important;
         max-width: 200px;
         font-size: 10px !important;
         margin-bottom: 20px !important;
     }
     
     .css-122k8mb-control {
-        width: 150px !important;
+        width: 130px !important;
     }
     
     .review-button {

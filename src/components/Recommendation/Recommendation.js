@@ -116,8 +116,11 @@ export default function Recommendation() {
     }),
     menu: (provided, state) => ({
       ...provided,
-      background: '#282c34',
+      background: '#282c64',
+      zIndex: 9999,
+      overflow: 'auto',
     }),
+    menuPortal: (provided) => ({ ...provided, zIndex: 9999 }),
     control: (provided) => ({
       ...provided,
       background: '#282c34',
@@ -125,7 +128,7 @@ export default function Recommendation() {
       width: 200,
       border: '2px solid #646c7a',
       boxShadow: 'none',
-      bottom: '5px'
+      bottom: '5px',
   }),
     singleValue: (provided, state) => {
       const opacity = state.isDisabled ? 0.5 : 1;
@@ -166,6 +169,8 @@ export default function Recommendation() {
            options={topics}
            onChange={handleTopicChange}
            placeholder="Topic"
+           menuPortalTarget={document.body}
+          menuPosition={'fixed'} 
          />
       </div>
      
