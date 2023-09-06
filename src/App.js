@@ -17,7 +17,7 @@ import {loadStripe} from '@stripe/stripe-js';
 import Success from "./components/Subscription/Success";
 import Cancel from "./components/Subscription/Cancel";
 
-const stripePromise = loadStripe("pk_test_51NaRsdEZSzawTl75LTqlYWi9mtQbtHLNCuMuBGwLhOfVCHPfRaJNe2kzcAVszojsyceGLR03ZYcjHVcbEOzORc7B00MqXFRmev");
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
 export default function App() {
 

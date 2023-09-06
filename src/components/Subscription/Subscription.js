@@ -47,7 +47,7 @@ export default function Subscription() {
     }
 
     
-    axios.post(`${process.env.REACT_APP_BASE_URL}/create-checkout-session`, {
+    axios.post(`${process.env.REACT_APP_BASE_URL}/api/create-checkout-session`, {
       tier: tier,
       customerId: userId
     })
