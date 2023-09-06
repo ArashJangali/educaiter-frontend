@@ -133,76 +133,125 @@ export default function Home() {
     <div className="home">
       <header className="home-header">
         <h1>
-        Welcome to educ<span STYLE="text-decoration:underline">AI</span>ter
+          Welcome to educ<span STYLE="text-decoration:underline">AI</span>ter
         </h1>
         <p>Your personalized learning platform</p>
       </header>
       <main className="home-main">
         <TypeAnimation
           sequence={[
-            "Tailored learning paths based on your preferences and learning style", 1000,
-            "Explore a wide range of learning tracks and courses", 1000,
-            // "Engage with our vibrant community of learners and experts", 1000,
-            "Track your progress", 1000,
-            "Achieve your learning goals with personalized dashboards", 1000,
-            // "Affordable learning. High quality education should be accessible to everyone", 1500,
+            "Your Future, Personalized",
+            1000,
+            "Navigate Your Learning Journey, Your Way",
+            1000,
+            "Where Passion Meets Personalization",
+            1000,
+            "Mapping Your Unique Path to Knowledge",
+            1000,
+            "Discover, Grow, Achieve with educAIter",
+            1000,
+            "Innovation Meets Individualized Learning",
+            1500,
           ]}
           speed={120}
           deleteSpeed={200}
           delaySpeed={1000}
           repeat={Infinity}
-          style={{ fontSize: '1.5em', display: 'inline-block' }}
+          style={{ fontSize: "1.5em", display: "inline-block" }}
           className="sequence"
         />
         <section className="home-main-intro">
-        
-            <h2>Transform Your Learning Experience with educAIter</h2>
-            <p>Experience personalized learning like never before.</p>
-            <p>Understand your strengths, work on your weaknesses, and achieve your learning goals faster and more effectively.</p>
-            <Suspense fallback={<div>Loading...</div>}>
-              <AnimationCanvas />
-            </Suspense>
+          <h2>Transform Your Learning Experience with educAIter</h2>
+          <p>Experience personalized learning like never before.</p>
+          <p>
+            Understand your strengths, work on your weaknesses, and achieve your
+            learning goals faster and more effectively.
+          </p>
+          <Suspense fallback={<div>Loading...</div>}>
+            <AnimationCanvas />
+          </Suspense>
         </section>
         <section className="home-main-features">
-          
-    {/* <img className="feature-img" src={featureImg} /> */}
-    <h3>Unique Features</h3>
+          {/* <img className="feature-img" src={featureImg} /> */}
+          <h3>Unique Features</h3>
 
-  
-    <div className="feature-card">
-        <h4>AI-Powered Learning Experience:</h4>
-        <p><strong>Interactive Chat: </strong><br />Engage with an AI tutor that adapts to your learning style. Choose from various avatars specialized in different subjects and customize their visual appearance.</p><br />
-        <p><strong>Image Analysis: </strong><br />Utilize Computer Vision to upload images of your homework or other visual materials for analysis and assistance in real-time.</p>
-    </div>
+          <div className="feature-card">
+            <h4>AI-Powered Learning Experience:</h4>
+            <p>
+              <strong>Interactive Chat: </strong>
+              <br />
+              Engage with an AI tutor that adapts to your learning style. Choose
+              from various avatars specialized in different subjects and
+              customize their visual appearance.
+            </p>
+            <br />
+            <p>
+              <strong>Image Analysis: </strong>
+              <br />
+              Utilize Computer Vision to upload images of your homework or other
+              visual materials for analysis and assistance in real-time.
+            </p>
+          </div>
 
-    <div className="feature-card">
-        <h4>Personalized Assessments and Quizzes:</h4>
-        <p><strong>Adaptive Quizzes: </strong><br />Select your subject and difficulty level, and the AI will generate tailored quiz questions, providing immediate feedback and corrections.</p><br />
-        <p><strong>Performance Tracking: </strong><br />Your chat conversations and quiz results form the basis for ongoing assessment, ensuring a learning path that grows with you.</p>
-    </div>
-  
-    <div className="feature-card">
-        <h4>Strengths and Weaknesses Analysis:</h4>
-        <p><strong>Data Visualization: </strong><br />Through intuitive graphs and charts, track your performance across various subjects to understand where you excel and where you need improvement.</p><br />
-        <p><strong>Personalized Insights: </strong><br />Gain valuable insights into your learning journey, backed by data-driven analysis of your strengths and weaknesses.</p>
-    </div>
-    <div className="feature-card">
-        <h4>Intelligent Recommender System:</h4>
-        <p><strong>Focused Learning: </strong><br />Based on your performance and areas of strength or weakness, the AI recommends specific areas to focus on.</p><br />
-        <p><strong>Guided Path: </strong><br />Receive personalized suggestions and resources, guiding you on the most efficient path towards achieving your learning goals.</p>
-    </div>
+          <div className="feature-card">
+            <h4>Personalized Assessments and Quizzes:</h4>
+            <p>
+              <strong>Adaptive Quizzes: </strong>
+              <br />
+              Select your subject and difficulty level, and the AI will generate
+              tailored quiz questions, providing immediate feedback and
+              corrections.
+            </p>
+            <br />
+            <p>
+              <strong>Performance Tracking: </strong>
+              <br />
+              Your chat conversations and quiz results form the basis for
+              ongoing assessment, ensuring a learning path that grows with you.
+            </p>
+          </div>
 
-</section>
+          <div className="feature-card">
+            <h4>Strengths and Weaknesses Analysis:</h4>
+            <p>
+              <strong>Data Visualization: </strong>
+              <br />
+              Through intuitive graphs and charts, track your performance across
+              various subjects to understand where you excel and where you need
+              improvement.
+            </p>
+            <br />
+            <p>
+              <strong>Personalized Insights: </strong>
+              <br />
+              Gain valuable insights into your learning journey, backed by
+              data-driven analysis of your strengths and weaknesses.
+            </p>
+          </div>
+          <div className="feature-card">
+            <h4>Intelligent Recommender System:</h4>
+            <p>
+              <strong>Focused Learning: </strong>
+              <br />
+              Based on your performance and areas of strength or weakness, the
+              AI recommends specific areas to focus on.
+            </p>
+            <br />
+            <p>
+              <strong>Guided Path: </strong>
+              <br />
+              Receive personalized suggestions and resources, guiding you on the
+              most efficient path towards achieving your learning goals.
+            </p>
+          </div>
+        </section>
 
         <section className="home-main-cta">
-            <h3>Ready to Revolutionize Your Learning?</h3>
-            <button onClick={handleButtonClick}>Start Your Free Trial </button>
-      
+          <h3>Ready to Revolutionize Your Learning?</h3>
+          <button onClick={handleButtonClick}>Start Your Free Trial </button>
         </section>
       </main>
-      <footer className="home-footer">
-      Copyright © 2023 educAIter
-      </footer>
+      <footer className="home-footer">Copyright © 2023 educAIter</footer>
     </div>
   );
 }
