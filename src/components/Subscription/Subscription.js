@@ -47,26 +47,25 @@ export default function Subscription() {
     }
 
     
-    axios.post(`${process.env.REACT_APP_BASE_URL}/api/create-checkout-session`, {
+    axios.post('/create-checkout-session', {
       tier: tier,
-      customerId: userId
+      customerId: userId,
+      withCredentials: true
     })
     .then((res) => {
       window.location = res.data.session.url
     })
     .catch((e) => {
       console.error(e)
-      if (
-        error.response.status ===
-        403
-      ) {
+      if (e.response && e.response.status === 403) {
         setErrorMessage('Access forbidden');
         setShowErrorModal(true)
-      } else if (error.response.status === 500) {
+      } else if (e.response && e.response.status === 500) {
         setErrorMessage('An error occurred while creating the subscription');
         setShowErrorModal(true)
       }
     })
+    
     setSelectedTier(tier);
 
   };
