@@ -76,7 +76,7 @@ const Chat = () => {
 
   const fetchChatHistory = async () => {
     try {
-      const response = await axios.get(`/api/chat-history/${userId}`, {
+      const response = await axios.get(`/api/chat/chat-history/${userId}`, {
         withCredentials: true,
         params: {
           sidebarSearch: sidebarSearch,
@@ -117,7 +117,7 @@ const Chat = () => {
 
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_BASE_URL}/api/analyze-image`,
+        `${process.env.REACT_APP_BASE_URL}/api/chat/analyze-image`,
         formData
       );
       const data = response.data;
@@ -164,7 +164,7 @@ const Chat = () => {
     };
   
     try {
-      await fetch(`${process.env.REACT_APP_BASE_URL}/api/completions`, options)
+      await fetch(`${process.env.REACT_APP_BASE_URL}/api/chat/completions`, options)
       .then(response => {
         if(!response.ok){
           return response.text().then(text => {
