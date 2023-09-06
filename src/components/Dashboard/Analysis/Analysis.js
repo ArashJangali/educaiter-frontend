@@ -1,6 +1,6 @@
 import React from 'react';
 import BarChart from './BarChart';
-import HeatMapChart from './HeatMapChart';
+// import HeatMapChart from './HeatMapChart';
 import TimelineChart from './TimelineChart';
 import './analysis.css'
 
@@ -12,7 +12,7 @@ const Analysis = ({ userId }) => {
       {/* <h2>Progress</h2>*/}
       <TimelineChart userId={userId} />
       
-      <HeatMapChart userId={userId} />
+      {/* <HeatMapChart userId={userId} /> */}
     </div>
   );
 };

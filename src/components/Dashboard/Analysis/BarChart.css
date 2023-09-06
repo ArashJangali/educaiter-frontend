@@ -6,6 +6,7 @@
     justify-content: center;
     padding: 20px;
     color: #FFF;
+    width: 100%;
 }
 
 .bar-chart .chart-title {
@@ -23,7 +24,7 @@
     gap: 10px;
     flex-direction: row;
     margin-top: 2em;
-    width: 90%;
+    width: 100%;
 }
 
 .chart-container .chart {
@@ -33,4 +34,24 @@
 
 .chart-container .chart canvas {
     max-height: 60vh; 
+    width: 100%;
+}
+
+
+
+@media (max-width: 576px) {
+
+    .chart-container .chart canvas {
+        overflow: auto;
+    }
+
+    .chart-container .chart {
+        overflow-x: scroll !important;
+        width: 100%; /* Ensure that the chart takes the full width */
+    }
+
+    .chart-container {
+        overflow-x: scroll !important;
+        width: 100%; /* Make sure the container is full width */
+    }
 }
