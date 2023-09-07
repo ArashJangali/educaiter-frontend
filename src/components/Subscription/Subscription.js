@@ -81,7 +81,7 @@ export default function Subscription() {
   const handleSubCancel = async () => {
     try {
       if (window.confirm('Are you sure you want to cancel your subscription?')) {
-        const response = await axios.post('/deletedSubscription', { withCredentials: true })
+        const response = await axios.delete('/deletedSubscription', { withCredentials: true })
         setCancelMessage('Error cancelling subscription');
         setShowErrorModal(true)
         setTimeout(() => {
