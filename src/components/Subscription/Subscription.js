@@ -128,7 +128,7 @@ export default function Subscription() {
           ))}
          
         </div>
-        {user?.planType === 'unsubscribed' && <button className="unsub" onClick={handleSubCancel}>Cancel Subscription</button> }
+        {user?.planType !== 'unsubscribed' && <button className="unsub" onClick={handleSubCancel}>Cancel Subscription</button> }
         </>
       )}
         </div>
