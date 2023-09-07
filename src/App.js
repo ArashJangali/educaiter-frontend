@@ -19,6 +19,8 @@ import Cancel from "./components/Subscription/Cancel";
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
+console.log(process.env.REACT_APP_STRIPE_API_KEY)
+
 export default function App() {
 
 

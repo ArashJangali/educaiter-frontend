@@ -84,10 +84,7 @@ export default function Subscription() {
           <span className="close-button" onClick={onClose}>
             ×
           </span>
-          <div className="apilimit-modal">
-          {errorMessage}
-          <Link to="/subscription">Click here</Link> to retry.
-          </div>
+          <div className="apilimit-modal">{errorMessage} <Link to="/subscription">Click here</Link> to retry.</div>
         </div>
       ): (
         <div className="tier-list">
