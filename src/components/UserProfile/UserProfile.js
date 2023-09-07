@@ -180,7 +180,7 @@ const UserProfile = () => {
       <button className="edit-profile-btn" onClick={() => setEditMode(true)}>
         Edit Profile
       </button>
-      <button style={{backgroundColor: 'red', color: 'white'}} className="edit-profile-btn" onClick={deleteAccount}>
+      <button style={{background: 'red', color: 'white', fontSize: '11.5px'}} className="edit-profile-btn" onClick={deleteAccount}>
         Delete Account
       </button>
       {error && <p>{error}</p>}

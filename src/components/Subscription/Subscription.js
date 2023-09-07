@@ -82,7 +82,7 @@ export default function Subscription() {
     try {
       if (window.confirm('Are you sure you want to cancel your subscription?')) {
         const response = await axios.post('/deletedSubscription', { withCredentials: true })
-        setCancelMessage(response.data.msg);
+        setCancelMessage('Error cancelling subscription');
         setShowErrorModal(true)
         setTimeout(() => {
           setCancelMessage('');
@@ -93,10 +93,11 @@ export default function Subscription() {
       
     } catch(error){
       console.error(error)
-      setCancelMessage(error);
+      setCancelMessage('An error occurred while cancelling the subscription');
       setShowErrorModal(true)
     }
   }
+
 
   return (
     
@@ -110,6 +111,7 @@ export default function Subscription() {
           {cancelMessage && <div className="apilimit-modal">{cancelMessage}</div>}
         </div>
       ): (
+        <>
         <div className="tier-list">
           {tiers.map((tier) => (
             <div key={tier.id} className={tier?.name.toLowerCase() === user?.planType ? 'current-plan' : 'tier-card'}>
@@ -124,8 +126,10 @@ export default function Subscription() {
             }
             </div>
           ))}
-         {user?.planType && <button onClick={handleSubCancel}>Cancel Subscription</button> } 
+         
         </div>
+        {user?.planType === 'unsubscribed' && <button className="unsub" onClick={handleSubCancel}>Cancel Subscription</button> }
+        </>
       )}
         </div>
       ) 

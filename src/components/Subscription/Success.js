@@ -16,7 +16,7 @@ export default function Success() {
   useEffect(() => {
     async function getSessionId(){
       try {
-          const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/me`)
+          const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/me`)
           if(response) {
             setSessionId(response.data.sessionId)
             setUserId(response.data._id)
@@ -31,7 +31,7 @@ export default function Success() {
   }, [userId, sessionId])
 
   const handlePaymentSuccess= () => {
-    axios.post(`${process.env.REACT_APP_BASE_URL}/payment-success`, {
+    axios.post(`${process.env.REACT_APP_BASE_URL}/api/payment-success`, {
       userId: userId,
       sessionId: sessionId
     })
@@ -61,7 +61,7 @@ export default function Success() {
           </span>
           <div className="apilimit-modal">
           {errorMessage}
-          <Link to="/subscription">Click here</Link> to retry.
+          <Link to="/subscription">Click here </Link> to retry.
           </div>
         </div>
       ): (

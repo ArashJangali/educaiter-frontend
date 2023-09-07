@@ -277,6 +277,12 @@ label {
   }
 
  
+.unsub {
+  margin-top: -2.9em;
+  font-size: 12px;
+  background: red;
+  color: #ffffff;
+}
 
  .current-plan button:disabled,
  .current-plan button[disabled] {

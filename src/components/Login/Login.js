@@ -19,7 +19,7 @@ export default function Login() {
     event.preventDefault();
 
     const userData = { email, password };
-console.log(userData)
+
 
     try {
         const response = await axios.post('/login', userData, { withCredentials: true })
