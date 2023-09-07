@@ -22,6 +22,7 @@ export default function Subscription() {
   const [showVerificationModal, setShowVerificationModal] = useState(false)
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [cancelMessage, setCancelMessage] = useState(''); 
   const userId = user?._id
 
   useEffect(() => {
@@ -74,17 +75,39 @@ export default function Subscription() {
   function onClose() {
     setShowErrorModal(false)
     setErrorMessage(null);
+    setCancelMessage(null);
+  }
+
+  const handleSubCancel = async () => {
+    try {
+      if (window.confirm('Are you sure you want to cancel your subscription?')) {
+        const response = await axios.post('/deletedSubscription', { withCredentials: true })
+        setCancelMessage(response.data.msg);
+        setShowErrorModal(true)
+        setTimeout(() => {
+          setCancelMessage('');
+          setShowErrorModal(false);
+          navigate('/user-profile');
+        }, 3000)
+      }
+      
+    } catch(error){
+      console.error(error)
+      setCancelMessage(error);
+      setShowErrorModal(true)
+    }
   }
 
   return (
     
     <div className="subscription-page">
-  {errorMessage ? (
+  {(errorMessage || cancelMessage ) ? (
         <div className="apilimit-modal-container">
-          <span className="close-button" onClick={onClose}>
+          {errorMessage && <span className="close-button" onClick={onClose}>
             ×
-          </span>
-          <div className="apilimit-modal">{errorMessage} <Link to="/subscription">Click here</Link> to retry.</div>
+          </span>}
+          {errorMessage && <div className="apilimit-modal">{errorMessage} <Link to="/subscription">Click here</Link> to retry.</div>}
+          {cancelMessage && <div className="apilimit-modal">{cancelMessage}</div>}
         </div>
       ): (
         <div className="tier-list">
@@ -101,6 +124,7 @@ export default function Subscription() {
             }
             </div>
           ))}
+         {user?.planType && <button onClick={handleSubCancel}>Cancel Subscription</button> } 
         </div>
       )}
         </div>

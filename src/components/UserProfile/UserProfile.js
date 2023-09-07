@@ -78,6 +78,21 @@ const UserProfile = () => {
   if (error) return <div>Something went wrong {error}</div>;
   if (!user) return <div>No user data</div>;
 
+  const deleteAccount = async () => {
+    try {
+      if (window.confirm('Are you sure you want to delete your account?')) {
+        const response = await axios.delete('/deleteaccount', { withCredentials: true })
+        if (response.status === 200) {
+          navigate('/login')
+        }
+        
+      }
+      
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return editMode ? (
     <form className="profile-form" onSubmit={handleSubmit}>
       <div className='btn-h1'>
@@ -164,6 +179,9 @@ const UserProfile = () => {
 
       <button className="edit-profile-btn" onClick={() => setEditMode(true)}>
         Edit Profile
+      </button>
+      <button style={{backgroundColor: 'red', color: 'white'}} className="edit-profile-btn" onClick={deleteAccount}>
+        Delete Account
       </button>
       {error && <p>{error}</p>}
     </div>
