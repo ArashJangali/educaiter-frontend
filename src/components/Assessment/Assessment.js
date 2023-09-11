@@ -27,26 +27,34 @@ const Assessment = () => {
 
   // List of topics the user can choose from
   const topics = [
-    { value: "Computer Science", label: "Computer Science" },
-    { value: "Mathematics", label: "Mathematics" },
-    { value: "Design", label: "Design" },
-    { value: "Digital Marketing", label: "Digital Marketing" },
-    { value: "Law", label: "Law" },
-    { value: "Finance", label: "Finance" },
-    { value: "Entrepreneurship", label: "Entrepreneurship" },
-    { value: "Accounting", label: "Accounting" },
-    { value: "Life Science", label: "Life Science" },
-    { value: "Physical Science", label: "Physical Science" },
-    { value: "Philosophy", label: "Philosophy" },
-    { value: "Psychology", label: "Psychology" },
-  ];
+    
+      { value: "Software Development", label: "Software Development" },
+      { value: "Web Development", label: "Web Development" },
+      { value: "Mobile App Development", label: "Mobile App Development" },
+      { value: "Data Science & Analytics", label: "Data Science & Analytics" },
+      { value: "Machine Learning & AI", label: "Machine Learning & AI" },
+      { value: "Cloud Computing & DevOps", label: "Cloud Computing & DevOps" },
+      { value: "Cybersecurity", label: "Cybersecurity" },
+      { value: "Mathematics", label: "Mathematics" },
+      { value: "Blockchain & Cryptocurrency", label: "Blockchain & Cryptocurrency" },
+      { value: "Quantum Computing", label: "Quantum Computing" },
+      { value: "Augmented & Virtual Reality (AR/VR)", label: "Augmented & Virtual Reality (AR/VR)" },
+      { value: "Internet of Things (IoT)", label: "Internet of Things (IoT)" },
+    ]
+    
+
 
 //   level
 
 const levels = [
-    { value: "Beginner", label: "Beginner" },
-    { value: "Intermediate", label: "Intermediate" },
-    { value: "Advanced", label: "Advanced" },
+    { value: "Foundational", label: "Foundational" },
+    { value: "Undergraduate", label: "Undergraduate" },
+    { value: "Postgraduate", label: "Postgraduate" },
+    { value: "Doctorate", label: "Doctorate" },
+    { value: "Researcher", label: "Researcher" },
+    { value: "Expert", label: "Expert" },
+    { value: "Master", label: "Master" },
+    { value: "Visionary", label: "Visionary" },
   ];
 
   useEffect(() => {

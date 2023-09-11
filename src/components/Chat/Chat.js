@@ -37,21 +37,18 @@ const Chat = () => {
   };
 
   const roles = [
-    {
-      value: "Computer Science Professor",
-      label: "Computer Science Professor",
-    },
-    { value: "Math Wiz", label: "Math Wiz" },
-    { value: "Master Designer", label: "Master Designer" },
-    { value: "Digital Marketing Guru", label: "Digital Marketing Guru" },
-    { value: "Law Professor", label: "Law Professor" },
-    { value: "Financier", label: "Financier" },
-    { value: "Seasoned Entrepreneur", label: "Seasoned Entrepreneur" },
-    { value: "Meticulous Accountant", label: "Meticulous Accountant" },
-    { value: "Biotech Whiz", label: "Biotech Whiz" },
-    { value: "Physics Prodigy", label: "Physics Prodigy" },
-    { value: "Thoughtful Philosopher", label: "Thoughtful Philosopher" },
-    { value: "Intuitive Psychologist", label: "Intuitive Psychologist" },
+    { value: "Code Maestro", label: "Code Maestro" }, 
+    { value: "Web Wizard", label: "Web Wizard" },
+    { value: "App Artisan", label: "App Artisan" }, 
+    { value: "Data Detective", label: "Data Detective" }, 
+    { value: "AI Architect", label: "AI Architect" }, 
+    { value: "Cloud Commander", label: "Cloud Commander" }, 
+    { value: "Cyber Sentinel", label: "Cyber Sentinel" },
+    { value: "Math Magician", label: "Math Magician" }, 
+    { value: "Blockchain Baron", label: "Blockchain Baron" }, 
+    { value: "Quantum Quester", label: "Quantum Quester" }, 
+    { value: "AR/VR Voyager", label: "AR/VR Voyager" }, 
+    { value: "IoT Innovator", label: "IoT Innovator" }, 
   ];
 
   const navigate = useNavigate();

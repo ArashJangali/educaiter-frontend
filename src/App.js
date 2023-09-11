@@ -16,6 +16,7 @@ import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
 import Success from "./components/Subscription/Success";
 import Cancel from "./components/Subscription/Cancel";
+import Puzzles from "./components/Puzzles/Puzzles";
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
@@ -40,6 +41,7 @@ export default function App() {
                   <Route path="/assessment" element={<UserLoader><Assessment /></UserLoader>} />
                   <Route path="/dashboard" element={<UserLoader><Dashboard /></UserLoader>} />
                   <Route path="/recommendation" element={<UserLoader><Recommendation /></UserLoader>} />
+                  {/* <Route path="/puzzles" element={<UserLoader><Puzzles /></UserLoader>} /> */}
                   <Route path="/subscription" element={ 
                       <Elements stripe={stripePromise}>
                           <UserLoader><Subscription /></UserLoader>
