@@ -1,0 +1,45 @@
+
+
+.side-bar .links {
+    border-right: 1px solid #d1d8e392;
+    height: 100vh;
+    width: 15em !important;
+   background-color: transparent;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.links a {
+    color: white;
+    margin: 5px;
+}
+
+.links .group {
+    padding: 5px 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 150px;
+    text-align: left !important;
+    font-size: 13px;
+}
+
+.links {
+    gap:12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.links a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.links a[href="/subscription"]:hover {
+    background: transparent;
+}

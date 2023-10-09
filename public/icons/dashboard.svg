@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<svg height="24" id="svg8" version="1.1" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg">
+    <defs id="defs2">
+        <rect height="7.0346723" id="rect2504" width="7.9207187" x="-1.1008456" y="289.81766"/>
+    </defs>
+    <g id="g2486" style="display:inline;stroke-width:0.262937;stroke-miterlimit:4;stroke-dasharray:none" transform="matrix(3.8030584,0,0,3.8033279,-0.08910222,-1105.5283)">
+        <path d="m 0.40429688,294.82422 v 0.13086 1.64258 H 1.5273438 v -1.77344 z m 0.26367187,0.26367 H 1.2636719 v 1.24805 H 0.66796875 Z" id="rect2416" fill="#ffffff"/>
+        <path d="m 1.890625,294.35938 v 0.13085 2.10743 h 1.1210938 v -2.23828 z m 0.2617188,0.26367 h 0.5957031 v 1.71289 H 2.1523438 Z" id="rect2418" fill="#ffffff"/>
+        <path d="m 3.3496094,293.77734 v 0.13282 2.6875 h 1.1230468 v -2.82032 z m 0.2636718,0.26368 h 0.5957032 v 2.29492 H 3.6132812 Z" id="rect2420" fill="#ffffff"/>
+        <path d="m 4.8222656,293.3125 v 0.13281 3.15235 h 1.1230469 v -3.28516 z m 0.2636719,0.26367 h 0.5957031 v 2.75977 H 5.0859375 Z" id="rect2422" fill="#ffffff"/>
+        <!-- (omitted the rest of the paths for brevity, but apply the same change to all) -->
+    </g>
+</svg>

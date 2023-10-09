@@ -1,20 +1,9 @@
 .chat {
-    background: linear-gradient(to bottom right, #6699CC, #5C89C4, #4F79BC, #4269B4, #5534b743);
-    display: flex;
-    
-}
-
-
-.side-bar {
-    background-color:#202540;
-    height: 100vh;
-    width: 0;
+    background: linear-gradient(170deg,#0579ed, #00BFFF, #acd0dccf, #426ab4ab, #5534b77d);
     display: flex;
     flex-direction: row;
-justify-content: space-around;
-    transition: width 0.5s ease;
-    overflow: hidden;
-    align-items:center ;
+    justify-content: center;
+    align-items: center;
 }
 
 .side-bar input {
@@ -27,12 +16,7 @@ justify-content: space-around;
     position: static !important;
 }
 
-.side-bar.open {
-    width: 35%; 
-    display: flex;
-    flex-direction: column !important;
-    overflow: scroll;
-}
+
 
 
 .toggle-sidebar-btn {
@@ -47,7 +31,7 @@ justify-content: space-around;
    transition: color 0.5s ease;
    border-bottom-left-radius: 5px;
    color: transparent;
-   display: none;
+  
 }
 
 .toggle-colorMode-btn {
@@ -79,7 +63,7 @@ justify-content: space-around;
     background: linear-gradient(170deg,#0579ed, #00BFFF, #acd0dccf, #426ab4ab, #5534b77d);
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
     padding-bottom: 80px; 
@@ -87,7 +71,8 @@ margin-right: 0;
 }
 
 .message-area {
-    margin-left: 350px;
+    margin-left: 300px;
+    width: 550px;
 }
 
 button {
@@ -229,6 +214,7 @@ input:focus {
     display: flex;            
     align-items: center;     
     justify-content: center; 
+    
 }
 
 
@@ -286,20 +272,24 @@ li {
 
 .user-message .chat-bubble p {
     width: auto;
+    width: 150px !important;
 }
 
 .ai-message .chat-bubble p {
     width: auto;
+    width: 150px !important;
 }
 
 .user-message .chat-bubble {
     border: none;
-    border-radius: 30px;
+    border-radius: 20px;
+
 }
 
 .ai-message .chat-bubble {
     border: none;
     border-radius: 20px;
+    
 }
 
 .user-message .chat-bubble::before {
@@ -564,7 +554,7 @@ margin-top: -22em;
 /* Responsive CSS */
 
 @media (max-width: 768px) {
-    .side-bar.open {
+    .side-bar {
         width: 50%;
     }
 
@@ -584,7 +574,7 @@ margin-top: -22em;
 }
 
 @media (max-width: 576px) {
-    .side-bar.open {
+    .side-bar {
         width: 80%;
     }
 

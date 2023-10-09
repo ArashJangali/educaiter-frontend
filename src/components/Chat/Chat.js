@@ -4,12 +4,14 @@ import UserContext from "../../contexts/UserContext";
 import Typewriter from "typewriter-effect";
 import { Link, useNavigate } from "react-router-dom";
 import Select from "react-select";
+import Sidebar from "../Sidebar/Sidebar.js";
 import axios from "../Api/axiosInstance";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./Chat.css";
 import "../../index.css";
 const Avatar = require("cartoon-avatar");
+
 
 
 
@@ -260,176 +262,176 @@ console.log(role)
     setShowModal(true);
   };
 
-  const Modal = ({ convoObject, summaryOfConvos, onClose }) => (
-    <div className="modal">
-      <div className="modal-content">
-        <span className="close-button" onClick={onClose}>
-          ×
-        </span>
-        <div className="summary">
-          <h3>
-            <Typewriter
-              options={{
-                strings: [`${summaryOfConvos?.title}` || ''],
-                autoStart: true,
-                loop: false,
-                deleteSpeed: 9999999,
-                delay: 20,
-              }}
-            />
-          </h3>
-          <p>
-            <Typewriter
-              options={{
-                strings: [`Topics We Discussed:` || ''],
-                autoStart: true,
-                loop: false,
-                deleteSpeed: 9999999,
-                delay: 20,
-              }}
-            />
-            <br />
-            <Typewriter
-              options={{
-                strings: [`${summaryOfConvos?.topics}` || ''],
-                autoStart: true,
-                loop: false,
-                deleteSpeed: 9999999,
-                delay: 20,
-              }}
-            />
-          </p>
-          <p>
-            <Typewriter
-              options={{
-                strings: [`Your Interests:` || ''],
-                autoStart: true,
-                loop: false,
-                deleteSpeed: 9999999,
-                delay: 20,
-              }}
-            />
-            <br />
-            <Typewriter
-              options={{
-                strings: [`${summaryOfConvos?.interests}` || ''],
-                autoStart: true,
-                loop: false,
-                deleteSpeed: 9999999,
-                delay: 20,
-              }}
-            />
-          </p>
-          <p>
-            <Typewriter
-              options={{
-                strings: [`Strengths:`],
-                autoStart: true,
-                loop: false,
-                deleteSpeed: 9999999,
-                delay: 20,
-              }}
-            />
-            <br />
-            <Typewriter
-              options={{
-                strings: [`${summaryOfConvos?.strengths}` || ''],
-                autoStart: true,
-                loop: false,
-                deleteSpeed: 9999999,
-                delay: 20,
-              }}
-            />
-          </p>
-          <p>
-            <Typewriter
-              options={{
-                strings: [`Areas for Improvement:`],
-                autoStart: true,
-                loop: false,
-                deleteSpeed: 9999999,
-                delay: 20,
-              }}
-            />
-            <br />
-            <Typewriter
-              options={{
-                strings: [`${summaryOfConvos?.improvementAreas}` || ''],
-                autoStart: true,
-                loop: false,
-                deleteSpeed: 9999999,
-                delay: 20,
-              }}
-            />
-          </p>
-          <p>
-            {" "}
-            <Typewriter
-              options={{
-                strings: [`Your Engagement Level:`],
-                autoStart: true,
-                loop: false,
-                deleteSpeed: 9999999,
-                delay: 20,
-              }}
-            />
-            <br />
-            <Typewriter
-              options={{
-                strings: [`${summaryOfConvos?.engagementLevel}` || ''],
-                autoStart: true,
-                loop: false,
-                deleteSpeed: 9999999,
-                delay: 20,
-              }}
-            />
-          </p>
+  // const Modal = ({ convoObject, summaryOfConvos, onClose }) => (
+  //   <div className="modal">
+  //     <div className="modal-content">
+  //       <span className="close-button" onClick={onClose}>
+  //         ×
+  //       </span>
+  //       <div className="summary">
+  //         <h3>
+  //           <Typewriter
+  //             options={{
+  //               strings: [`${summaryOfConvos?.title}` || ''],
+  //               autoStart: true,
+  //               loop: false,
+  //               deleteSpeed: 9999999,
+  //               delay: 20,
+  //             }}
+  //           />
+  //         </h3>
+  //         <p>
+  //           <Typewriter
+  //             options={{
+  //               strings: [`Topics We Discussed:` || ''],
+  //               autoStart: true,
+  //               loop: false,
+  //               deleteSpeed: 9999999,
+  //               delay: 20,
+  //             }}
+  //           />
+  //           <br />
+  //           <Typewriter
+  //             options={{
+  //               strings: [`${summaryOfConvos?.topics}` || ''],
+  //               autoStart: true,
+  //               loop: false,
+  //               deleteSpeed: 9999999,
+  //               delay: 20,
+  //             }}
+  //           />
+  //         </p>
+  //         <p>
+  //           <Typewriter
+  //             options={{
+  //               strings: [`Your Interests:` || ''],
+  //               autoStart: true,
+  //               loop: false,
+  //               deleteSpeed: 9999999,
+  //               delay: 20,
+  //             }}
+  //           />
+  //           <br />
+  //           <Typewriter
+  //             options={{
+  //               strings: [`${summaryOfConvos?.interests}` || ''],
+  //               autoStart: true,
+  //               loop: false,
+  //               deleteSpeed: 9999999,
+  //               delay: 20,
+  //             }}
+  //           />
+  //         </p>
+  //         <p>
+  //           <Typewriter
+  //             options={{
+  //               strings: [`Strengths:`],
+  //               autoStart: true,
+  //               loop: false,
+  //               deleteSpeed: 9999999,
+  //               delay: 20,
+  //             }}
+  //           />
+  //           <br />
+  //           <Typewriter
+  //             options={{
+  //               strings: [`${summaryOfConvos?.strengths}` || ''],
+  //               autoStart: true,
+  //               loop: false,
+  //               deleteSpeed: 9999999,
+  //               delay: 20,
+  //             }}
+  //           />
+  //         </p>
+  //         <p>
+  //           <Typewriter
+  //             options={{
+  //               strings: [`Areas for Improvement:`],
+  //               autoStart: true,
+  //               loop: false,
+  //               deleteSpeed: 9999999,
+  //               delay: 20,
+  //             }}
+  //           />
+  //           <br />
+  //           <Typewriter
+  //             options={{
+  //               strings: [`${summaryOfConvos?.improvementAreas}` || ''],
+  //               autoStart: true,
+  //               loop: false,
+  //               deleteSpeed: 9999999,
+  //               delay: 20,
+  //             }}
+  //           />
+  //         </p>
+  //         <p>
+  //           {" "}
+  //           <Typewriter
+  //             options={{
+  //               strings: [`Your Engagement Level:`],
+  //               autoStart: true,
+  //               loop: false,
+  //               deleteSpeed: 9999999,
+  //               delay: 20,
+  //             }}
+  //           />
+  //           <br />
+  //           <Typewriter
+  //             options={{
+  //               strings: [`${summaryOfConvos?.engagementLevel}` || ''],
+  //               autoStart: true,
+  //               loop: false,
+  //               deleteSpeed: 9999999,
+  //               delay: 20,
+  //             }}
+  //           />
+  //         </p>
 
-          <hr />
-        </div>
-        <div className="scrollable-content">
-        <h4>
-            <Typewriter
-              options={{
-                strings: ['Chat History'],
-                autoStart: true,
-                loop: false,
-                deleteSpeed: 9999999,
-                delay: 20,
-              }}
-            />
-            </h4>
-          {convoObject.convo?.map((message, index) => (
-            <div className="modal-message-items" key={index}>
-              <Typewriter
-                options={{
-                  strings: [`${message.role === "user" ? "Me" : "AI"}` || ''],
-                  autoStart: true,
-                  loop: false,
-                  deleteSpeed: 9999999,
-                  delay: 20,
-                }}
-                style={{
-                  color: message.role === "user" ? "blue" : "red",
-                }}
-              />
+  //         <hr />
+  //       </div>
+  //       <div className="scrollable-content">
+  //       <h4>
+  //           <Typewriter
+  //             options={{
+  //               strings: ['Chat History'],
+  //               autoStart: true,
+  //               loop: false,
+  //               deleteSpeed: 9999999,
+  //               delay: 20,
+  //             }}
+  //           />
+  //           </h4>
+  //         {convoObject.convo?.map((message, index) => (
+  //           <div className="modal-message-items" key={index}>
+  //             <Typewriter
+  //               options={{
+  //                 strings: [`${message.role === "user" ? "Me" : "AI"}` || ''],
+  //                 autoStart: true,
+  //                 loop: false,
+  //                 deleteSpeed: 9999999,
+  //                 delay: 20,
+  //               }}
+  //               style={{
+  //                 color: message.role === "user" ? "blue" : "red",
+  //               }}
+  //             />
 
-              <br />
-              <Typewriter
-                options={{
-                  strings: [`- ${message.content}` || summaryOfConvos],
-                  autoStart: true,
-                  loop: false,
-                  deleteSpeed: 9999999,
-                  delay: 20,
-                }}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
+  //             <br />
+  //             <Typewriter
+  //               options={{
+  //                 strings: [`- ${message.content}` || summaryOfConvos],
+  //                 autoStart: true,
+  //                 loop: false,
+  //                 deleteSpeed: 9999999,
+  //                 delay: 20,
+  //               }}
+  //             />
+  //           </div>
+  //         ))}
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
 
   function onClose() {
     setApiLimitReached(false)
@@ -459,77 +461,7 @@ console.log(role)
         </div>
       ): (
         <>
-      <section className={`side-bar ${sidebarOpen ? "open" : ""}`}>
-    
-        {/* list categories */}
-
-        {/* useful links based on the convo the ai fills this section with helpful links */}
-        {/* badges, ranks, levels */}
-     
-
-       <div className="search-and-avatar">
-            <div className="visible-avatar">
-              <Select
-                options={roles}
-                onChange={handleRoleChange}
-                placeholder="Role"
-              />
-              <img
-                className="chat-avatar"
-                src={avatarUrl}
-                onClick={handleNewAvatar}
-                alt="Chat Avatar"
-              />
-            </div>
-          
-            <div className="sidebar-search-container">
-                <input
-                  onChange={(e) => setSidebarSearch(e.target.value)}
-                  value={sidebarSearch}
-                  placeholder="Chat History"
-                  type="text"
-                  className="sidebar-input"
-                />
-                <button
-                  className="sidebar-search-btn"
-                  onClick={sidebarSearchClicked}
-                  type="submit"
-                >
-                  🔎
-                </button>
-              </div>
-              </div>
-            <div className="chat-history" >
-              {showModal && (
-                <Modal
-                  convoObject={selectedConvo}
-                  summaryOfConvos={summaryOfConvos}
-                  onClose={() => setShowModal(false)}
-                />
-              )}
-              
-              
-              {chatHistory?.map((convoObject, index) => (
-                <div
-                  key={index}
-                  className="chat-history-item"
-                  onClick={() => viewFullConversation(convoObject)}
-                >
-                  <Typewriter
-                    options={{
-                      strings: [`☞ ${summaryOfConvos.title}` || 'Previous chat'],
-                      autoStart: true,
-                      loop: false,
-                      deleteSpeed: 9999999,
-                      delay: 20,
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
-    
-
-      </section>
+        <Sidebar />
       <section className='main'>
       
       <div className="message-area" style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}><ul className="feed">
@@ -579,9 +511,9 @@ console.log(role)
         </div>
         <Carousel onRoleSelect={handleRoleSelected} />
       </section>
-      <button className="toggle-sidebar-btn" onClick={toggleSidebar}>
+      {/* <button className="toggle-sidebar-btn" onClick={toggleSidebar}>
         ↔
-      </button>   
+      </button>    */}
       </>
       )}
       {/* <button className="toggle-colorMode-btn" onClick={toggleColorMode}>

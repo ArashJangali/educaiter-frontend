@@ -47,6 +47,7 @@ export default function App() {
       <UserProvider value={{ user, setUser, token, setToken }}>
           <Router>
               <Navbar />
+              
               <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/signup" element={<Signup />} />
@@ -55,7 +56,7 @@ export default function App() {
                   <Route path="/chat" element={<UserLoader><Chat /></UserLoader>} />
                   <Route path="/assessment" element={<UserLoader><Assessment /></UserLoader>} />
                   <Route path="/dashboard" element={<UserLoader><Dashboard /></UserLoader>} />
-                  <Route path="/recommendation" element={<UserLoader><Recommendation /></UserLoader>} />
+                  <Route path="/insight" element={<UserLoader><Recommendation /></UserLoader>} />
                   <Route path="/puzzles" element={<UserLoader><Puzzles /></UserLoader>} />
                   <Route path="/setup/strategy" element={<UserLoader><SetupStrategy /></UserLoader>} />
                   <Route path="/strategy" element={<UserLoader><StrategyRoom /></UserLoader>} />
