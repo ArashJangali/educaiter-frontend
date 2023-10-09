@@ -1,13 +1,18 @@
 import React, { useState, useEffect, useContext } from "react";
-
+import Carousel from "./Carousel";
 import UserContext from "../../contexts/UserContext";
 import Typewriter from "typewriter-effect";
 import { Link, useNavigate } from "react-router-dom";
 import Select from "react-select";
 import axios from "../Api/axiosInstance";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "./Chat.css";
 import "../../index.css";
 const Avatar = require("cartoon-avatar");
+
+
+
 
 const Chat = () => {
   const { user, setUser } = useContext(UserContext);
@@ -42,13 +47,13 @@ const Chat = () => {
     { value: "App Artisan", label: "App Artisan" }, 
     { value: "Data Detective", label: "Data Detective" }, 
     { value: "AI Architect", label: "AI Architect" }, 
-    { value: "Cloud Commander", label: "Cloud Commander" }, 
-    { value: "Cyber Sentinel", label: "Cyber Sentinel" },
-    { value: "Math Magician", label: "Math Magician" }, 
-    { value: "Blockchain Baron", label: "Blockchain Baron" }, 
-    { value: "Quantum Quester", label: "Quantum Quester" }, 
-    { value: "AR/VR Voyager", label: "AR/VR Voyager" }, 
-    { value: "IoT Innovator", label: "IoT Innovator" }, 
+    // { value: "Cloud Commander", label: "Cloud Commander" }, 
+    // { value: "Cyber Sentinel", label: "Cyber Sentinel" },
+    // { value: "Math Magician", label: "Math Magician" }, 
+    // { value: "Blockchain Baron", label: "Blockchain Baron" }, 
+    // { value: "Quantum Quester", label: "Quantum Quester" }, 
+    // { value: "AR/VR Voyager", label: "AR/VR Voyager" }, 
+    // { value: "IoT Innovator", label: "IoT Innovator" }, 
   ];
 
   const navigate = useNavigate();
@@ -143,6 +148,10 @@ const Chat = () => {
 
 
   const [hasIntroduced, setHasIntroduced] = useState(false);
+ 
+  const handleRoleSelected = (selectedRole) => {
+    setRole(selectedRole);
+  }
 
   const getMessages = async () => {
     const options = {
@@ -151,7 +160,7 @@ const Chat = () => {
         message: value,
         userId: user._id,
         convoId: currentConvoId,
-        role: role.value,
+        role: role,
         hasIntroduced: hasIntroduced,
       }),
       headers: {
@@ -159,7 +168,7 @@ const Chat = () => {
       },
       credentials: "include",
     };
-  
+    console.log("Sending request with data: ", options);
     try {
       await fetch(`${process.env.REACT_APP_BASE_URL}/api/chat/completions`, options)
       .then(response => {
@@ -222,6 +231,8 @@ useEffect(() => {
     }
   }
 }, [message, currentTitle, value]);
+
+console.log(role)
 
   const handleClick = (uniqueTitle) => {
     setCurrentTitle(uniqueTitle);
@@ -520,15 +531,19 @@ useEffect(() => {
 
       </section>
       <section className='main'>
-        <ul className="feed">
+      
+      <div className="message-area" style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}><ul className="feed">
           {currentChat?.map((chatMessage) => (
+            
             <li
               className={`message ${
                 chatMessage.role === "Me" ? "user-message" : "ai-message"
               }`}
               key={chatMessage.timestamp}
             >
-              <p>{chatMessage.content}</p>
+              <div data-aos={chatMessage.role === "Me" ? "fade-down-left" : "fade-down-right"} className="chat-bubble">
+                <p>{chatMessage.content}</p>
+            </div>
             </li>
           ))}
         </ul>
@@ -542,24 +557,27 @@ useEffect(() => {
               }}
             />
             <div className="img-label-input-submitbtn">
-            <label for="img" className="custom-file-upload">
+            {/* <label for="img" className="custom-file-upload">
               Image
-            </label>
-            <input
+            </label> */}
+            {/* <input
               id="img"
               type="file"
               name="img"
               accept="image/*"
               style={{ display: "none" }}
               onChange={handleImgSubmit}
-            />
+            /> */}
 
             <div id="submit" onClick={getMessages}>
               Submit
             </div>
             </div>
+            
+            </div>
           </div>
         </div>
+        <Carousel onRoleSelect={handleRoleSelected} />
       </section>
       <button className="toggle-sidebar-btn" onClick={toggleSidebar}>
         ↔

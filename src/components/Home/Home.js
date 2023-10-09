@@ -1,257 +1,430 @@
-import React, { Suspense, useCallback, useMemo, useRef } from "react";
-import { TypeAnimation } from 'react-type-animation';
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import AOS from "aos";
 import "./Home.css";
-import * as THREE from 'three'
-import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
-import {Canvas, useFrame, useLoader, useThree, extend} from '@react-three/fiber'
-import featureImg from '../../assets/feature.png'
-import circleImg from '../../assets/circle.png'
-extend({OrbitControls})
+import "aos/dist/aos.css";
+import Lottie from "lottie-react";
+import Marquee from "react-fast-marquee";
+import signUpAnimation from '../../assets/sign.json'
 
+const HomePage = () => {
+  const [openedFAQIndex, setOpenedFAQIndex] = useState(null);
+  const navigate = useNavigate();
 
-function CameraControls() {
+  const faqs = [
+    {
+      question: "What is Educaiter?",
+      answer:
+        "Educaiter is an AI-powered platform that offers personalized learning experiences.",
+    },
+    {
+      question: "Is it free to sign up?",
+      answer:
+        "Yes, it is completely free to sign up. We also offer limited features for free users.",
+    },
+    {
+      question:
+        "Can I use Educaiter without providing credit card information?",
+      answer:
+        "Absolutely! You can sign up and use our limited features without needing to provide any credit card details.",
+    },
+    {
+      question: "What features are available for free users?",
+      answer:
+        "Free users can access a range of basic features, while some advanced AI-driven features are reserved for our premium users.",
+    },
+    {
+      question: "What's your refund policy after 7 days?",
+      answer:
+        "If you're not satisfied with any premium features or plans you've purchased, you can request a full refund within 7 days of your purchase.",
+    },
+    {
+      question: "Can I switch plans after signing up?",
+      answer:
+        "Of course! You can upgrade or downgrade your plan anytime through your account settings.",
+    },
+    {
+      question: "How does the AI personalization work?",
+      answer:
+        "Our platform uses AI algorithms to understand your learning patterns and preferences, tailoring content to match your needs.",
+    },
+    {
+      question: "What measures are in place for data safety?",
+      answer:
+        "Your data's integrity and security are paramount to us. We neither share it with third parties nor use it for ad targeting. Your security is our foremost commitment!",
+    },
+    {
+      question: "How do you handle user privacy?",
+      answer:
+        "We respect user privacy and never sell or share personal information with third parties. For more details, please see our Privacy Policy.",
+    },
+    {
+      question: "How can I get in touch for support?",
+      answer:
+        'You can reach out to our support team via the "Contact Us" section.',
+    },
+  ];
 
-  const {
-    camera,
-    gl: {domElement}
-  } = useThree()
+  const StarIcon = () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 20 20"
+      fill="gold"
+      width="24"
+      height="24"
+    >
+      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+    </svg>
+  );
 
-  const controlsRef = useRef()
-  useFrame(() => controlsRef.current.update())
-
-  return(
-    <orbitControls
-      ref={controlsRef}
-      args={[camera, domElement]}
-      autoRotate
-      autoRotateSpeed={-0.2}
-    />
-  )
-}
-
-function Points() {
-  const imgTex = useLoader(THREE.TextureLoader, circleImg)
-  const bufferRef = useRef()
-
-  let t = 0
-  let f = 0.002
-  let a = 6
-  const graph = useCallback((x, z) => {
-    return Math.sin(f * (x ** 2 + z ** 2 + t)) * a
-  }, [t, f, a])
-  const count = 100
-  const sep = 3
-  let positions = useMemo(() => {
-    let positions = []
-
-    for (let xi = 0; xi < count; xi++) {
-      for (let zi = 0; zi < count; zi++) {
-        let x = sep * (xi - count / 2)
-        let z = sep * (zi - count / 2)
-        let y = graph(x, z)
-        positions.push(x, y, z)
-      }
-    }
-
-    return new Float32Array(positions)
-  }, [count, sep, graph])
-
-useFrame(() => {
-  t += 15
-
-  const positions = bufferRef.current.array
   
-  let i = 0
-  for (let xi = 0; xi < count; xi++) {
-    for (let zi = 0; zi < count; zi++) {
-      let x = sep * (xi - count / 2)
-      let z = sep * (zi - count / 2)
-      positions[i + 1] = graph(x, z)
-
-      i += 3
-    }
-  }
-
-  bufferRef.current.needsUpdate = true
-
-})
-
-  return(
-    <points>
-      <bufferGeometry attach='geometry'>
-          <bufferAttribute
-            ref={bufferRef}
-            attach='attributes-position'
-            array={positions}
-            count={positions.length / 3}
-            itemSize={3}
-          />
-      </bufferGeometry>
-
-      <pointsMaterial
-      attach='material'
-      map={imgTex}
-      color={0x607D8B}
-      size={0.5}
-      sizeAttenuation
-      transparent={false}
-      alphaTest={0.5}
-      opacity={1.0}
-      />
-    </points>
-  )
-}
-
-function AnimationCanvas() {
-  return(
-    <div className="animation-container">
-      <Canvas
-        colorManagement={false}
-        camera={{ position: [100, 10, 0], fov: 75 }}
-      >
-        <Suspense fallback={null}>
-          <Points />
-        </Suspense>
-        <CameraControls />
-      </Canvas>
-    </div>
-  )
-}
-
-
-
-export default function Home() {
-  const navigate = useNavigate()
-
-  function handleButtonClick() {
-    navigate('/signup')
-  }
-
 
   return (
-    <div className="home">
-      <header className="home-header">
-        <h1>
-          Welcome to educ<span STYLE="text-decoration:underline">AI</span>ter
-        </h1>
-        <p>Your personalized learning platform</p>
-      </header>
-      <main className="home-main">
-        <TypeAnimation
-          sequence={[
-            "Your Future, Personalized",
-            1000,
-            "Navigate Your Learning Journey, Your Way",
-            1000,
-            "Where Passion Meets Personalization",
-            1000,
-            "Mapping Your Unique Path to Knowledge",
-            1000,
-            "Discover, Grow, Achieve with educAIter",
-            1000,
-            "Innovation Meets Individualized Learning",
-            1500,
-          ]}
-          speed={120}
-          deleteSpeed={200}
-          delaySpeed={1000}
-          repeat={Infinity}
-          style={{ fontSize: "1.5em", display: "inline-block" }}
-          className="sequence"
-        />
-        <section className="home-main-intro">
-          <h2>Transform Your Learning Experience with educAIter</h2>
-          <p>Experience personalized learning like never before.</p>
-          <p>
-            Understand your strengths, work on your weaknesses, and achieve your
-            learning goals faster and more effectively.
-          </p>
-          <Suspense fallback={<div>Loading...</div>}>
-            <AnimationCanvas />
-          </Suspense>
-        </section>
-        <section className="home-main-features">
-          {/* <img className="feature-img" src={featureImg} /> */}
-          <h3>Unique Features</h3>
+    <div className="homepage">
+      {/* Hero Section */}
+      <section className="hero">
+        <video autoPlay loop muted playsInline>
+          <source
+            src="https://educaiter-hero.s3.amazonaws.com/educaiterHeroSection.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div className="hero-content">
+          <button className="cta-signup" onClick={() => navigate("/signup")}>
+            Start For Free
+          </button>
+        </div>
+      </section>
 
-          <div className="feature-card">
-            <h4>AI-Powered Learning Experience:</h4>
-            <p>
-              <strong>Interactive Chat: </strong>
-              <br />
-              Engage with an AI tutor that adapts to your learning style. Choose
-              from various avatars specialized in different subjects and
-              customize their visual appearance.
-            </p>
-            <br />
-            <p>
-              <strong>Image Analysis: </strong>
-              <br />
-              Utilize Computer Vision to upload images of your homework or other
-              visual materials for analysis and assistance in real-time.
-            </p>
+      {/* About Section */}
+      <section className="about">
+        <h2 className="about-headline">
+          Empower Your Learning Journey with AI
+        </h2>
+        <p className="about-subheadline">
+          Dive deep into the world of tech with Educaiter, your AI-driven
+          companion.
+        </p>
+      </section>
+
+      {/* Features Section */}
+      <section className="features-section">
+        <div className="features-grid">
+          <div className="feature-row top-row">
+            <div className="feature-column left-column">
+              <div
+                className="feature-item big"
+                data-aos="fade-right"
+                data-aos-duration="800"
+              >
+                <video autoPlay loop muted playsInline>
+                  <source
+                    src="https://educaiter-hero.s3.amazonaws.com/companion.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+                <div>
+                  <h3>AI Companion</h3>
+                  <p>Chat with a tutor that recalls every talk.</p>
+                </div>
+              </div>
+              <div className="feature-subgrid">
+                <div
+                  className="feature-item small"
+                  data-aos="fade-right"
+                  data-aos-duration="700"
+                >
+                  <video autoPlay loop muted playsInline>
+                    <source
+                      src="https://educaiter-hero.s3.amazonaws.com/puzzle.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                  <div>
+                    <h3>Solve AI-generated Puzzles</h3>
+                    <p>
+                      Solve ever-changing puzzles for an edge in the gaming
+                      arena.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  className="feature-item small"
+                  data-aos="fade-left"
+                  data-aos-duration="700"
+                >
+                  <video autoPlay loop muted playsInline>
+                    <source
+                      src="https://educaiter-hero.s3.amazonaws.com/competition.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                  <div>
+                    <h3>Competitive Arena</h3>
+                    <p>
+                      Dive into challenges across various levels and areas.
+                      Battle AI or friends
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="feature-column right-column">
+              <div
+                className="feature-item mid"
+                data-aos="fade-left"
+                data-aos-duration="800"
+              >
+                <video autoPlay loop muted playsInline>
+                  <source
+                    src="https://educaiter-hero.s3.amazonaws.com/learningmap.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+                <div>
+                  <h3>Personalized Learning Map</h3>
+                  <p>
+                    Navigate your growth with a tailored roadmap charting each
+                    step to mastery.
+                  </p>
+                </div>
+              </div>
+              <div
+                className="feature-item big"
+                data-aos="zoom-in-right"
+                data-aos-duration="900"
+              >
+                <video autoPlay loop muted playsInline>
+                  <source
+                    src="https://educaiter-hero.s3.amazonaws.com/insight.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+                <div>
+                  <h3>Evolving Insights</h3>
+                  <p>Discover areas to focus and excel.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="feature-row bottom-row">
+            <div className="feature-column left-column">
+              <div
+                className="feature-item small"
+                data-aos="zoom-in-left"
+                data-aos-duration="900"
+              >
+                <video autoPlay loop muted playsInline>
+                  <source
+                    src="https://educaiter-hero.s3.amazonaws.com/progress.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+                <div>
+                  <h3>Progress Tracking</h3>
+                  <p>Visualize growth with intuitive charts.</p>
+                </div>
+              </div>
+            </div>
+            <div className="feature-column center-column">
+              <div
+                className="feature-item mid"
+                data-aos="flip-left"
+                data-aos-duration="1000"
+              >
+                <video autoPlay loop muted playsInline>
+                  <source
+                    src="https://educaiter-hero.s3.amazonaws.com/ranking.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+                <div>
+                  <h3>Rise in Ranks</h3>
+                  <p>
+                    Ascend the leaderboard, collect badges, and amplify your
+                    skills.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="feature-column right-column">
+              <div
+                className="feature-item small"
+                data-aos="flip-right"
+                data-aos-duration="1000"
+              >
+                <video autoPlay loop muted playsInline>
+                  <source
+                    src="https://educaiter-hero.s3.amazonaws.com/flashcard.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+                <div>
+                  <h3>AI-Generated Flashcards</h3>
+                  <p>
+                    Revise and reinforce with cards tailored to your learning
+                    pace.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works / Demo Video Section */}
+      {/* <section className="how-it-works">
+        <h2>How Educaiter Works</h2>
+        <iframe title="demoVideo" src="" frameborder="0"></iframe>
+      </section> */}
+
+      {/* Testimonials Section */}
+      <section className="review">
+        <h2>What Our Users Think</h2>
+
+        <Marquee
+          speed={55}
+          pauseOnHover={true}
+          className="marquee"
+          autoFill={true}
+        >
+          <div className="item">
+            <div className="reviewer">
+              <h3>Jordan A</h3>
+              <img src="/Jordan.png" />
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+            </div>
+            <div className="content">
+              <p>
+                With Educaiter, learning isn't just informative, it's
+                interactive and competitive. The AI-driven puzzles have
+                transformed study sessions into thrilling challenges.
+              </p>
+            </div>
           </div>
 
-          <div className="feature-card">
-            <h4>Personalized Assessments and Quizzes:</h4>
-            <p>
-              <strong>Adaptive Quizzes: </strong>
-              <br />
-              Select your subject and difficulty level, and the AI will generate
-              tailored quiz questions, providing immediate feedback and
-              corrections.
-            </p>
-            <br />
-            <p>
-              <strong>Performance Tracking: </strong>
-              <br />
-              Your chat conversations and quiz results form the basis for
-              ongoing assessment, ensuring a learning path that grows with you.
-            </p>
+          <div className="item">
+            <div className="reviewer">
+              <h3>Carlos V</h3>
+              <img src="/Carlos.png" />
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+            </div>
+            <div className="content">
+              <p>
+                It's like Educaiter's AI knows me personally. It recalls our
+                past interactions, making every session feel like a continuation
+                of the last.
+              </p>
+            </div>
           </div>
 
-          <div className="feature-card">
-            <h4>Strengths and Weaknesses Analysis:</h4>
-            <p>
-              <strong>Data Visualization: </strong>
-              <br />
-              Through intuitive graphs and charts, track your performance across
-              various subjects to understand where you excel and where you need
-              improvement.
-            </p>
-            <br />
-            <p>
-              <strong>Personalized Insights: </strong>
-              <br />
-              Gain valuable insights into your learning journey, backed by
-              data-driven analysis of your strengths and weaknesses.
-            </p>
+          <div className="item">
+            <div className="reviewer">
+              <h3>Elena M</h3>
+              <img src="/Elena.png" />
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+            </div>
+            <div className="content">
+              <p>
+                The insights Educaiter provides are so intuitive. It’s as if the
+                platform knows where I need to focus before even I do.
+              </p>
+            </div>
           </div>
-          <div className="feature-card">
-            <h4>Intelligent Recommender System:</h4>
-            <p>
-              <strong>Focused Learning: </strong>
-              <br />
-              Based on your performance and areas of strength or weakness, the
-              AI recommends specific areas to focus on.
-            </p>
-            <br />
-            <p>
-              <strong>Guided Path: </strong>
-              <br />
-              Receive personalized suggestions and resources, guiding you on the
-              most efficient path towards achieving your learning goals.
-            </p>
-          </div>
-        </section>
 
-        <section className="home-main-cta">
-          <h3>Ready to Revolutionize Your Learning?</h3>
-          <button onClick={handleButtonClick}>Start Your Free Trial </button>
-        </section>
-      </main>
-      <footer className="home-footer">Copyright © 2023 educAIter</footer>
+          <div className="item">
+            <div className="reviewer">
+              <h3>Aditya S</h3>
+              <img src="/Aditya.png" />
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+            </div>
+            <div className="content">
+              <p>
+                Educaiter brings a freshness to learning. The AI tailors
+                everything to my needs, making it fun and ensuring I'm always on
+                the right track.
+              </p>
+            </div>
+          </div>
+        </Marquee>
+      </section>
+
+      {/* FAQ */}
+      <section className="faq" data-aos="fade-up">
+        <div className="faq-div">
+          <h2>Frequently Asked Questions</h2>
+          {faqs.map((faq, index) => (
+            <div key={index} className="faq-item">
+              <h4
+                className="faq-question"
+                onClick={() => {
+                  setOpenedFAQIndex(openedFAQIndex === index ? null : index);
+                }}
+              >
+                {faq.question}
+              </h4>
+              {openedFAQIndex === index && (
+                <div className="faq-answer">{faq.answer}</div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="cta">
+        <div className="cta-div">
+          <div
+            data-aos="fade-right"
+            data-aos-duration="1500"
+            className="cta-content"
+          >
+            <h3>Unlock the Power of AI-Led Learning</h3>
+            <p>
+              Stay ahead in a fast-paced world. Learn faster, smarter, better.
+              With AI by your side, expertise is within reach. Join us and seize
+              your potential.
+            </p>
+            <button className="cta-signup" onClick={() => navigate("/signup")}>
+              Start For Free
+            </button>
+          </div>
+          <Lottie
+            data-aos="fade-left"
+            data-aos-duration="1500"
+            className="cta-div-animation"
+            animationData={signUpAnimation}
+            loop={true}
+          />
+        </div>
+      </section>
+      {/* Footer */}
+      <footer>
+        
+        <div className="footer-content">
+          <div><h3>Educaiter</h3><p>About Us</p><p>Blog</p></div>
+          <div><h3>Help & Support</h3><p>Contact Us</p></div>
+          <div><h3>Socials</h3><p>X</p></div>
+          <div><h3>Legal</h3><p>Terms of service</p><p>Privacy policy</p><p>Cookies policy</p></div>
+        </div>
+        <p className="paragraph">Copyright © 2023 Educaiter</p>
+      </footer>
     </div>
   );
-}
+};
+
+export default HomePage;

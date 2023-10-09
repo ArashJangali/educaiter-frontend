@@ -1,0 +1,6 @@
+<svg width="200" height="100" xmlns="http://www.w3.org/2000/svg">
+    <!-- Main Rectangle -->
+    <rect x="10" y="10" width="160" height="80" fill="rgb(255, 255, 255)" rx="10" ry="10" />
+    <!-- Tail -->
+    <path d="M 170 50 L 185 60 L 170 70 L 170 50" fill="rgb(255, 255, 255)" />
+</svg>

@@ -24,14 +24,16 @@ h1 {
 .puzzle {
     display: flex;
     align-items: center; 
-    background-color: #0d1629;
+    background: linear-gradient(to bottom, #292963, #131327);
     border-radius: 15px;
     width: 400px; 
     border-top: 0.7px solid rgba(245, 222, 179, 0.25);
     cursor: pointer;
     padding: 30px;
     min-height: 210px;
+   transition: background 0.3s, color 0.3s;
 }
+
 
 .puzzle div {
     display: flex;

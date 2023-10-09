@@ -1,14 +1,30 @@
+:root {
+    --primary-dark-blue: #003366;
+    --secondary-light-blue: #6699CC;
+    --light-gray: #E0E0E0;
+    --medium-gray: #A0A0A0;
+    --dark-gray: #333333;
+    --white: #FFFFFF;
+    --primary-text-color: var(--dark-gray);
+    --secondary-text-color: var(--white);
+}
+
+
 .navbar {
     display: flex;
     justify-content: space-between;
     padding: 0.3rem;
-    background-color: #282c34;
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+    background-color: transparent;
+    transition: background-color 0.3s ease;
     border: 0;
     position: fixed;
     left: 0; 
     right: 0;
     z-index: 999;
+}
+
+.navbar.scrolled {
+    background-color: #20578f;
 }
 
 .navbar-loggedout {
@@ -24,9 +40,7 @@
     z-index: 999;
 }
 
-.navbar:hover {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-}
+
 
 .navbar-img {
     width: 5em;
@@ -39,6 +53,7 @@
 .navbar-middle {
     display: flex;
     align-items: center;
+    
 }
 
 .underline {
@@ -65,11 +80,14 @@
 .navbar-links a {
     margin-left: 1rem;
     text-decoration: none;
+    background: transparent;
+    color: white;
 }
 .navbar-links {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin-right: 50px;
 }
 .dropdown-links {
     display: flex;
@@ -108,22 +126,29 @@
 }
 
 .nav-signup-btn {
-    background: linear-gradient(to bottom, #282c34 0%, #1b2944 100%);
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
-    border: 0.5px solid rgba(23, 21, 21, 0.438);
     border-radius: 15px;
-    color: #c3c0c0;
     padding: 0.5rem;
+
+    transition: display 1.9s ease;
+    opacity: 0; 
+    transform: translateX(120px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
+.nav-signup-btn.scrolled {
+padding: 10px 25px;
+    color: rgba(0, 0, 0, 0.6);
+    border-radius: 25px;
+    cursor: pointer;
+    background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+    box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 15px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset;
+    opacity: 1;
+    transform: translateX(0);
+}
 
 .nav-login-btn {
-    color: #c3c0c0;
     padding: 0.5rem;
     border-radius: 15px;
-    background: linear-gradient(to bottom, #282c34 0%, #282c34 100%);
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
-    border: 0.5px solid rgba(23, 21, 21, 0.438);
 }
 
 
@@ -149,7 +174,7 @@
 @media (max-width: 800px) {
     .navbar-links a {
         font-size: 0.8rem;
-        padding-top: 1rem;
+     
         text-align: center;
     }
 
@@ -157,9 +182,8 @@
         padding: 0.4rem;
     }
 
-    .nav-signup-btn {
-        width: 85px !important;
-        padding: 0.01rem;
-        padding-bottom: 1rem;
-    }
+
+
+      
+        
 }

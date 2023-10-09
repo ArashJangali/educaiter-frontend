@@ -1,5 +1,5 @@
 .profile-container {
-    background-color: #282c34;
+    background: linear-gradient(170deg,#0579ed, #00BFFF, #acd0dc, #986edb89, #1085d9);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,30 +41,28 @@
 
 .edit-profile-btn {
     cursor: pointer;
-    background: linear-gradient(to bottom, #282c34 0%, #282c34 100%);
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
-    border: 0.5px solid rgba(255, 255, 255, 0.021);
+    box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset !important;
+    background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+    color: rgba(0, 0, 0, 0.648);
 }
 
 .edit-profile-btn:hover {
-    background: linear-gradient(to bottom, #282c34 0%, #1b2944 100%);
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
-    border: 0.5px solid rgba(23, 21, 21, 0.438);
-    color: rgba(240, 248, 255, 0.583);
+    box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset !important;
+    background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+    color: rgba(0, 0, 0, 0.648);
 }
 
 .submit-profile-btn {
     cursor: pointer;
-    background: linear-gradient(to bottom, #282c34 0%, #282c34 100%);
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
-    border: 0.5px solid rgba(255, 255, 255, 0.021);
+    box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset !important;
+    background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+    color: rgba(0, 0, 0, 0.648);
 }
 
 .submit-profile-btn:hover {
-    background: linear-gradient(to bottom, #282c34 0%, #1b2944 100%);
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
-    border: 0.5px solid rgba(23, 21, 21, 0.438);
-    color: rgba(240, 248, 255, 0.583);
+    box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset !important;
+    background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+    color: rgba(0, 0, 0, 0.648);
 }
 
 .profile-form {
@@ -73,7 +71,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #282c34;
+    background: linear-gradient(170deg,#0579ed, #00BFFF, #acd0dc, #986edb, #1085d9);
     color: white;
     font-family: Arial, sans-serif;
     text-align: center;
@@ -84,6 +82,7 @@
 .profile-form input {
     max-width: 30%;
     margin: 0.3em auto;
+
 }
 
 .img-file-input {
@@ -121,16 +120,15 @@
 
 .back-button {
     cursor: pointer;
-    background: linear-gradient(to bottom, #282c34 0%, #282c34 100%);
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
-    border: 0.5px solid rgba(255, 255, 255, 0.021);
+    box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset !important;
+    background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%) !important;
+    color: rgba(0, 0, 0, 0.648);
 }
 
 .back-button:hover {
-    background: linear-gradient(to bottom, #282c34 0%, #1b2944 100%);
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
-    border: 0.5px solid rgba(23, 21, 21, 0.438);
-    color: rgba(240, 248, 255, 0.583);
+    box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset !important;
+    background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+    color: rgba(0, 0, 0, 0.648);
 }
 
 .avatar-img {
@@ -141,9 +139,9 @@
 
 .avatar-btn {
     cursor: pointer;
-    background: linear-gradient(to bottom, #282c34 0%, #282c34 100%);
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
-    border: 0.5px solid rgba(255, 255, 255, 0.021);
+    box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset !important;
+    background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+    color: rgba(0, 0, 0, 0.648);
 }
 
 .avatar-btn:hover {

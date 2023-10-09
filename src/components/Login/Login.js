@@ -23,7 +23,7 @@ export default function Login() {
 
     try {
         const response = await axios.post('/login', userData, { withCredentials: true })
-        console.log('Login Response Headers:', response.headers);
+        
         if (response.status === 200) {
             setUser(response.data.user)
             navigate('/user-profile');

@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #282c34;
+    background: linear-gradient(to bottom right, #6699CC, #5534b743, #6699CC);
     height: 100vh; 
     color: white;
     font-family: Arial, sans-serif;
@@ -28,9 +28,10 @@
     width: 80%;
     max-width: 21rem;
     align-items: center;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    background: transparent;
     padding: 2.2em;
     border-radius: 2em;
+    color: #ffffff;
 }
 
 .signup input {
@@ -39,21 +40,28 @@
     font-size: 1em;
     width: 100%;
     box-sizing: border-box;
+    background:  #1c103f4f;
+    border-radius: 25px;
+    color: #ffffff;
+    box-shadow: none;
 }
 
 .signup button {
-    padding: 0.5em;
+    padding: 0.em;
     font-size: 1em;
     cursor: pointer;
-    background-color: rgb(0, 123, 167);
-    color: #ffffff;
+    box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset;
+    background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+    color: rgba(0, 0, 0, 0.648);
     border: none;
     transition: background-color 0.3s ease;
-    width: 100%;
+    width: 40%;
 }
 
 .signup button:hover {
-    background-color: rgb(0, 154, 210);
+    box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset;
+    background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+    color: rgba(0, 0, 0, 0.648);
 }
 
 .or {
@@ -84,7 +92,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  background: linear-gradient(to bottom, #6699CC, #5534b743, #6699CC);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,10 +101,12 @@
 
 /* Modal content */
 .modal-content {
-  background-color: #282c34;
+background: linear-gradient(to bottom,#5534b7d0, #6699CC);
   padding: 20px;
   border-radius: 24px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 20% !important;
+  border: none;
 }
 
 /* Modal text */
@@ -106,15 +116,21 @@
 
 /* Modal close button */
 .modal-content button {
-  background-color: #ddd;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 14px;
-  cursor: pointer;
+    padding: 0.em;
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset !important;
+    background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%) !important;
+    color: rgba(0, 0, 0, 0.648) !important;
+    border: none;
+    transition: background-color 0.3s ease;
+    width: 40%;
 }
 
 .modal-content button:hover {
-  background-color: #ccc;
+    box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset !important;
+    background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+    color: rgba(0, 0, 0, 0.648);
 }
 
 
@@ -123,6 +139,27 @@
     .signup form {
         width: 60%;
     }
+
+    .modal-content {
+        background: linear-gradient(to bottom,#5534b7d0, #6699CC);
+          padding: 20px;
+          border-radius: 24px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+          max-width: 50% !important;
+          border: none;
+        }
+
+        .modal-content button {
+            padding: 0.em;
+            font-size: 1em;
+            cursor: pointer;
+            box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset !important;
+            background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%) !important;
+            color: rgba(0, 0, 0, 0.648) !important;
+            border: none;
+            transition: background-color 0.3s ease;
+            width: 60% !important;
+        }
 }
 
 
@@ -132,3 +169,29 @@
     }
 }
 
+
+@media screen and (max-width: 450px) {
+  
+
+    .modal-content {
+        background: linear-gradient(to bottom,#5534b7d0, #6699CC);
+          padding: 20px;
+          border-radius: 24px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+          max-width: 50% !important;
+          border: none;
+        }
+
+        .modal-content button {
+            padding: 0.em;
+            font-size: 1em;
+            cursor: pointer;
+            box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset !important;
+            background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%) !important;
+            color: rgba(0, 0, 0, 0.648) !important;
+            border: none;
+            transition: background-color 0.3s ease;
+            width: 60% !important;
+        }
+
+    }

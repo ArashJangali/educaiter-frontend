@@ -33,13 +33,13 @@ const Assessment = () => {
       { value: "Mobile App Development", label: "Mobile App Development" },
       { value: "Data Science & Analytics", label: "Data Science & Analytics" },
       { value: "Machine Learning & AI", label: "Machine Learning & AI" },
-      { value: "Cloud Computing & DevOps", label: "Cloud Computing & DevOps" },
-      { value: "Cybersecurity", label: "Cybersecurity" },
-      { value: "Mathematics", label: "Mathematics" },
-      { value: "Blockchain & Cryptocurrency", label: "Blockchain & Cryptocurrency" },
-      { value: "Quantum Computing", label: "Quantum Computing" },
-      { value: "Augmented & Virtual Reality (AR/VR)", label: "Augmented & Virtual Reality (AR/VR)" },
-      { value: "Internet of Things (IoT)", label: "Internet of Things (IoT)" },
+      // { value: "Cloud Computing & DevOps", label: "Cloud Computing & DevOps" },
+      // { value: "Cybersecurity", label: "Cybersecurity" },
+      // { value: "Mathematics", label: "Mathematics" },
+      // { value: "Blockchain & Cryptocurrency", label: "Blockchain & Cryptocurrency" },
+      // { value: "Quantum Computing", label: "Quantum Computing" },
+      // { value: "Augmented & Virtual Reality (AR/VR)", label: "Augmented & Virtual Reality (AR/VR)" },
+      // { value: "Internet of Things (IoT)", label: "Internet of Things (IoT)" },
     ]
     
 
@@ -50,11 +50,11 @@ const levels = [
     { value: "Foundational", label: "Foundational" },
     { value: "Undergraduate", label: "Undergraduate" },
     { value: "Postgraduate", label: "Postgraduate" },
-    { value: "Doctorate", label: "Doctorate" },
-    { value: "Researcher", label: "Researcher" },
+    // { value: "Doctorate", label: "Doctorate" },
+    // { value: "Researcher", label: "Researcher" },
     { value: "Expert", label: "Expert" },
-    { value: "Master", label: "Master" },
-    { value: "Visionary", label: "Visionary" },
+    // { value: "Master", label: "Master" },
+    // { value: "Visionary", label: "Visionary" },
   ];
 
   useEffect(() => {

@@ -7,8 +7,45 @@ import axios from "../Api/axiosInstance";
 export default function Navbar({ loggedOut, setLoggedOut }) {
   const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
- 
+  const [scrolled, setScrolled] = useState(false);
+  const [scrolledMid, setScrolledMid] = useState(false);
 
+  const handleScroll = () => {
+    const offset = window.scrollY;
+
+    const offsetMid = window.scrollY;
+
+    if (offset > 60 ) { 
+      setScrolled(true);
+  } else {
+      setScrolled(false);
+  }
+
+  if (offsetMid > 300) {
+    setScrolledMid(true)
+  } else {
+    setScrolledMid(false);
+}
+
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+  })
+
+  let navbarClasses=['navbar'];
+  
+  if (scrolled) {
+    navbarClasses.push('scrolled');
+}
+
+
+
+let signUpButtonClass=['nav-signup-btn']
+
+if (scrolledMid) {
+  signUpButtonClass.push('scrolled')
+}
 
   const handleLogout = async () => {
     try {
@@ -28,7 +65,7 @@ export default function Navbar({ loggedOut, setLoggedOut }) {
   };
 
   return (
-    <nav className={loggedOut ? 'navbar-loggedout' : 'navbar'}>
+    <nav className={`loggedOut ? 'navbar-loggedout' : ${navbarClasses.join(" ")}`}>
       <img className="navbar-img" src="/logo.png" />
       <div className="navbar-middle">
         {user ? (
@@ -56,9 +93,7 @@ export default function Navbar({ loggedOut, setLoggedOut }) {
           </div>
         ) : (
           <div className="navbar-links">
-          <Link className="nav-login-btn" to="/">
-              Home
-            </Link>
+        
           {/* <Link className="nav-login-btn" to="/contact">
               Contact
             </Link>
@@ -68,8 +103,8 @@ export default function Navbar({ loggedOut, setLoggedOut }) {
             <Link onClick={() => setLoggedOut(false)} className="nav-login-btn" to="/login">
               Log in
             </Link>
-            <Link onClick={() => setLoggedOut(false)} className="nav-signup-btn" to="/signup">
-            Sign up
+            <Link onClick={() => setLoggedOut(false)} className={`${signUpButtonClass.join(" ")}`} to="/signup">
+            Create an account
             </Link>
           </div>
         )}

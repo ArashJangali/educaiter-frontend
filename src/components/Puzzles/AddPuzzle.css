@@ -1,0 +1,29 @@
+.parent {
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.parent form label {
+    color: red;
+}
+
+input {
+    width: 100%;
+    width: 900px;
+}
+
+input[type='radio']{
+    max-width: 10%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}

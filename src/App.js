@@ -17,6 +17,17 @@ import {loadStripe} from '@stripe/stripe-js';
 import Success from "./components/Subscription/Success";
 import Cancel from "./components/Subscription/Cancel";
 import Puzzles from "./components/Puzzles/Puzzles";
+import SetupStrategy from './components/Puzzles/StrategyRoom/SetupStrategy';
+import StrategyRoom from './components/Puzzles/StrategyRoom/StrategyRoom'
+import SetupBattle from './components/Puzzles/Battlefield/SetupBattle'
+import Battlefield from './components/Puzzles/Battlefield/Battlefield'
+import AddPuzzle from './components/Puzzles/AddPuzzle'
+import ChooseOpponent from "./components/Puzzles/Battlefield/ChooseOpponent";
+import BattleConfig from "./components/Puzzles/Battlefield/BattleConfig";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
@@ -24,7 +35,11 @@ const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
 export default function App() {
 
+    useEffect(() => {
+        AOS.init({})
+    }, [])
 
+    
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
 
@@ -41,7 +56,13 @@ export default function App() {
                   <Route path="/assessment" element={<UserLoader><Assessment /></UserLoader>} />
                   <Route path="/dashboard" element={<UserLoader><Dashboard /></UserLoader>} />
                   <Route path="/recommendation" element={<UserLoader><Recommendation /></UserLoader>} />
-                  {/* <Route path="/puzzles" element={<UserLoader><Puzzles /></UserLoader>} /> */}
+                  <Route path="/puzzles" element={<UserLoader><Puzzles /></UserLoader>} />
+                  <Route path="/setup/strategy" element={<UserLoader><SetupStrategy /></UserLoader>} />
+                  <Route path="/strategy" element={<UserLoader><StrategyRoom /></UserLoader>} />
+                  <Route path="/setup/battle" element={<UserLoader><ChooseOpponent /></UserLoader>} />
+                  <Route path="/battle/config" element={<UserLoader><BattleConfig /></UserLoader>} />
+                  <Route path="/battle" element={<UserLoader><Battlefield /></UserLoader>} />
+                  <Route path="/addpuzzle" element={<UserLoader><AddPuzzle /></UserLoader>} />
                   <Route path="/subscription" element={ 
                       <Elements stripe={stripePromise}>
                           <UserLoader><Subscription /></UserLoader>

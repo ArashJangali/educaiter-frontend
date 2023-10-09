@@ -1,0 +1,78 @@
+.carousel-wrapper {
+    position: relative;
+    width: 390px !important;
+    height: 415px; /* Only half the circle will be visible */
+    overflow: hidden;
+margin-top: 170px;
+
+}
+
+.carousel-container {
+  width: 100%;
+    height: 100%;
+    position: relative;
+    left: 50%; 
+
+}
+
+.half-circle-vertical {
+    width: 225px; /* half of the height for a perfect semi-circle */
+    height: 450px;
+    background: transparent;
+    border-top-left-radius: 225px; /* half of the height */
+    border-bottom-left-radius: 225px; /* half of the height */
+    border-left: 2px solid white;
+}
+
+.carousel-item {
+    position: absolute;
+    width: 60px;  /* Adjust to your preference */
+    height: 60px; /* Adjust to your preference */
+    top: 50%;
+    left: 50%;
+    transform-origin: top center;
+    transform: translate(-50%, -50%) rotate(0deg);
+    transition: transform 0.7s ease-out;
+    cursor: pointer;
+}
+
+.clicked-img {
+   scale: 1.1;
+    opacity: 0.5;
+    transition: all 0.3s ease-in-out;
+}
+
+.carousel-item img {
+    position: absolute;
+    z-index: 5;
+    width: 120px;
+    height: 80px;
+    margin-top: -135px;
+    margin-left: 1.1em;
+}
+
+.carousel-item p {
+    position: relative;
+color:white;
+    width: 120px;
+    height: 80px;
+    margin-top: -250px;
+font-size: 12px;
+
+}
+
+.carousel-prev, .carousel-next {
+    position: absolute;
+    bottom: 4%;
+    transform: translateY(-50%);
+    font-size: 13px;
+}
+
+.carousel-prev {
+    right: 59px;
+}
+
+.carousel-next {
+    right: 15px;
+}
+
