@@ -24,6 +24,7 @@ import Battlefield from './components/Puzzles/Battlefield/Battlefield'
 import AddPuzzle from './components/Puzzles/AddPuzzle'
 import ChooseOpponent from "./components/Puzzles/Battlefield/ChooseOpponent";
 import BattleConfig from "./components/Puzzles/Battlefield/BattleConfig";
+import ResetPassword from "./components/ResetPassword/ResetPassword";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -47,11 +48,12 @@ export default function App() {
       <UserProvider value={{ user, setUser, token, setToken }}>
           <Router>
               <Navbar />
-              
+
               <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/signup" element={<Signup />} />
                   <Route path="/login" element={<Login />} />
+                  <Route path="/reset-password/:token" element={<ResetPassword />} />
                   <Route path="/user-profile" element={<UserLoader><UserProfile /></UserLoader>} />
                   <Route path="/chat" element={<UserLoader><Chat /></UserLoader>} />
                   <Route path="/assessment" element={<UserLoader><Assessment /></UserLoader>} />

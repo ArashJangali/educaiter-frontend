@@ -1,12 +1,23 @@
+.user-profile-container {
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+height: 100vh;
+width: 100%;
+background: linear-gradient(170deg,#0579ed, #00BFFF, #acd0dc, #986edb89, #1085d9);
+}
+
 .profile-container {
-    background: linear-gradient(170deg,#0579ed, #00BFFF, #acd0dc, #986edb89, #1085d9);
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1em;
+    padding: 0em;
     height: 100vh;
     text-align: center;
+    margin: 0 auto;
 }
 
 .profile-container p {
@@ -44,6 +55,8 @@
     box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset !important;
     background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
     color: rgba(0, 0, 0, 0.648);
+    width: 11%;
+    font-size: 13px;
 }
 
 .edit-profile-btn:hover {
@@ -66,23 +79,77 @@
 }
 
 .profile-form {
-    margin-top: 50px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(170deg,#0579ed, #00BFFF, #acd0dc, #986edb, #1085d9);
     color: white;
     font-family: Arial, sans-serif;
     text-align: center;
-    height: 100vh
+    max-height: 80%;
+    height: 500px;
+    width: 100%;
+
 }
+
+/* Modal container */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #6699CC, #5534b743, #6699CC);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  
+  /* Modal content */
+  .modal-content {
+    background: linear-gradient(to bottom,#5534b7d0, #6699CC);
+    padding: 20px;
+    border-radius: 24px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    max-width: 20% !important;
+    border: none;
+  }
+  
+  /* Modal text */
+  .modal-content p {
+    margin-bottom: 10px;
+  }
+  
+  /* Modal close button */
+  .modal-content button {
+    padding: 0.em;
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset !important;
+    background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%) !important;
+    color: rgba(0, 0, 0, 0.648) !important;
+    border: none;
+    transition: background-color 0.3s ease;
+    width: 40%;
+  }
+  
+  .modal-content button:hover {
+      box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset !important;
+      background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+      color: rgba(0, 0, 0, 0.648);
+  }
 
 
 .profile-form input {
     max-width: 30%;
-    margin: 0.3em auto;
+    margin: 0.2em auto;
+color: white;
+}
 
+::placeholder {
+    color: rgba(255, 255, 255, 0.657);
 }
 
 .img-file-input {
@@ -145,10 +212,10 @@
 }
 
 .avatar-btn:hover {
-    background: linear-gradient(to bottom, #282c34 0%, #1b2944 100%);
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
-    border: 0.5px solid rgba(23, 21, 21, 0.438);
-    color: rgba(240, 248, 255, 0.583);
+    cursor: pointer;
+    box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset !important;
+    background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+    color: rgba(0, 0, 0, 0.648);
 }
 
 .btn-h1 {
@@ -159,8 +226,9 @@
 }
 
 .back-button {
-    margin-bottom: -3.3em;
+    margin-bottom: -3.9em;
     background: linear-gradient(to bottom, #2f894c4b 0%, #3d5688 100%);
+    padding: 3px;
 }
 
 /* Mobile devices */

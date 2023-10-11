@@ -1,0 +1,8 @@
+.analysis {
+    background: linear-gradient(170deg,#0579ed7a, #00bfff83, #acd0dc, #8f86c62c, #4894ca2d);
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+color: white;
+}

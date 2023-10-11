@@ -1,12 +1,14 @@
 .bar-chart {
-    background-color: #282c34;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 20px;
-    color: #FFF;
-    width: 100%;
+    color: #FFF !important;
+    width: 50%;
+    max-height: 50%;
+
 }
 
 .bar-chart .chart-title {
@@ -14,7 +16,7 @@
     font-weight: bold;
     text-align: center;
     margin-top: 5rem;
-    color:#aaaaaa41;
+    color: rgba(255, 255, 255, 0.68);
 }
 
 .bar-chart .chart-container {
@@ -36,6 +38,7 @@
     max-height: 60vh; 
     width: 100%;
 }
+
 
 
 

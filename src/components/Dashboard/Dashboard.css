@@ -1,20 +1,6 @@
 /* 
-.dashboard {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%; 
-    overflow: auto;
-    background-color: #282c34;
-}
 
-.dashboard-content {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+
 
 .dashboard-panel {
     flex: 1 0 auto;
@@ -22,3 +8,19 @@
     min-width: 300px; 
     max-width: 600px; 
 } */
+
+.dashboard {
+    background: linear-gradient(170deg,#0579edb2, #00bfffbe, #acd0dc, #986edb44, #1085d9a7);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+color: white;
+}
+
+.dashboard-content {
+    width: 85%;
+height: 100%;
+overflow-y: scroll;
+}

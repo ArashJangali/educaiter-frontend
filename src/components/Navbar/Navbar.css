@@ -23,6 +23,19 @@
     z-index: 999;
 }
 
+.img-and-username {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.username {
+    color: white;
+    padding:0px 5px 5px 5px;
+}
+
 .navbar.scrolled {
     background-color: #20578f;
 }
@@ -48,7 +61,7 @@
 }
 
 .navbar img {
-    padding: 0;
+    padding-top: 5px;
 }
 .navbar-middle {
     display: flex;

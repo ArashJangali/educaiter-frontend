@@ -1,11 +1,13 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import './Sidebar.css'
+import UserContext from '../../contexts/UserContext'
 
 function Sidebar() {
+const {user, setUser} = useContext(UserContext)
   return (
     <section className='side-bar'>
     <div className="links">
-    <a style={{textDecoration: 'none'}} href="/subscription"><div className="group" style={{justifyContent: 'space-evenly', width: '100px', background: 'rgba(255, 255, 255, 0.1)', borderRadius: '20px', padding: '5px'}}>1,000 <img src="/icons/buy.svg" style={{width: '18px', height: '18px'}} /> <img title="Credits Left" src="/icons/question-mark.svg" style={{width: '16px', height: '16px'}} /></div></a>
+    <a style={{textDecoration: 'none'}} href="/subscription"><div className="group" style={{justifyContent: 'space-evenly', width: '100px', background: 'rgba(255, 255, 255, 0.1)', borderRadius: '20px', padding: '5px'}}>{user?.credits} <img src="/icons/buy.svg" style={{width: '18px', height: '18px'}} /> <img title="Credits Left" src="/icons/question-mark.svg" style={{width: '16px', height: '16px'}} /></div></a>
       <a style={{textDecoration: 'none'}} href="/"><div className="group"><img src="/icons/home.svg" style={{width: '24px', height: '24px'}} />Home</div></a>
       <a style={{textDecoration: 'none'}} href="/puzzles"><div className="group"><img src="/icons/puzzle.svg" style={{width: '24px', height: '24px'}} />Puzzles</div></a>
       <a style={{textDecoration: 'none'}} href="/chat"><div className="group"><img src="/icons/chat.svg" style={{width: '24px', height: '24px'}} />Chat</div></a>
