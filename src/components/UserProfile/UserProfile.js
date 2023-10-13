@@ -90,9 +90,10 @@ const UserProfile = () => {
         if (error.response) {
         
           setError(error.response.data.message);
+          setShowModal(true);
         } else {
-   
-          console.log("Error", error.message);
+          setError(error.response.data.message);
+          setShowModal(true);
         }
       });
 

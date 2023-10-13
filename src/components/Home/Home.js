@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import Pricing from "../Pricing/Pricing";
 import { Link, useNavigate } from "react-router-dom";
+import Footer from "../Footer/Footer";
 import AOS from "aos";
 import "./Home.css";
 import "aos/dist/aos.css";
@@ -77,7 +79,8 @@ const HomePage = () => {
     </svg>
   );
 
-  
+
+ 
 
   return (
     <div className="homepage">
@@ -278,7 +281,7 @@ const HomePage = () => {
         <iframe title="demoVideo" src="" frameborder="0"></iframe>
       </section> */}
 
-      {/* Testimonials Section */}
+      <section className="pricing"><Pricing hideFooter={true} /> </section>
       <section className="review">
         <h2>What Our Users Think</h2>
 
@@ -413,16 +416,7 @@ const HomePage = () => {
         </div>
       </section>
       {/* Footer */}
-      <footer>
-        
-        <div className="footer-content">
-          <div><h3>Educaiter</h3><p>About Us</p><p>Blog</p></div>
-          <div><h3>Help & Support</h3><p>Contact Us</p></div>
-          <div><h3>Socials</h3><p>X</p></div>
-          <div><h3>Legal</h3><p>Terms of service</p><p>Privacy policy</p><p>Cookies policy</p></div>
-        </div>
-        <p className="paragraph">Copyright © 2023 Educaiter</p>
-      </footer>
+     <Footer />
     </div>
   );
 };

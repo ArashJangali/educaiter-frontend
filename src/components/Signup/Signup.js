@@ -10,6 +10,8 @@ export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showVerificationModal, setShowVerificationModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -24,9 +26,11 @@ export default function Signup() {
       }
     } catch (error) {
       if (error.response && error.response.status === 400) {
-        alert(error.response.data.error); // or display the error message in a more user-friendly way
+        setShowModal(true);
+        setError(error.response.data.error); // or display the error message in a more user-friendly way
       } else {
-        console.log("An error occurred during signup.", error);
+        setShowModal(true);
+        setError(error.response.data.error);
       }
     }
   };
@@ -36,6 +40,11 @@ export default function Signup() {
     setShowVerificationModal(false);
    
   }
+
+  const handleCloseModal = async () => {
+    setShowModal(false)
+  }
+
 
   return (
     <div className="signup">
@@ -77,6 +86,15 @@ export default function Signup() {
           <div className="modal-content">
             <p>Please check your email to verify your account.</p>
             <button onClick={handleVerificationModalClose}>Close</button>
+          </div>
+        </div>
+      )}
+
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <p>{error}</p>
+            <button onClick={handleCloseModal}>Close</button>
           </div>
         </div>
       )}

@@ -19,6 +19,16 @@
     align-items: center;
 }
 
+:root::-webkit-scrollbar {
+    display: none;
+  }
+
+  :root{
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+  }
+
+
 .hero {
     color: var(--white);
     position: relative;
@@ -304,6 +314,18 @@
     font-size: 28px;
 }
 
+/* .............................................................. */
+
+.pricing {
+    padding: 50px 0;
+    text-align: center;
+    color: var(--white); 
+    margin-top: -55em;
+    margin-bottom: 55em;
+}
+
+
+/* ............................................................... */
 
 .review {
     width: 100%;
@@ -382,7 +404,7 @@
     text-align: center;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, #6699CC, #8066cc97, #6699CC);
+    background: linear-gradient(to bottom, #6699CC, #604ba07d, #6699CC);
 }
 
 .faq-div {
@@ -392,6 +414,17 @@
     overflow-y: scroll;
     background-color: transparent;
 }
+
+
+.faq-div::-webkit-scrollbar {
+    display: none;
+  }
+
+  .faq-div {
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+  }
+
 
 .faq-answer {
     /* Add styles like padding, etc. as you need */
@@ -470,39 +503,6 @@
 }
 
 
-
-footer {
-    color: var(--white);
-    padding: 20px 0;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, #6699CC, #5534b796);
-    margin-top: 7em;
-}
-
-footer p {
-    color: #ffffff3c;
-}
-
-.footer-content {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 10em;
-    font-family: 'Ubuntu', sans-serif;
-}
-
-.footer-content h3 {
-    font-family: 'Ubuntu', sans-serif;
-    text-align: center;
-    color: var(--white);
-}
 
 
 @media only screen and (max-width: 480px) {
@@ -877,45 +877,6 @@ footer p {
         font-family: 'Ubuntu', sans-serif;
         text-align: center;
     }
-
-
-
-
-footer {
-    color: var(--white);
-    padding: 15px 10px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(to bottom, #6699CC, #5534b796);
-    margin-top: 2em;
-}
-
-footer p {
-    color: #ffffff92;
-}
-
-.footer-content {
-    flex-direction: column;
-    gap: 0.8em; /* Adjust gap for mobile. You can change this value to your preference */
-    align-items: center;
-    justify-content: center;
-    
-}
-
-.footer-content h3 {
-    font-family: 'Ubuntu', sans-serif;
-    text-align: center;
-    color: var(--white);
-    font-size: 1.2em;
-}
-
-
-.paragraph {
-    margin-top: 60px;
-}
 
 
 }

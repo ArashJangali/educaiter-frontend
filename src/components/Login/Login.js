@@ -17,6 +17,8 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showResetPassModal,setShowResetPassModal] = useState(false)
+  const [showModal, setShowModal] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -33,10 +35,13 @@ export default function Login() {
           }
        
     } catch(error) {
-        console.log("An error occurred during login.", error);
+      setShowModal(true);
+      setError(error.response.data.error)
     }
 
   };
+
+ 
 
   const forgotPassword = async (event) => {
     event.preventDefault();
@@ -50,9 +55,16 @@ if (response.status === 200) {
 }
 
     } catch(error) {
-      console.log("An error occurred during login.", error);
+      setShowModal(true);
+      setError("An error occurred during login.");
     }
   }
+
+  const handleCloseModal = async () => {
+    setShowModal(false)
+
+  }
+
 
   return (
     !forgotPass ? (
@@ -83,6 +95,14 @@ if (response.status === 200) {
       <p>
         Don't have an account? <Link to="/signup">Sign up</Link>
       </p>
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <p>{error}</p>
+            <button onClick={handleCloseModal}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
     ) : (
       <div className="login">
@@ -103,6 +123,15 @@ if (response.status === 200) {
           <div className="modal-content">
             <p>Email sent</p>
             <button onClick={() => setShowResetPassModal(false)}>Close</button>
+          </div>
+        </div>
+      )}
+
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <p>{error}</p>
+            <button onClick={handleCloseModal}>Close</button>
           </div>
         </div>
       )}

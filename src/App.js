@@ -25,6 +25,12 @@ import AddPuzzle from './components/Puzzles/AddPuzzle'
 import ChooseOpponent from "./components/Puzzles/Battlefield/ChooseOpponent";
 import BattleConfig from "./components/Puzzles/Battlefield/BattleConfig";
 import ResetPassword from "./components/ResetPassword/ResetPassword";
+import Pricing from "./components/Pricing/Pricing";
+import About from "./components/About/About";
+import Contact from "./components/Contact/Contact";
+import Privacy from "./components/Privacy/Privacy";
+import Terms from "./components/Terms/Terms";
+import Cookies from "./components/Cookies/Cookies";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -53,6 +59,12 @@ export default function App() {
                   <Route path="/" element={<Home />} />
                   <Route path="/signup" element={<Signup />} />
                   <Route path="/login" element={<Login />} />
+                  <Route path="/pricing" element={<Pricing />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/privacy-policy" element={<Privacy />} />
+                  <Route path="/terms" element={<Terms />} />
+                  <Route path="/cookies" element={<Cookies />} />
                   <Route path="/reset-password/:token" element={<ResetPassword />} />
                   <Route path="/user-profile" element={<UserLoader><UserProfile /></UserLoader>} />
                   <Route path="/chat" element={<UserLoader><Chat /></UserLoader>} />

@@ -68,7 +68,7 @@ if (scrolledMid) {
     <nav
       className={`loggedOut ? 'navbar-loggedout' : ${navbarClasses.join(" ")}`}
     >
-      <img className="navbar-img" src="/logo.png" />
+      <img style={{cursor: 'pointer'}} onClick={() => navigate('/')} className="navbar-img" src="/logo.png" />
       <div className="navbar-middle">
         {user ? (
           <div className="navbar-user">
@@ -93,6 +93,20 @@ if (scrolledMid) {
           <Link className="nav-login-btn" to="/subscription">
               Pricing
             </Link> */}
+            <Link
+              onClick={() => setLoggedOut(false)}
+              className="nav-login-btn"
+              to="/"
+            >
+              Home
+            </Link>
+            <Link
+              onClick={() => setLoggedOut(false)}
+              className="nav-login-btn"
+              to="/pricing"
+            >
+              Pricing
+            </Link>
             <Link
               onClick={() => setLoggedOut(false)}
               className="nav-login-btn"

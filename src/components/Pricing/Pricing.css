@@ -1,0 +1,192 @@
+:root {
+    --primary-dark-blue: #003366;
+    --secondary-light-blue: #6699CC;
+    --light-gray: #E0E0E0;
+    --medium-gray: #A0A0A0;
+    --dark-gray: #333333;
+    --white: #FFFFFF;
+    --primary-text-color: var(--dark-gray);
+    --secondary-text-color: var(--white);
+}
+
+.pricing-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 8em; 
+    background: linear-gradient(to bottom, #6699CC, #604ba064, #6699CC, #6699CC);
+    overflow-y: scroll;
+}
+
+.pricing-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3.12em;
+    color: white;
+    padding-bottom: 2.392em;
+}
+
+.pricing-header h1 {
+    font-size: 3.6em;
+    color: var(--white);
+    font-family: 'Ubuntu', sans-serif;
+    height: 1.2em; 
+    margin: 4px; 
+}
+
+.pricing-header p {
+    font-size: 1.12em; 
+    color: rgba(255, 255, 255, 0.547);
+    font-family: 'Ubuntu', sans-serif;
+    height: 1.2em; 
+    margin: 4px; 
+}
+
+.pricing-cards-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    padding-bottom: 3.2em; 
+}
+
+.pricing-card {
+    font-family: 'Ubuntu', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 416px; 
+    min-height: 24.8em; 
+    margin: 16px; 
+    border-radius: 19.2px; 
+    padding: 16px; 
+    padding-bottom: 32px; 
+    background: linear-gradient(170deg, #acd0dc, #986edb33, #1085d94d);
+    box-shadow: rgba(219, 216, 225, 0.182) 0px 0px 10.4px, rgba(227, 225, 233, 0.343) 0px 0px 7.2px inset;
+    color: white;
+    transition: transform 0.3s;
+}
+
+.pricing-card.silver {
+    background: linear-gradient(170deg, #8c8c8c, #c0c0c0, #8c8c8c);
+    box-shadow: rgba(140, 140, 140, 0.182) 0px 0px 10.4px, rgba(192, 192, 192, 0.343) 0px 0px 7.2px inset;
+}
+
+.pricing-card.silver button {
+    background: linear-gradient(180deg, var(--dark-gray) 0%, var(--medium-gray) 100%);
+    color: var(--white);
+}
+
+.pricing-card.silver button:hover {
+    background: linear-gradient(180deg, var(--medium-gray) 0%, var(--dark-gray) 100%);
+    color: var(--light-gray);
+}
+
+.pricing-card:hover {
+    transform: scale(1.05);
+}
+
+
+
+.pricing-card button {
+    padding: 0.52em 0.4em; 
+    font-size: 0.96em; 
+    cursor: pointer;
+    box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset;
+    background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+    color: rgba(0, 0, 0, 0.648);
+    border: none;
+    transition: background-color 0.7s ease;
+    width: 32%; 
+}
+
+.pricing-card button:hover {
+    box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset;
+    background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+    color: rgba(0, 0, 0, 0.648);
+}
+
+
+
+.card-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 16%;
+    
+}
+
+.card-top span {
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+
+.span-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 2.88em;  /* 80% of 3.6em */
+    gap: 8px;  /* 80% of 10px */
+}
+
+.plan-description {
+    height: 2.8em;  /* 80% of 3.5em */
+    font-size: 1.04em;  /* 80% of 1.3em */
+    color: rgba(255, 255, 255, 0.462);
+}
+
+.plan-price {
+    font-size: 2em;  /* 80% of 2.5em */
+    font-weight: 900;
+}
+
+.plan-duration {
+    opacity: 0.6;
+}
+
+.plan-name {
+    font-size: 1.36em;  /* 80% of 1.7em */
+    color: var(--white);
+    font-family: 'Ubuntu', sans-serif;
+    height: 1.36em;  /* 80% of 1.7em */
+    margin: 6.4px;  /* 80% of 8px */
+}
+
+.plan-features {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;  /* 80% of 20px */
+    width: 90%;
+    margin: 0 auto;
+    margin-left: -16px;  /* 80% of 20px */
+    padding-bottom: 32px;  /* 80% of 40px */
+}
+
+.plan-features li span {
+    font-weight: 700;
+}
+
+.plan-features li {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 0.88em;  /* 80% of 1.1em */
+    gap: 16px;  /* 80% of 20px */
+}
+
+.plan-icon-animation {
+    /* Empty as before, fill in as necessary */
+}
