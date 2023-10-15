@@ -23,7 +23,7 @@ export default function Contact() {
 
           <div className="input-group">
             <label htmlFor="description">Description *</label>
-            <textarea id="description" placeholder="Enter the details of your request. A member of our support staff will respond as soon as possible." required></textarea>
+            <textarea id="description" placeholder="Enter the details of your request." required></textarea>
           </div>
 
           <button className='contact-btn' type="submit">Submit</button>
