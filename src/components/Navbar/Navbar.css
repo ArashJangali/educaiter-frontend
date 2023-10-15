@@ -42,7 +42,7 @@
 
 .navbar-loggedout {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 1rem;
     background-color: #282c34;
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
@@ -63,6 +63,7 @@
 .navbar img {
     padding-top: 5px;
 }
+
 .navbar-middle {
     display: flex;
     align-items: center;
@@ -194,9 +195,60 @@ padding: 10px 25px;
     .nav-login-btn {
         padding: 0.4rem;
     }
+  
+}
+
+@media (max-width: 480px) {
+    .navbar-links {
+       display: flex;
+       flex-direction: row;
+       align-items: center;
+       justify-content: center;
+       margin: 0;
+    }
+
+    .navbar-links a {
+        font-size: 0.7rem;
+        text-align: center;
+    }
+
+    .navbar-middle {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+.nav-login-btn {
+    padding: none;
+    margin-left: 8px !important;
+}
 
 
+.nav-signup-btn.scrolled {
+    padding: 8px 8px;
+    font-size: 0.7rem;
+    margin-left: 8px;
+}
 
-      
-        
+.navbar-img {
+    padding-top: 0px !important;
+    width: 60px;
+    height: 50px;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    padding: 0.3rem;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+    border: 0;
+    position: fixed;
+    left: 0; 
+    right: 0;
+    z-index: 999;
+}
+
 }

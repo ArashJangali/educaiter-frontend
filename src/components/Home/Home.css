@@ -386,7 +386,6 @@
 
 
 
-
 .faq h2 {
     font-size: 2.5em;
     color: var(--white);
@@ -761,6 +760,15 @@
     .feature-item>div {
         margin-bottom: -5em;
     }
+
+
+    /* .pricing {
+        padding: 50px 0;
+        text-align: center;
+        color: var(--white); 
+        margin-top: -55em;
+        margin-bottom: 55em;
+    } */
 
 
    .review {}

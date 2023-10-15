@@ -187,6 +187,32 @@
     gap: 16px;  /* 80% of 20px */
 }
 
-.plan-icon-animation {
-    /* Empty as before, fill in as necessary */
+
+
+@media only screen and (max-width: 480px) {
+    .pricing-cards-container {
+       gap: 65px; 
+    }
+
+    .plan-icon-animation {
+        margin-top: -6em !important;
+    }
+
+    .pricing-header h1 {
+        font-size: 2.6em;
+        color: var(--white);
+        font-family: 'Ubuntu', sans-serif;
+        height: 1.2em; 
+        margin: 4px; 
+        padding: 5px; 
+        margin-bottom: 10px; 
+    }
+    
+    .pricing-header p {
+        font-size: 0.9em; 
+        color: rgba(255, 255, 255, 0.547);
+        font-family: 'Ubuntu', sans-serif;
+        height: 1.2em; 
+       
+    }
 }

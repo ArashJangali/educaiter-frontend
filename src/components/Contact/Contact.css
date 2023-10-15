@@ -4,6 +4,7 @@
     justify-content: center;
     padding-top: 10em;
     background: linear-gradient(to bottom, #6699CC, #604ba049, #6699CC, #6699CC);
+    margin: 0;
 }
 
 .contact-header h1 {
@@ -94,4 +95,32 @@ overflow-y: scroll;
     box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset;
     background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
     color: rgba(0, 0, 0, 0.648);
+}
+
+
+@media only screen and (max-width: 480px) {
+   
+    .contact-body {
+        padding: 1em;
+        max-width: 100%;
+    }
+
+    .input-group input, .input-group textarea {
+        width: 100% !important; /* Reduced width */
+        margin-left: auto; /* Center the input fields */
+        margin-right: auto;
+        display: block;
+    }
+
+    .input-group textarea {
+        min-width: 90%; /* Adjusted minimum width */
+    }
+
+    .contact-btn {
+        width: 60%; /* Reduced width of the submit button */
+        margin-left: auto; /* Center the button */
+        margin-right: auto;
+        display: block;
+    }
+
 }
