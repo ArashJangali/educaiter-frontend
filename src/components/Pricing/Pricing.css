@@ -215,4 +215,21 @@
         height: 1.2em; 
        
     }
+
+    .plan-features {
+        width: 95% !important;
+        margin: 0 auto;
+        margin-left: -35px;  /* 80% of 20px */
+    }
+
+    .plan-features li {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        margin: 0 auto;
+        font-size: 0.71em;  /* 80% of 1.1em */
+        gap: 5px;  /* 80% of 20px */
+    }
 }

@@ -656,6 +656,9 @@
         max-width: 100%;
         max-height: 100%;
         object-fit: contain;
+        border-bottom-left-radius: 5px !important;
+        border-bottom-right-radius: 5px !important;
+    
     }
 
     .features-section {
@@ -664,16 +667,36 @@
     }
 
 
-    .feature-item>div {
+    .feature-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        padding: 10px;
         position: relative;
-        z-index: 1 !important;
-        width: auto;
-        height: auto;
-        max-width: 100%;
-        max-height: 100%;
-        margin: 0 auto;
+        text-align: center !important;
     }
 
+    .feature-item>div {
+        position: relative;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.013), rgba(255, 255, 255, 0.095), rgba(255, 255, 255, 0.316),rgba(255, 255, 255, 0.859), rgba(255, 255, 255, 0.316), rgba(255, 255, 255, 0.015));
+        z-index: 1;
+        margin-bottom: 0em !important;
+        color: #003366 !important;
+        align-self: flex-start !important;
+        text-align: left !important;
+        padding: 18px;
+        width: 95%;
+        margin-left: -10px;
+        border-radius: 20px;
+        text-shadow: 2px 2px 2px rgba(223, 205, 205, 0.455);
+    }
+    
+    .feature-item h3 {
+        color: #003366 !important;
+        text-align: left !important;
+    }
 
     .feature-subgrid {
         display: block;
@@ -686,10 +709,8 @@
     .feature-item.big {
         width: 90%;
         height: 400px;
-        text-align: center;
         box-sizing: border-box;
         border-radius: 20px;
-        margin-bottom: 1em;
         font-size: 20px;
         margin: 0 auto;
         margin-bottom: 4em !important;
@@ -697,31 +718,33 @@
 
 
     .feature-item.big h3 {
-        font-size: 28px;
+        font-size: 24px;
+    
     
     }
 
     .feature-item.big p {
-        font-size: 18px;
+        font-size: 15px;
+
     }
 
     .feature-item.mid {
         width: 90%;
         height: 400px;
         margin: 0 auto;
-        text-align: center;
         box-sizing: border-box;
         margin-bottom: 4em !important;
         font-size: 20px;
     }
 
     .feature-item.mid h3 {
-        font-size: 28px;
-   
+        font-size: 24px;
+    
     }
 
     .feature-item.mid p {
-        font-size: 18px;
+        font-size: 15px;
+   
     }
 
 
@@ -729,19 +752,20 @@
         width: 90%;
         height: 400px;
         margin: 0 auto;
-        text-align: center;
         box-sizing: border-box;
         font-size: 20px;
         margin-bottom: 4em !important;
     }
 
     .feature-item.small h3 {
-        font-size: 28px;
+        font-size: 24px;
+       
   
     }
 
     .feature-item.small p {
-        font-size: 18px;
+        font-size: 15px;
+    
     }
 
 
@@ -761,16 +785,12 @@
         box-sizing: border-box;
     }
 
-    .feature-item>div {
-        margin-bottom: -5em;
-    }
-
 
     .pricing {
         padding: 50px 0px;
         text-align: center;
         color: var(--white); 
-        margin-top: -62em;
+        margin-top: -67em;
         margin-bottom: 55em;
         width: 100%;
 
