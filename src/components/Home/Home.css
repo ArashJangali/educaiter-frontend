@@ -320,7 +320,7 @@
     padding: 50px 0;
     text-align: center;
     color: var(--white); 
-    margin-top: -55em;
+    margin-top: -62em;
     margin-bottom: 55em;
 }
 
@@ -522,7 +522,7 @@
         right: 0;
         bottom: 69px;
         z-index: 5;
-        background: linear-gradient(rgba(151, 171, 211, 0), rgb(102, 153, 204));
+        background: linear-gradient(rgba(151, 171, 211, 0), rgba(102, 153, 204, 0.371));
     }
     
     .hero video {
@@ -582,8 +582,8 @@
     }
     
     .cta-signup {
-        padding: 14px 20px;
-        margin-top: 285px;
+        padding: 12px 15px;
+        margin-top: 33em;
         border: none;
         color: rgba(0, 0, 0, 0.648);
         border-radius: 25px;
@@ -591,6 +591,7 @@
         cursor: pointer;
         background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
         transition: box-shadow 1s ease;
+        font-size: 0.8em;
     }
     
     .cta-signup:hover {
@@ -762,13 +763,15 @@
     }
 
 
-    /* .pricing {
-        padding: 50px 0;
+    .pricing {
+        padding: 50px 20px;
         text-align: center;
         color: var(--white); 
-        margin-top: -55em;
+        margin-top: -62em;
         margin-bottom: 55em;
-    } */
+        width: 100%;
+
+    }
 
 
    .review {}

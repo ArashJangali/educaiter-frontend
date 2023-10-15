@@ -153,7 +153,7 @@ const HomePage = () => {
                 </div>
                 <div
                   className="feature-item small"
-                  data-aos="fade-left"
+                  data-aos="flip-up"
                   data-aos-duration="700"
                 >
                   <video autoPlay loop muted playsInline>
@@ -175,7 +175,7 @@ const HomePage = () => {
             <div className="feature-column right-column">
               <div
                 className="feature-item mid"
-                data-aos="fade-left"
+                data-aos="flip-down"
                 data-aos-duration="800"
               >
                 <video autoPlay loop muted playsInline>
@@ -214,8 +214,8 @@ const HomePage = () => {
             <div className="feature-column left-column">
               <div
                 className="feature-item small"
-                data-aos="zoom-in-left"
-                data-aos-duration="900"
+                data-aos="flip-right"
+                data-aos-anchor-placement="bottom-bottom"
               >
                 <video autoPlay loop muted playsInline>
                   <source
@@ -232,7 +232,7 @@ const HomePage = () => {
             <div className="feature-column center-column">
               <div
                 className="feature-item mid"
-                data-aos="flip-left"
+                data-aos="flip-right"
                 data-aos-duration="1000"
               >
                 <video autoPlay loop muted playsInline>
@@ -407,7 +407,7 @@ const HomePage = () => {
             </button>
           </div>
           <Lottie
-            data-aos="fade-left"
+            data-aos="fade-right"
             data-aos-duration="1500"
             className="cta-div-animation"
             animationData={signUpAnimation}
