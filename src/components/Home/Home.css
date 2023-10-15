@@ -698,6 +698,7 @@
 
     .feature-item.big h3 {
         font-size: 28px;
+    
     }
 
     .feature-item.big p {
@@ -716,6 +717,7 @@
 
     .feature-item.mid h3 {
         font-size: 28px;
+   
     }
 
     .feature-item.mid p {
@@ -735,6 +737,7 @@
 
     .feature-item.small h3 {
         font-size: 28px;
+  
     }
 
     .feature-item.small p {
@@ -764,7 +767,7 @@
 
 
     .pricing {
-        padding: 50px 20px;
+        padding: 50px 0px;
         text-align: center;
         color: var(--white); 
         margin-top: -62em;
@@ -888,6 +891,7 @@
         font-family: 'Ubuntu', sans-serif;
         text-align: center;
     }
+
 
 
 }
