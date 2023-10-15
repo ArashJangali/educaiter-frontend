@@ -112,12 +112,16 @@ overflow-y: scroll;
         display: block;
     }
 
+    .input-group input{
+        min-width: 22em; 
+    }
+
     .input-group textarea {
-        min-width: 90%; /* Adjusted minimum width */
+        min-width: 22em; 
     }
 
     .contact-btn {
-        width: 60%; /* Reduced width of the submit button */
+        width: 30%; /* Reduced width of the submit button */
         margin-left: auto; /* Center the button */
         margin-right: auto;
         display: block;
