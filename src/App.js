@@ -62,7 +62,7 @@ export default function App() {
                   <Route path="/pricing" element={<Pricing />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/contact" element={<Contact />} />
-                  <Route path="/privacy-policy" element={<Privacy />} />
+                  <Route path="/privacy" element={<Privacy />} />
                   <Route path="/terms" element={<Terms />} />
                   <Route path="/cookies" element={<Cookies />} />
                   <Route path="/reset-password/:token" element={<ResetPassword />} />
