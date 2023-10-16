@@ -93,7 +93,7 @@ const HomePage = () => {
           />
         </video>
         <div className="hero-content">
-          <button className="cta-signup" onClick={() => navigate("/signup")}>
+          <button className="hero-cta-signup" onClick={() => navigate("/signup")}>
             Start For Free
           </button>
         </div>
@@ -415,7 +415,7 @@ const HomePage = () => {
           />
         </div>
       </section>
-      {/* Footer */}
+    
      <Footer />
     </div>
   );

@@ -122,6 +122,25 @@
     color: rgba(0, 0, 0, 0.648);
 }
 
+
+.hero-cta-signup {
+    padding: 15px 45px;
+    margin-top: 65px;
+    border: none;
+    color: rgba(0, 0, 0, 0.648);
+    border-radius: 25px;
+    box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 5px;
+    cursor: pointer;
+    background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+    transition: box-shadow 1s ease;
+}
+
+.hero-cta-signup:hover {
+    box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset;
+    background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+    color: rgba(0, 0, 0, 0.648);
+}
+
 .about {
     padding: 50px 0;
     text-align: center;
@@ -426,7 +445,7 @@
 
 
 .faq-answer {
-    /* Add styles like padding, etc. as you need */
+    opacity: 0.7;
 }
 
 .faq-item {
@@ -581,9 +600,29 @@
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
     
-    .cta-signup {
+    .hero-cta-signup {
         padding: 12px 15px;
         margin-top: 33em;
+        border: none;
+        color: rgba(0, 0, 0, 0.648);
+        border-radius: 25px;
+        box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 5px;
+        cursor: pointer;
+        background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+        transition: box-shadow 1s ease;
+        font-size: 0.8em;
+    }
+    
+    .hero-cta-signup:hover {
+        box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset;
+        background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+        color: rgba(0, 0, 0, 0.648);
+    }
+    
+
+    .cta-signup {
+        padding: 12px 15px;
+        margin-top: 3em;
         border: none;
         color: rgba(0, 0, 0, 0.648);
         border-radius: 25px;
@@ -599,6 +638,8 @@
         background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
         color: rgba(0, 0, 0, 0.648);
     }
+    
+
     
     .about {
         padding: 50px 20px;
@@ -855,7 +896,7 @@
     height: 30px;
     text-align: center;
     font-size: 14px;
-    
+
 }
 
 .faq-answer {
@@ -928,6 +969,6 @@
         text-align: center;
     }
 
-
+  
 
 }

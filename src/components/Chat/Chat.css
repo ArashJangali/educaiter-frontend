@@ -246,7 +246,7 @@ input:focus {
     box-shadow: transparent;
 }
 
-li {
+.chat li {
     display: flex;
     align-items: center;
     justify-content: center;

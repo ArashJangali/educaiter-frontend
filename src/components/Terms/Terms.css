@@ -68,3 +68,79 @@
     margin-bottom: 50px;
     opacity: 0.8;
 }
+
+.terms-body ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0;            /* Remove default padding */
+    margin: 0;             /* Remove default margin */
+}
+
+.terms-body li::before {
+    content: '–';          /* Add dash as bullet point */
+    display: inline-block;
+    margin-right: 10px;    /* Space between the dash and the text */
+}
+
+
+@media only screen and (max-width: 480px) {
+
+    .terms-container {
+        padding: 0px;
+        padding-top: 5em;
+    }
+
+    .terms-header {
+        text-align: center;
+        margin-bottom: 2px;
+        font-weight: 500;
+        padding: 20px 20px 0px 20px;
+    }
+
+     .terms-header h1 {
+        font-size: 30px;
+        margin-bottom: 20px; /* Reduce margin-bottom for tighter spacing */
+    }
+    
+    .terms-header p {
+        font-size: 14px;
+        margin-bottom: 20px; /* Reduce margin-bottom for tighter spacing */
+    }
+
+    .terms-body {
+        flex-direction: column; /* So the text comes first and then the animation */
+        align-items: center; /* Center the items vertically */
+        margin-top: 20px; /* Add some spacing between the header and body */
+        font-size: 14px;
+        padding: 20px;
+        opacity: 0.9;
+    }
+
+    .terms-body p {
+        margin-bottom: 15px; /* Reduce margin-bottom for tighter spacing */
+    }
+
+    .terms-body h2 {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+
+    .terms-body h3 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .terms-body h4 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    .terms-body li {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .terms-body li::before {
+        margin-right: 5px; /* Reduce the space between the dash and the text for smaller screens */
+    }
+    
+}
