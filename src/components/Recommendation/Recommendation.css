@@ -1,18 +1,19 @@
 .recommendation-container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    background-color: #282c34;
+    background: linear-gradient(170deg,#0579ed, #00BFFF, #acd0dccf, #426ab4ab, #5534b77d);
     height: 100vh;
     padding: 20px;
+    width: 100%;
 }
 
 .date-picker-container {
    margin-left: 0 !important;
    margin-bottom: 20px;
    display: flex;
-   flex-direction: row;
+   flex-direction: column;
    justify-content: center;
    align-items: center;
    gap: 10px;
@@ -50,20 +51,18 @@
     margin-right: 0.5em;
     overflow: scroll !important;
     padding: 2em;
-    border: 1px solid #76777b5b;
     border-radius: 20px;
     width: 50%;
-    background: linear-gradient(to bottom, #282c34 0%, #282c34 100%);
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
-    border: 2.5px solid rgba(255, 255, 255, 0.021);
+    background: linear-gradient(45deg,#0579ed, #00BFFF, #acd0dccf, #426ab4ab, #5534b77d);
     max-height: 300px;
 }
 
 .guide {
     display: flex;
-    flex-direction: row;
-    min-width: 100%;
+    flex-direction: column;
+    width: 100%;
     min-height: 50%;
+    
 }
 
 .guide h4 {
@@ -76,19 +75,16 @@
     margin-left: 0.5em;
     margin-right: 0.5em;
     padding: 2em;
-    border: 1px solid #76777b5b;
     overflow: scroll;
     border-radius: 20px;
     width: 50%;
-    background: linear-gradient(to bottom, #282c34 0%, #282c34 100%);
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
-    border: 2.5px solid rgba(255, 255, 255, 0.021);
+    background: linear-gradient(45deg,#0579ed, #00BFFF, #acd0dccf, #426ab4ab, #5534b77d);
     max-height: 300px;
 }
 
 .subject-button .selected {
-    background: linear-gradient(to bottom, #282c34 0%, #1b2944 100%);
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(45deg,#0579ed, #00BFFF, #acd0dccf, #426ab4ab, #5534b77d);
+  
     border: 0.5px solid rgba(23, 21, 21, 0.438);
     color: rgba(240, 248, 255, 0.583);
   }

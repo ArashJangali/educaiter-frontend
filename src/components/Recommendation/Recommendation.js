@@ -9,6 +9,7 @@ import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './DatePickerStyles.css';
 import Select from "react-select";
+import Sidebar from "../Sidebar/Sidebar";
 
 
 export default function Recommendation() {
@@ -116,17 +117,17 @@ export default function Recommendation() {
     }),
     menu: (provided, state) => ({
       ...provided,
-      background: '#282c64',
+      background: 'linear-gradient(170deg,#0579ed, #00BFFF, #acd0dccf, #426ab4ab, #5534b77d)',
       zIndex: 9999,
       overflow: 'auto',
     }),
     menuPortal: (provided) => ({ ...provided, zIndex: 9999 }),
     control: (provided) => ({
       ...provided,
-      background: '#282c34',
+      background: 'linear-gradient(170deg,#0579ed, #00BFFF, #acd0dccf, #426ab4ab, #5534b77d)',
       color: 'white',
       width: 200,
-      border: '2px solid #646c7a',
+      border: 'none',
       boxShadow: 'none',
       bottom: '5px',
   }),
@@ -139,6 +140,7 @@ export default function Recommendation() {
   }
   return (
     <div className="recommendation-container">
+    <Sidebar />
     {apiLimitReached || noAccess ? (
         <div className="apilimit-modal-container">
           <span className="close-button" onClick={onClose}>
@@ -161,6 +163,9 @@ export default function Recommendation() {
         <>
        
       
+      
+     
+      <div className="guide">
       <div className="date-picker-container">
       <ReactDatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
       <ReactDatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
@@ -173,9 +178,6 @@ export default function Recommendation() {
           menuPosition={'fixed'} 
          />
       </div>
-     
-      <div className="guide">
-      
         <div className="incorrect-recommendation">
        
           <h4>
@@ -274,11 +276,13 @@ export default function Recommendation() {
           ) : (
             <div>Suggestions will appear once a subject and a date are selected.</div>
           )}
+          
         </div>
-      </div>
-      <button className="review-button" onClick={startFlashcards}>
+        <button className="review-button" onClick={startFlashcards}>
         Want a quick review? Try these flashcards!
       </button>
+      </div>
+    
       {showFlashcards && (
         <div className="flashcard-overlay">
         <span className="close material-symbols-outlined" onClick={() => setShowFlashcards(false)}>Close</span>

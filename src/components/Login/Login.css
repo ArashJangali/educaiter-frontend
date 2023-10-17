@@ -154,3 +154,25 @@
     }
 }
 
+@media screen and (max-width: 450px) {
+    .modal-content {
+        background: linear-gradient(to bottom,#5534b7d0, #6699CC);
+          padding: 20px;
+          border-radius: 24px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+          max-width: 50% !important;
+          border: none;
+        }
+
+        .modal-content button {
+            padding: 0.em;
+            font-size: 1em;
+            cursor: pointer;
+            box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset !important;
+            background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%) !important;
+            color: rgba(0, 0, 0, 0.648) !important;
+            border: none;
+            transition: background-color 0.3s ease;
+            width: 60% !important;
+        }
+}

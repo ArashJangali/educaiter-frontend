@@ -98,6 +98,58 @@ overflow-y: scroll;
 }
 
 
+
+
+/* Modal container */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #6699CC, #5534b743, #6699CC);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  
+  /* Modal content */
+  .modal-content {
+    background: linear-gradient(to bottom,#5534b7d0, #6699CC);
+    padding: 20px;
+    border-radius: 24px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    max-width: 20% !important;
+    border: none;
+    color: #ffffff;
+  }
+  
+  /* Modal text */
+  .modal-content p {
+    margin-bottom: 10px;
+  }
+  
+  /* Modal close button */
+  .modal-content button {
+    padding: 0.em;
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset !important;
+    background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%) !important;
+    color: rgba(0, 0, 0, 0.648) !important;
+    border: none;
+    transition: background-color 0.3s ease;
+    width: 40%;
+  }
+  
+  .modal-content button:hover {
+      box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset !important;
+      background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+      color: rgba(0, 0, 0, 0.648);
+  }
+
+
 @media only screen and (max-width: 480px) {
    
     .contact-body {
@@ -126,5 +178,30 @@ overflow-y: scroll;
         margin-right: auto;
         display: block;
     }
+
+
+
+    .modal-content {
+        background: linear-gradient(to bottom,#5534b7d0, #6699CC);
+          padding: 20px;
+          border-radius: 24px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+          max-width: 50% !important;
+          border: none;
+        }
+
+        .modal-content button {
+            padding: 0.em;
+            font-size: 1em;
+            cursor: pointer;
+            box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset !important;
+            background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%) !important;
+            color: rgba(0, 0, 0, 0.648) !important;
+            border: none;
+            transition: background-color 0.3s ease;
+            width: 60% !important;
+        }
+
+
 
 }

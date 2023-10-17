@@ -27,7 +27,7 @@ export default function Signup() {
     } catch (error) {
       if (error.response && error.response.status === 400) {
         setShowModal(true);
-        setError(error.response.data.error); // or display the error message in a more user-friendly way
+        setError(error.response.data.error); 
       } else {
         setShowModal(true);
         setError(error.response.data.error);
