@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "../../Api/axiosInstance";
 import "./StrategyRoom.css";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 import UserContext from "../../../contexts/UserContext";
 
 function StrategyRoom() {
@@ -25,21 +25,26 @@ function StrategyRoom() {
   const [loading, setLoading] = useState(true);
   const [optionSelected, setOptionSelected] = useState(false);
   const [retryClicked, setRetryClicked] = useState(0);
-  const {user, setUser} = useContext(UserContext)
-  const userId = user?._id
+  const [showModal, setShowModal] = useState(false);
+  const { user, setUser } = useContext(UserContext);
+  const [noQuestions, setNoQuestions] = useState(false);
 
- 
+  const userId = user?._id;
+
   useEffect(() => {
     const fetchMCQ = async () => {
       try {
         const response = await axios.get(
           `./mcqs/fetch/${selectedAreas}/${selectedLevels}?userId=${userId}`,
           {
-            withCredentials: true
+            withCredentials: true,
           }
         );
         setMcq(response?.data);
         setLoading(false);
+        if (response?.data.length === 0) {
+          setNoQuestions(true);
+      }
       } catch (error) {
         console.error("Error fetching MCQs", error);
         setLoading(false);
@@ -72,7 +77,6 @@ function StrategyRoom() {
     } = mcq[currentQuestionIndex]);
     mcqId = _id;
   }
-  
 
   const handleOptionClick = async (index, isCorrect) => {
     setOptionSelected(true);
@@ -81,85 +85,81 @@ function StrategyRoom() {
       setCorrect(true);
       setCorrectAnswers((prev) => prev + 1);
 
-
       try {
         await axios.post("/mcqs/mcq-answer", { userId, mcqId, isCorrect });
       } catch (error) {
-        console.error('Error submitting answer', error);
+        console.error("Error submitting answer", error);
       }
-
-
     } else {
       setCorrect(false);
     }
   };
 
   const handleRetryClick = () => {
-    setOptionSelected(false)
+    setOptionSelected(false);
     setSecondTry(true);
     setCorrect(null);
-    setSelectedOption(null)
-    setRetryClicked(prev => prev + 1)
+    setSelectedOption(null);
+    setRetryClicked((prev) => prev + 1);
   };
 
   const handleNextClick = () => {
-    if (currentQuestionIndex < mcq.length - 1) { 
-        setCurrentQuestionIndex(prev => prev + 1);
-      }
+    if (currentQuestionIndex < mcq.length - 1) {
+      setCurrentQuestionIndex((prev) => prev + 1);
+    }
     setOptionSelected(false);
-    setNext((prev) => !prev)
-    setHintViewed(false)
-    setCorrect(null)
-    setSelectedOption(null)
-    setShowExplanation(false)
-    setSecondTry(false)
-    setRetryClicked(0)
-  }
+    setNext((prev) => !prev);
+    setHintViewed(false);
+    setCorrect(null);
+    setSelectedOption(null);
+    setShowExplanation(false);
+    setSecondTry(false);
+    setRetryClicked(0);
+  };
 
   const performanceIcons = {
     Excellent: "/icons/excellent.svg",
     Good: "/icons/good.svg",
-    NeedsImprovement: "/icons/improve.svg"
+    NeedsImprovement: "/icons/improve.svg",
   };
 
   let performanceLevel;
 
   if (!hintViewed && !secondTry && correct) {
     performanceLevel = "Excellent";
-  } else if ((hintViewed && retryClicked === 0 && correct) || (!hintViewed && retryClicked === 1 && correct)) {
+  } else if (
+    (hintViewed && retryClicked === 0 && correct) ||
+    (!hintViewed && retryClicked === 1 && correct)
+  ) {
     performanceLevel = "Good";
   } else if (retryClicked > 1 && correct) {
     performanceLevel = "NeedsImprovement";
   }
 
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
 
-  if (mcq.length === 0 || mcq[currentQuestionIndex] === undefined) {
-    return <div>No questions available</div>;
-  }
-
-  
-
-
-  
-
+  const handleCloseModal = async () => {
+    setLoading(false);
+  };
 
   return (
     <div className="strategy-room">
       <div className="header">Strategy Room</div>
-      <motion.div initial={{ opacity:0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }} className="question-section">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8 }}
+        className="question-section"
+      >
         <div className="question">
           Question {currentQuestionIndex + 1}: {question}
         </div>
 
         <div className="options">
-          {options.map((option, index) => (
+          {options?.map((option, index) => (
             <button
               key={index}
-              disabled={optionSelected} 
+              disabled={optionSelected}
               className={`option ${
                 selectedOption?.index === index
                   ? selectedOption?.isCorrect
@@ -173,42 +173,109 @@ function StrategyRoom() {
             </button>
           ))}
         </div>
-<div className="middle-section">
-        <div className="hint-section">
-          {showHint && <div>Hint: {hint}</div>}
-        </div>
+        <div className="middle-section">
+          <div className="hint-section">
+            {showHint && <div>Hint: {hint}</div>}
+          </div>
 
-        <div className="explanation-section">
-          {showExplanation && <div>{explanation}</div>}
-        </div>
+          <div className="explanation-section">
+            {showExplanation && <div>{explanation}</div>}
+          </div>
 
-        { correctAnswers !== 0 && <div className="score-section"> {Array(correctAnswers).fill().map((_, index) => (
-            <img key={index} src="/icons/correct.svg" style={{ width: '21px', height: '21px'}}/>
-        ))}</div>}
+          {correctAnswers !== 0 && (
+            <div className="score-section">
+              {" "}
+              {Array(correctAnswers)
+                .fill()
+                .map((_, index) => (
+                  <img
+                    key={index}
+                    src="/icons/correct.svg"
+                    style={{ width: "21px", height: "21px" }}
+                  />
+                ))}
+            </div>
+          )}
 
-        <div className="performance">{performanceLevel && <img src={performanceIcons[performanceLevel]} alt={performanceLevel} style={{ width: '40px', height: '40px'}}  />}</div>
+          <div className="performance">
+            {performanceLevel && (
+              <img
+                src={performanceIcons[performanceLevel]}
+                alt={performanceLevel}
+                style={{ width: "40px", height: "40px" }}
+              />
+            )}
+          </div>
 
-        <div className="concept-level-container">
+          <div className="concept-level-container">
             <div className="concept">Concept: {concept}</div>
             <div className="level">Level: {level}</div>
+          </div>
         </div>
-</div>
         <div className="navigation-buttons">
-          <button onClick={() => navigate("/setup/strategy")}><img src="/icons/exit.svg" style={{ width: '24px', height: '24px'}} /></button>
+          <button onClick={() => navigate("/setup/strategy")}>
+            <img
+              src="/icons/exit.svg"
+              style={{ width: "24px", height: "24px" }}
+            />
+          </button>
           {correct === null && (
-            <button onClick={() => { setShowHint((prev) => !prev); setHintViewed(true) }}><img src="/icons/hint.svg" style={{ width: '24px', height: '24px' }} /></button>)}
-          {correct !== null && (
-            <button onClick={() => setShowExplanation((prev) => !prev)}>
-            <img src="/icons/explanation.svg" style={{ width: '24px', height: '24px' }} />
+            <button
+              onClick={() => {
+                setShowHint((prev) => !prev);
+                setHintViewed(true);
+              }}
+            >
+              <img
+                src="/icons/hint.svg"
+                style={{ width: "24px", height: "24px" }}
+              />
             </button>
           )}
-          {(correct === false) && <button onClick={handleRetryClick}><img src="/icons/retry.svg" style={{ width: '24px', height: '24px'}} /></button>}
           {correct !== null && (
-            <button
-              onClick={handleNextClick}><img src="/icons/next.svg" style={{ width: '24px', height: '24px'}} /></button>
+            <button onClick={() => setShowExplanation((prev) => !prev)}>
+              <img
+                src="/icons/explanation.svg"
+                style={{ width: "24px", height: "24px" }}
+              />
+            </button>
+          )}
+          {correct === false && (
+            <button onClick={handleRetryClick}>
+              <img
+                src="/icons/retry.svg"
+                style={{ width: "24px", height: "24px" }}
+              />
+            </button>
+          )}
+          {correct !== null && (
+            <button onClick={handleNextClick}>
+              <img
+                src="/icons/next.svg"
+                style={{ width: "24px", height: "24px" }}
+              />
+            </button>
           )}
         </div>
+        {(!mcq[currentQuestionIndex] || mcq.length === 0) && (
+    <div className="modal">
+        <div className="modal-content">
+            <p>No questions available.</p>
+            <button onClick={() => navigate('/setup/strategy')}>Close</button>
+        </div>
+    </div>
+)}
       </motion.div>
+    
+
+      {loading && (
+        <div className="modal">
+          <div className="modal-content">
+            <p>loading..</p>
+            <button onClick={handleCloseModal}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

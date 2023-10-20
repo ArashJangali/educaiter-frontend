@@ -31,6 +31,7 @@ import Contact from "./components/Contact/Contact";
 import Privacy from "./components/Privacy/Privacy";
 import Terms from "./components/Terms/Terms";
 import Cookies from "./components/Cookies/Cookies";
+import Sub from './components/Subscription/Sub'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -68,7 +69,7 @@ export default function App() {
                   <Route path="/reset-password/:token" element={<ResetPassword />} />
                   <Route path="/user-profile" element={<UserLoader><UserProfile /></UserLoader>} />
                   <Route path="/chat" element={<UserLoader><Chat /></UserLoader>} />
-                  <Route path="/assessment" element={<UserLoader><Assessment /></UserLoader>} />
+                  <Route path="/quiz" element={<UserLoader><Assessment /></UserLoader>} />
                   <Route path="/dashboard" element={<UserLoader><Dashboard /></UserLoader>} />
                   <Route path="/insight" element={<UserLoader><Recommendation /></UserLoader>} />
                   <Route path="/puzzles" element={<UserLoader><Puzzles /></UserLoader>} />
@@ -80,7 +81,7 @@ export default function App() {
                   <Route path="/addpuzzle" element={<UserLoader><AddPuzzle /></UserLoader>} />
                   <Route path="/subscription" element={ 
                       <Elements stripe={stripePromise}>
-                          <UserLoader><Subscription /></UserLoader>
+                          <UserLoader><Sub /></UserLoader>
                       </Elements>} />
                   <Route path="/success" element={<UserLoader><Success /></UserLoader>} />
                   <Route path="/cancel" element={<UserLoader><Cancel /></UserLoader>} />

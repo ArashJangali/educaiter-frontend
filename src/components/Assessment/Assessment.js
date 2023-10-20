@@ -4,7 +4,14 @@ import axios from "../Api/axiosInstance";
 import "../../index.css";
 import "./Assessment.css";
 import Select from "react-select";
+import Sidebar from "../Sidebar/Sidebar";
 import UserContext from "../../contexts/UserContext";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Lottie from "lottie-react";
+import correctAnimation from "../../assets/correct.json";
+import incorrectAnimation from "../../assets/incorrect.json";
+import placeholderCharacter from "../../assets/placeholderCharacter.json";
 import { CSSTransition } from 'react-transition-group';
 
 
@@ -100,9 +107,9 @@ const levels = [
 
         if (correct) {
             setCorrect(true)
-            setResult("Correct!");
+            setResult("correct");
           } else {
-            setResult("Incorrect. Try again!");
+            setResult("incorrect");
           }
           setAnswer("");
       })
@@ -144,16 +151,16 @@ const levels = [
     option: (provided, state) => ({
       ...provided,
       borderBottom: '1px dotted pink',
-      color: state.isSelected ? 'red' : 'white',
+      color: state.isSelected ? 'blue' : 'black',
       padding: 2,
     }),
     menu: (provided, state) => ({
       ...provided,
-      background: '#282c34',
+      background: 'transparent',
     }),
     control: (provided) => ({
       ...provided,
-      background: '#282c34',
+      background: 'transparent',
       color: 'white',
       width: 150,
       border: '2px solid #646c7a',
@@ -170,6 +177,7 @@ const levels = [
 
   return (
     <div className="assessment">
+    <Sidebar />
       {apiLimitReached || noAccess ? (
         <div className="apilimit-modal-container">
           <span className="close-button" onClick={onClose}>
@@ -189,7 +197,7 @@ const levels = [
           </div>
         </div>
       ) : (
-        <>
+        <div className="assessment-container">
           <h1 className="assessment-title"></h1>
           <div className="topic-selection">
             <Select
@@ -206,24 +214,57 @@ const levels = [
             />
       
           </div>
+          
+          
           {topic && (
-            <div className="question-section">
+            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
+            {(result === 'correct')  && <Lottie
+            data-aos="fade-up"
+            data-aos-duration="1500"
+            className="lottie-quiz"
+            animationData={correctAnimation}
+            loop={true}
+          />}
+{(result === 'incorrect')  && <Lottie
+            data-aos="fade-up"
+            data-aos-duration="1500"
+            className="lottie-quiz"
+            animationData={incorrectAnimation}
+            loop={true}
+          />}
+          {(result === '')  && <Lottie
+            data-aos="zoom-in"
+            data-aos-duration="10"
+            className="lottie-quiz"
+            animationData={placeholderCharacter}
+            loop={true}
+          />}
+           <div className="question-section">
               <p className="question">{question}</p>
             </div>
+            </div>
+           
           )}
-          <div className={`result ${correct ? "correct" : "incorrect"}`}>
-            {result}
-          </div>
+        
           {!topic && (
+            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center'}}><Lottie
+            data-aos="fade-up"
+            data-aos-duration="1500"
+            className="lottie-quiz"
+            animationData={placeholderCharacter}
+            loop={true}
+          />
             <div className="question-section">
               <p className="question">
-                Please select a topic to begin the assessment.
+                Please select a topic.
               </p>
-            </div>
+            </div></div>
+            
           )}
-          <div className="input-container">
+          
+          <div className="assessment-input-container">
             <input
-              className="answer-input"
+              className="assessment-answer-input"
               type="text"
               value={answer}
               onChange={(event) => setAnswer(event.target.value)}
@@ -234,10 +275,10 @@ const levels = [
               onClick={submitAnswer}
               disabled={!question}
             >
-              Submit Answer
+              →
             </button>
           </div>
-        </>
+        </div>
       )}
     </div>
   );

@@ -1,5 +1,5 @@
 .subscription-page {
-    background-color: #282c34;
+  background: linear-gradient(to bottom, #6699CC, #604ba064, #6699CC, #6699CC);
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -4,6 +4,7 @@ import axios from "../Api/axiosInstance";
 import Select from "react-select";
 import UserContext from "../../contexts/UserContext";
 import "./Puzzles.css";
+import Sidebar from "../Sidebar/Sidebar";
 
 const Puzzles = () => {
     const navigate = useNavigate();
@@ -15,7 +16,8 @@ const Puzzles = () => {
 
   return (
     <div className="puzzle-container">
-      <h1>Puzzles</h1>
+    <Sidebar />
+    <div className="puzzle-parent"><h1>Puzzles</h1>
       {/* <div className="puzzle">
       <img src="/icons/training.svg" className="icon" />
         <div onClick={() => handlePuzzleClick('training')}>
@@ -44,6 +46,7 @@ const Puzzles = () => {
 
 
       <div className="puzzle">
+      
       <img src="/icons/duel.svg" className="icon" />
         <div onClick={() => handlePuzzleClick('battle')}>
           <h3>Battlefield</h3>
@@ -68,14 +71,15 @@ const Puzzles = () => {
       <div className="puzzle">
       <img src="/icons/strategy.svg" className="icon" />
         <div onClick={() => handlePuzzleClick('strategy')}>
-          <h3>Strategy Room</h3>
+          <h3 >Strategy Room</h3>
           <p>
             Take command in your personal strategy room, where you have the
             freedom to customize your training regimen. Handpick puzzles based
             on themes and difficulty levels.
           </p>
         </div>
-      </div>
+      </div></div>
+     
     </div>
   );
 };

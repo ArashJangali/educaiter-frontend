@@ -5,27 +5,28 @@
     align-items: center;
     background: linear-gradient(to bottom, #292963, #131327);
     border-radius: 20px;
-    padding: 20px;
+    padding: 10px;
     width: 100%;
+   
     max-width: 30em;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     color: #dee2e6 !important;
 }
 
 .select-opponent h3 {
-    color: #a49cbd;
+    color: #ffffff;
     font-size: 1em;
 }
 
 .select-opponent button {
     padding: 8px;
     border-radius: 28px;
-    background: linear-gradient(to bottom, #292963, #131327);
+    background: transparent !important;
     transition: background-color 0.3s ease;
     cursor: pointer;
     box-sizing: border-box;
     width: 5em;
-    color: #a49cbd;
+    color: #ffffff;
     margin-left: 0;
     border: transparent;
     text-align: center;
@@ -35,7 +36,7 @@
 
 .select-opponent button:hover {
     color:#a49cbd;
-    background: linear-gradient(to bottom, #131327, #292963 );
+    background: transparent !important;
 }
 
 .random-opponent {
@@ -94,5 +95,5 @@
 }
 
 .modal {
-    background: linear-gradient(to bottom, #181840ef, #0b0b19e8);
+    background: linear-gradient(to bottom, #181840ef, #0b0b19e8) !important;
 }

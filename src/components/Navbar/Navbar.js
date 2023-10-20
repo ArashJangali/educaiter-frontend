@@ -39,6 +39,7 @@ export default function Navbar({ loggedOut, setLoggedOut }) {
     navbarClasses.push('scrolled');
 }
 
+console.log(user)
 
 
 let signUpButtonClass=['nav-signup-btn']

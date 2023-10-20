@@ -1,12 +1,20 @@
 .assessment {
-    background-color: #282c34;
+    background: linear-gradient(170deg,#0579ed, #00BFFF, #acd0dccf, #426ab4ab, #5534b77d);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding: 20px;
     color: #FFF;
     min-height: 100vh;
+}
+
+.assessment-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .header-section {
@@ -40,7 +48,7 @@
 
 
 
-    border: solid 0.5px #aaaaaa42;
+    border: solid 0.5px #ce252542;
     background: transparent;
     box-shadow: none;
     transition: 0.4s all ease-in-out;
@@ -48,43 +56,39 @@
 
 .assessment .topic-button:hover {
     color: #282c34;
-    background: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(170deg,#0579ed, #00BFFF, #acd0dccf, #426ab4ab, #5534b77d);
 }
 
 .assessment .question-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 80%;
     flex-grow: 1; 
     justify-content: center; 
+    border: 2px white solid;
+    background: transparent;
+    height: 100px;
 }
 
 .assessment .question-section .question {
     font-size: 1.1em;
     text-align: center;
-    border: solid 0.5px #aaaaaa42;
+    border: solid 0.5px #b8969600;
     padding: 2rem;
     border-radius: 20px;
-    color: #b1d0e7;
-    min-height: 60px;
-    min-width: 20rem;
+    color: #ffffff;
+    min-height: 0px;
+    min-width: 0rem;
     max-width: 20rem;
     max-height: 80px;
     overflow-y: scroll;
-    background: #282c34;
-    box-shadow: 1px 1px #404040, 
-                2px 2px #3f3f3f, 
-                3px 3px #3e3e3e, 
-                4px 4px #3d3d3d, 
-                5px 5px #3c3c3c, 
-                6px 6px #3b3b3b;
-    transition: all 0.3s ease-in-out;
+    background: transparent;
+
 }
 
 .assessment .question-section .question:hover {
-   
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: transparent;
   }
 
 .assessment .question-section .question:before {
@@ -96,7 +100,6 @@
     background: #282c34;
     width: 80%;
     height: 20%;
-  
     max-width: 20rem;
     border-bottom-left-radius: 45% 15px;
     transform: rotate(3deg);
@@ -126,51 +129,73 @@
     background: rgba(255, 255, 255, 0.2);
 }
 
-.assessment .question-section .answer-input {
+.assessment .question-section .assessment-answer-input {
     width: 85%;
     background-color: #2B2F38;
     padding: 10px;
     color:  #AAA; 
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: transparent;
     border: 2.5px solid rgba(255, 255, 255, 0.021);
-    border-radius: 5px;
+  
 }
 
-.assessment .question-section .answer-input:focus {
+.assessment .question-section .assessment-answer-input:focus {
     outline: none;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: transparent;
 }
 
-.input-container {
-    background: #282c34;
-    padding: 15px; 
-    box-shadow: 0px -2px 10px 0px rgba(0,0,0,0.75);
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
+.assessment-input-container {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    background: transparent !important;
+    padding: 0px; 
+    padding-top: 40px !important; 
+   box-shadow: none !important;
     z-index: 999; 
-    width: 95%;
-    border-radius: 15px;
-   margin-bottom: 3rem;
-   
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
 }
 
-.input-container:hover {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+.assessment-input-container .assessment-answer-input{
+    border-radius: 25px;
+    max-width: 90%;
+
+    margin: 0;
+    width: 85% !important;
+}
+
+.lottie-quiz {
+    width: 30% !important;
+    height: 30% !important;
+}
+
+.assessment-input-container:hover {
+    box-shadow: transparent;
 }
 
 
 .assessment .submit-button {
-font-size: 14px;
-    background-color: transparent;
-    border-radius: 10px;
-    padding: 7px 7px;
-    margin: 3px;
+    position: relative;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 0.4em;
+    border: none;
+    margin: 0;
+    background: transparent;
+    box-shadow: none;
+    transition: 0.3s all ease-in-out;
 }
 
 .assessment .question-section .submit-button:hover {
-    color: #282c34;
-    background: rgba(255, 255, 255, 0.2);
+    box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset !important;
+    background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+    color: rgba(0, 0, 0, 0.648);
 }
 
 button {
@@ -227,6 +252,12 @@ button {
 
   .css-b62m3t-container {
     min-width: 0px !important;
+  }
+
+  .css-1dekisi-control {
+    border: 0.5px solid rgb(241, 241, 241) !important;
+    border-radius: 20px;
+    padding: 5px;
   }
 
   .close-button {

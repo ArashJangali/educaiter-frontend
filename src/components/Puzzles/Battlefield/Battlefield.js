@@ -25,6 +25,7 @@ function Battlefield() {
   const [loading, setLoading] = useState(true);
   const [optionSelected, setOptionSelected] = useState(false);
   const [retryClicked, setRetryClicked] = useState(0);
+  const [showModal, setShowModal] = useState(false);
   const {user, setUser} = useContext(UserContext)
   const userId = user?._id
 
@@ -138,11 +139,15 @@ function Battlefield() {
   }
 
   if (mcq.length === 0 || mcq[currentQuestionIndex] === undefined) {
-    return <div>No questions available</div>;
+    setShowModal(true)
   }
 
-  
+ 
 
+  const handleCloseModal = async () => {
+    setShowModal(false)
+
+  }
 
   
 
@@ -209,6 +214,14 @@ function Battlefield() {
           )}
         </div>
       </motion.div>
+      {showModal && (
+    <div className="modal">
+      <div className="modal-content">
+        <p>No questions available.</p>
+        <button onClick={handleCloseModal}>Close</button>
+      </div>
+    </div>
+  )}
     </div>
   );
 }

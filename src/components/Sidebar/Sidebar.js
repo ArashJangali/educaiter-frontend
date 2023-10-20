@@ -7,14 +7,14 @@ const {user, setUser} = useContext(UserContext)
   return (
     <section className='side-bar'>
     <div className="links">
-    <a style={{textDecoration: 'none'}} href="/subscription"><div className="group" style={{justifyContent: 'space-evenly', width: '100px', background: 'rgba(255, 255, 255, 0.1)', borderRadius: '20px', padding: '5px'}}>{user?.credits} <img src="/icons/buy.svg" style={{width: '18px', height: '18px'}} /> <img title="Credits Left" src="/icons/question-mark.svg" style={{width: '16px', height: '16px'}} /></div></a>
+      <a style={{textDecoration: 'none'}} href="/subscription"><div className="group" style={{justifyContent: 'space-evenly', width: '100px', background: 'rgba(255, 255, 255, 0.1)', borderRadius: '20px', padding: '5px'}}>{user?.credits} <img src="/icons/buy.svg" style={{width: '18px', height: '18px'}} /> <img title="Credits Used" src="/icons/question-mark.svg" style={{width: '16px', height: '16px'}} /></div></a>
       <a style={{textDecoration: 'none'}} href="/"><div className="group"><img src="/icons/home.svg" style={{width: '24px', height: '24px'}} />Home</div></a>
       <a style={{textDecoration: 'none'}} href="/puzzles"><div className="group"><img src="/icons/puzzle.svg" style={{width: '24px', height: '24px'}} />Puzzles</div></a>
+      <a style={{textDecoration: 'none'}} href="/quiz"><div className="group"><img src="/icons/quiz.svg" style={{width: '24px', height: '24px'}} />Quiz</div></a>
       <a style={{textDecoration: 'none'}} href="/chat"><div className="group"><img src="/icons/chat.svg" style={{width: '24px', height: '24px'}} />Chat</div></a>
       <a style={{textDecoration: 'none'}} href="/insight"><div className="group"><img src="/icons/insight.svg" style={{width: '24px', height: '24px'}} />AI Insight</div></a>
       <a style={{textDecoration: 'none'}} href="/dashboard"><div className="group"><img src="/icons/dashboard.svg" style={{width: '24px', height: '24px'}} />Dashboard</div></a>
       <a style={{textDecoration: 'none'}} href="/user-profile"><div className="group"><img src="/icons/profile.svg" style={{width: '24px', height: '24px'}} />Profile</div></a>
-      {/* <a style={{textDecoration: 'none'}} href="/"><div className="group"><img src="" style={{width: '24px', height: '24px'}} />Settings</div></a> */}
       <a style={{textDecoration: 'none'}} href="/"><div className="group"><img src="/icons/logout.svg" style={{width: '24px', height: '24px'}} />Logout</div></a>
       
     </div>

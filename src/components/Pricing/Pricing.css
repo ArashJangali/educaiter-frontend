@@ -15,7 +15,7 @@
     justify-content: center;
     padding-top: 8em; 
     background: linear-gradient(to bottom, #6699CC, #604ba064, #6699CC, #6699CC);
-    overflow-y: scroll;
+  
 }
 
 .pricing-header {

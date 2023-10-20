@@ -36,15 +36,21 @@ function ChooseOpponent() {
         setModalContent('leaderboard');
         setIsModalOpen(true);
       };
-
+     const handleCloseModal = () => {
+      setModalContent('');
+        setIsModalOpen(false);
+     }
 
   return (
     <div className="parent">
       {isModalOpen && (
         <div className="modal">
           {modalContent === "randomOpponent" && (
+            
             <div style={{display: 'flex', flexDirection: 'column', justifyContent:'center', alignItems: 'center'}}>
-              <p>Finding your opponent...</p>
+            <button style={{background: 'transparent', color: color}} onClick={handleCloseModal}>❌</button>
+              <h3>Finding your opponent...</h3>
+              <p style={{background: 'transparent', color: color}}>This feature is not available yet. Coming soon. 😊</p>
               <GridLoader
                 color={color}
                 loading={loading}
@@ -57,21 +63,40 @@ function ChooseOpponent() {
             </div>
           )}
           {modalContent === "friend" && (
-            <div>
+            <div style={{display: 'flex', flexDirection: 'column', justifyContent:'center', alignItems: 'center'}}>
+            <button style={{background: 'transparent', color: color}} onClick={handleCloseModal}>❌</button>
               <h3>Invite a Friend</h3>
-              {/* <input type="text" placeholder="Search a friend" />
-              <button>Invite a Friend</button> */}
+              <p style={{background: 'transparent', color: color}}>This feature is not available yet. Coming soon. 😊</p>
+              <GridLoader
+                color={color}
+                loading={loading}
+                css={loaderStyles}
+                size={15}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+              />
+              {/* Maybe a spinner */}
             </div>
           )}
           {modalContent === "leaderboard" && (
-            <div>
+            <div style={{display: 'flex', flexDirection: 'column', justifyContent:'center', alignItems: 'center'}}>
+            <button style={{background: 'transparent', color: color}} onClick={handleCloseModal}>❌</button>
               <h3>Select Opponent from Leaderboard</h3>
-              {/* Interface to select an opponent from the leaderboard */}
+              <p style={{background: 'transparent', color: color}}>This feature is not available yet. Coming soon. 😊</p>
+              <GridLoader
+                color={color}
+                loading={loading}
+                css={loaderStyles}
+                size={15}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+              />
+              {/* Maybe a spinner */}
             </div>
           )}
         </div>
       )}
-
+     
       <div
         style={{
           display: "flex",
@@ -90,11 +115,11 @@ function ChooseOpponent() {
         >
           <img
             src="/icons/back.svg"
-            style={{ width: "24px", height: "24px" }}
+            style={{ width: "24px", height: "24px", marginTop: '50px' }}
             alt="back icon"
           />
         </button>
-        <h1>Choose Opponent</h1>
+        <h1 style={{marginTop: '70px' }}>Choose Opponent</h1>
       </div>
 
       <div className="select-opponent">

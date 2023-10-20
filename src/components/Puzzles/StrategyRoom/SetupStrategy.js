@@ -43,8 +43,8 @@ function SetupStrategy() {
   return (
     <div className="parent">
     <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
-    <button style={{background: 'transparent', border: 'none', boxShadow: 'none'}} onClick={() => navigate('/puzzles')}><img src='/icons/back.svg' style={{ width: '24px', height: '24px'}}/></button>
-      <h1>Strategy Room</h1>
+    <button style={{background: 'transparent', border: 'none', boxShadow: 'none'}} onClick={() => navigate('/puzzles')}><img src='/icons/back.svg'  style={{ width: "24px", height: "24px", marginTop: '70px' }}/></button>
+      <h1  style={{marginTop: '93px' }}>Strategy Room</h1>
       </div>
     
       <img src="/icons/strategy.svg" className="icon" alt="Strategy Icon" />

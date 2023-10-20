@@ -55,8 +55,15 @@ background: linear-gradient(170deg,#0579ed, #00BFFF, #acd0dc, #986edb89, #1085d9
     box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset !important;
     background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
     color: rgba(0, 0, 0, 0.648);
-    width: 11%;
+    width: 80%;
     font-size: 13px;
+    
+}
+
+.profile-btn-container {
+    border: 1px solid rgba(90, 52, 155, 0.21);
+    width: 10em;
+    border-radius: 20px;
 }
 
 .edit-profile-btn:hover {

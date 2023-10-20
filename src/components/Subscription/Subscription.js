@@ -5,6 +5,12 @@ import axios from "../Api/axiosInstance";
 import "./Subscription.css";
 import UserContext from "../../contexts/UserContext";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import Lottie from "lottie-react";
+import bronzeTier from "../../assets/bronze-tier.json";
+import silverTier from "../../assets/silver-tier.json";
+import goldTier from "../../assets/gold-tier.json";
+import "aos/dist/aos.css";
 
 export default function Subscription() {
   const stripe = useStripe();

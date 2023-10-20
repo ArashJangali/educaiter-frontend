@@ -15,24 +15,18 @@ const UserProfile = () => {
   const [error, setError] = useState(null);
   const [avatarUrl, setAvatarUrl] = useState(null);
   const [changePassClicked, setChangePassClicked] = useState(false);
-  const [newPass, setNewPass] = useState('');
+  const [newPass, setNewPass] = useState("");
   const [oldPass, setOldPass] = useState("");
   const [confirmedPass, setConfirmedPass] = useState("");
   const [showModal, setShowModal] = useState(false);
-
-
-
-
 
   const [formData, setFormData] = useState({
     name: user?.name,
     email: user?.email,
     picture: avatarUrl,
     username: user?.username,
-    password: ''
+    password: "",
   });
-
-
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -40,32 +34,28 @@ const UserProfile = () => {
 
   const handleChangePassword = () => {
     if (newPass !== confirmedPass) {
-
       setError("Passwords do not match!");
       setShowModal(true);
-      return; 
+      return;
     }
 
-    
-    axios.put(`/users/change-password/${user._id}`, {
-      oldPassword: oldPass,
-      newPassword: newPass
-    })
-    .then((response) => {
-      
-      setEditMode(false);
-    })
-    .catch((error) => {
- 
-      setShowModal(true);
-      if (error.response) {
-
-        setError(error.response.data.message);
-      } else {
-        console.log("Error", error.message);
-      }
-    })
-};
+    axios
+      .put(`/users/change-password/${user._id}`, {
+        oldPassword: oldPass,
+        newPassword: newPass,
+      })
+      .then((response) => {
+        setEditMode(false);
+      })
+      .catch((error) => {
+        setShowModal(true);
+        if (error.response) {
+          setError(error.response.data.message);
+        } else {
+          console.log("Error", error.message);
+        }
+      });
+  };
 
   const handleSubmit = (e) => {
     setError(null);
@@ -76,7 +66,6 @@ const UserProfile = () => {
       handleChangePassword();
       return;
     }
-  
 
     axios
       .put(`/users/${user._id}`, formData)
@@ -86,9 +75,8 @@ const UserProfile = () => {
       })
       .catch((error) => {
         setShowModal(true);
-   
+
         if (error.response) {
-        
           setError(error.response.data.message);
           setShowModal(true);
         } else {
@@ -96,17 +84,13 @@ const UserProfile = () => {
           setShowModal(true);
         }
       });
-
-}
+  };
 
   const handleNewAvatar = () => {
     const newAvatarUrl = Avatar.generate_avatar();
     setAvatarUrl(newAvatarUrl);
     setFormData({ ...formData, picture: newAvatarUrl });
   };
-
-
-
 
   const deleteAccount = async () => {
     try {
@@ -124,56 +108,42 @@ const UserProfile = () => {
     }
   };
 
-
   const resetForm = () => {
     setFormData({
       name: user?.name,
       email: user?.email,
       picture: avatarUrl,
       username: user?.username,
-      password: ''
+      password: "",
     });
     setOldPass("");
     setNewPass("");
     setConfirmedPass("");
   };
 
-  
-
-
   const handleBackButton = async (e) => {
- 
-      e.preventDefault();
-      resetForm();
-      setChangePassClicked(null)
-      setEditMode(false);
-
-    
-  }
-
+    e.preventDefault();
+    resetForm();
+    setChangePassClicked(null);
+    setEditMode(false);
+  };
 
   const handleChangePassClicked = async () => {
-    setEditMode(true)
-    setChangePassClicked(true)
-  }
+    setEditMode(true);
+    setChangePassClicked(true);
+  };
 
- 
-   
   const handleCloseModal = async () => {
-    setShowModal(false)
+    setShowModal(false);
     resetForm();
-  }
-
+  };
 
   return editMode ? (
     <div className="user-profile-container">
       <Sidebar />
       <form className="profile-form" onSubmit={handleSubmit}>
         <div className="btn-h1">
-          <button
-            className="back-button"
-            onClick={handleBackButton}
-          >
+          <button className="back-button" onClick={handleBackButton}>
             ←
           </button>
         </div>
@@ -221,7 +191,7 @@ const UserProfile = () => {
               placeholder="Username"
             />
           </>
-        ) :  (
+        ) : (
           <>
             <input
               type="password"
@@ -242,21 +212,19 @@ const UserProfile = () => {
               onChange={(e) => setConfirmedPass(e.target.value)}
             />
           </>
-        ) }
-
-        
+        )}
 
         <button className="submit-profile-btn" type="submit">
           Submit
         </button>
         {showModal && (
-        <div className="modal">
-          <div className="modal-content">
-            <p>{error}</p>
-            <button onClick={handleCloseModal}>Close</button>
+          <div className="modal">
+            <div className="modal-content">
+              <p>{error}</p>
+              <button onClick={handleCloseModal}>Close</button>
+            </div>
           </div>
-        </div>
-      )}
+        )}
       </form>
     </div>
   ) : (
@@ -282,19 +250,32 @@ const UserProfile = () => {
             <strong>💌</strong> {user?.email}
           </p>
         </div>
+        <div className="profile-btn-container">
+          {" "}
+          <button
+            className="edit-profile-btn"
+            onClick={() => setEditMode(true)}
+          >
+            Edit Profile
+          </button>
+        </div>
 
-        <button className="edit-profile-btn" onClick={() => setEditMode(true)}>
-          Edit Profile
-        </button>
-        <button className="edit-profile-btn" onClick={handleChangePassClicked}>
-          Change Password
-        </button>
-        <button className="edit-profile-btn" onClick={deleteAccount}>
-          Delete Account
-        </button>
+        <div className="profile-btn-container">
+          {" "}
+          <button
+            className="edit-profile-btn"
+            onClick={handleChangePassClicked}
+          >
+            Change Password
+          </button>
+        </div>
 
-      
-      
+        <div className="profile-btn-container">
+          {" "}
+          <button className="edit-profile-btn" onClick={deleteAccount}>
+            Delete Account
+          </button>
+        </div>
       </div>
     </div>
   );
