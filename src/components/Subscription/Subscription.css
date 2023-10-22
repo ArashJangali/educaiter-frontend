@@ -180,6 +180,12 @@
     border: 1px solid #ccc;
     border-radius: 5px;
   }
+
+  .plan-btn.current {
+
+    cursor:default;
+ 
+  }
   
   .subscription-page .form-container form button {
     color: #aaa;

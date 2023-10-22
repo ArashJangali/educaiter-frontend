@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import UserContext from "../../contexts/UserContext";
 import "./Navbar.css";
-import axios from "../Api/axiosInstance";
+
 
 export default function Navbar({ loggedOut, setLoggedOut }) {
   const { user, setUser } = useContext(UserContext);
@@ -35,11 +35,11 @@ export default function Navbar({ loggedOut, setLoggedOut }) {
 
   let navbarClasses=['navbar'];
   
-  if (scrolled) {
+  if (!user && scrolled) {
     navbarClasses.push('scrolled');
 }
 
-console.log(user)
+
 
 
 let signUpButtonClass=['nav-signup-btn']
@@ -48,26 +48,10 @@ if (scrolledMid) {
   signUpButtonClass.push('scrolled')
 }
 
-  const handleLogout = async () => {
-    try {
-      const response = await axios.post(
-        "/logout",
-        {},
-        { withCredentials: true }
-      );
-      if (response.status === 200) {
-        setUser(null);
-        setLoggedOut(true)
-        navigate("/");
-      }
-    } catch (error) {
-      console.log("An error occurred during logout.", error);
-    }
-  };
 
   return (
     <nav
-      className={`loggedOut ? 'navbar-loggedout' : ${navbarClasses.join(" ")}`}
+      className={`${loggedOut} ? 'navbar-loggedout' : ${navbarClasses.join(" ")}`}
     >
       <img style={{cursor: 'pointer'}} onClick={() => navigate('/')} className="navbar-img" src="/logo.png" />
       <div className="navbar-middle">

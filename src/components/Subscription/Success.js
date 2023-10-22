@@ -4,6 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import success from '../../assets/success.png'
 import axios from '../Api/axiosInstance'
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import Lottie from "lottie-react";
+import subSuccessAnimation from "../../assets/subSuccess.json";
+import "aos/dist/aos.css";
 
 export default function Success() {
   const navigate = useNavigate()
@@ -66,11 +70,17 @@ export default function Success() {
         </div>
       ): (
         <>
-      <div className="img-container">
-        <img src={success} />
-      </div>
+  
       <h2>Payment Successful!</h2>
-      <button onClick={() => handlePaymentSuccess()}>Continue</button>
+      <Lottie
+              data-aos="zoom-in"
+              data-aos-duration="2200"
+              className="sub-success-animation"
+              animationData={subSuccessAnimation}
+              loop={true}
+              style={{ width: "15%", height: '55%', marginBottom: "-2em", marginTop: "-3em" }}
+            />
+      <button className='sub-success-btn' onClick={() => handlePaymentSuccess()}>Continue</button>
       </>
       )}
     </div>

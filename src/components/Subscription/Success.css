@@ -4,9 +4,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #282c34;
+ background: linear-gradient(to bottom, #6699CC, #604ba064, #6699CC, #6699CC);
     height: 100vh;
     justify-content: center;
+    color: white;
   }
   
 
@@ -17,6 +18,23 @@
     color: beige;
 }
 
+.sub-success-btn {
+  padding: 0.52em 0.4em; 
+  font-size: 0.96em; 
+  cursor: pointer;
+  box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset;
+  background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+  color: rgba(0, 0, 0, 0.648);
+  border: none;
+  transition: background-color 0.7s ease;
+  width: 10%; 
+}
+
+.sub-success-btn:hover {
+  box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset;
+  background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+  color: rgba(0, 0, 0, 0.648);
+}
 
   button {
     padding: 0.5em;
