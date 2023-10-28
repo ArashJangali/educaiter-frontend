@@ -5,12 +5,11 @@ import axios from "../Api/axiosInstance";
 import "./Recommendation.css";
 import Flashcard from "./InteractiveLearning/Flashcard";
 import { useNavigate, Link } from "react-router-dom";
-import ReactDatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import './DatePickerStyles.css';
+import ReactDatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import "./DatePickerStyles.css";
 import Select from "react-select";
 import Sidebar from "../Sidebar/Sidebar";
-
 
 export default function Recommendation() {
   const { user, setUser } = useContext(UserContext);
@@ -21,12 +20,11 @@ export default function Recommendation() {
   const [subject, setSubject] = useState(null);
   const [selectedSubject, setSelectedSubject] = useState(null);
   const [showFlashcards, setShowFlashcards] = useState(false);
-  const [startDate, setStartDate] = useState(new Date())
-  const [endDate, setEndDate] = useState(new Date())
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
   const [apiLimitReached, setApiLimitReached] = useState(false);
-  const [noAccess, setNoAccess] = useState(false)
+  const [noAccess, setNoAccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
-
 
   const topics = [
     { value: "Software Development", label: "Software Development" },
@@ -34,22 +32,24 @@ export default function Recommendation() {
     { value: "Mobile App Development", label: "Mobile App Development" },
     { value: "Data Science & Analytics", label: "Data Science & Analytics" },
     { value: "Machine Learning & AI", label: "Machine Learning & AI" },
-    { value: "Cloud Computing & DevOps", label: "Cloud Computing & DevOps" },
-    { value: "Cybersecurity", label: "Cybersecurity" },
-    { value: "Mathematics", label: "Mathematics" },
-    { value: "Blockchain & Cryptocurrency", label: "Blockchain & Cryptocurrency" },
-    { value: "Quantum Computing", label: "Quantum Computing" },
-    { value: "Augmented & Virtual Reality (AR/VR)", label: "Augmented & Virtual Reality (AR/VR)" },
-    { value: "Internet of Things (IoT)", label: "Internet of Things (IoT)" },
+    // { value: "Cloud Computing & DevOps", label: "Cloud Computing & DevOps" },
+    // { value: "Cybersecurity", label: "Cybersecurity" },
+    // { value: "Mathematics", label: "Mathematics" },
+    // { value: "Blockchain & Cryptocurrency", label: "Blockchain & Cryptocurrency" },
+    // { value: "Quantum Computing", label: "Quantum Computing" },
+    // { value: "Augmented & Virtual Reality (AR/VR)", label: "Augmented & Virtual Reality (AR/VR)" },
+    // { value: "Internet of Things (IoT)", label: "Internet of Things (IoT)" },
   ];
-
 
   useEffect(() => {
     async function fetchRecommendation() {
       try {
-
-        const formattedStartDate = `${startDate.getFullYear()}-${String(startDate.getMonth() + 1).padStart(2, '0')}-${String(startDate.getDate()).padStart(2, '0')}`;
-        const formattedEndDate = `${endDate.getFullYear()}-${String(endDate.getMonth() + 1).padStart(2, '0')}-${String(endDate.getDate()).padStart(2, '0')}`;
+        const formattedStartDate = `${startDate.getFullYear()}-${String(
+          startDate.getMonth() + 1
+        ).padStart(2, "0")}-${String(startDate.getDate()).padStart(2, "0")}`;
+        const formattedEndDate = `${endDate.getFullYear()}-${String(
+          endDate.getMonth() + 1
+        ).padStart(2, "0")}-${String(endDate.getDate()).padStart(2, "0")}`;
 
         const response = await axios.get(
           `/recommendation/get-recommendation/${userId}`,
@@ -74,16 +74,16 @@ export default function Recommendation() {
           setApiLimitReached(true);
         } else if (
           error.response?.data.message ===
-          "Please select a subscription plan to access this resource." || 
-          error.response?.data?.message === "Your subscription has expired. Please renew to continue."
+            "Please select a subscription plan to access this resource." ||
+          error.response?.data?.message ===
+            "Your subscription has expired. Please renew to continue."
         ) {
           setErrorMessage(error.response?.data.message);
-          setNoAccess(true)
+          setNoAccess(true);
         }
       }
-
     }
-    if(subject) {
+    if (subject) {
       fetchRecommendation();
     }
   }, [userId, subject, startDate, endDate]);
@@ -92,212 +92,238 @@ export default function Recommendation() {
     setSubject(subjectName);
     setSelectedSubject(subjectName);
   };
- 
+
   const handleTopicChange = async (subject) => {
     setSubject(subject.value);
     setSelectedSubject(subject.value);
-   
   };
 
   const startFlashcards = async () => {
-    setShowFlashcards(true)
-  }
+    setShowFlashcards(true);
+  };
 
   function onClose() {
-    setApiLimitReached(false)
-    setNoAccess(false)
+    setApiLimitReached(false);
+    setNoAccess(false);
     setErrorMessage(null);
   }
   const customStyles = {
     option: (provided, state) => ({
       ...provided,
-      borderBottom: '1px dotted pink',
-      color: state.isSelected ? 'red' : 'white',
-      padding: 20,
+      borderBottom: "1px dotted pink",
+      color: state.isSelected ? "blue" : "black",
+      padding: 2,
     }),
     menu: (provided, state) => ({
       ...provided,
-      background: 'linear-gradient(170deg,#0579ed, #00BFFF, #acd0dccf, #426ab4ab, #5534b77d)',
+      background: "transparent",
       zIndex: 9999,
-      overflow: 'auto',
+      overflow: "auto",
     }),
     menuPortal: (provided) => ({ ...provided, zIndex: 9999 }),
     control: (provided) => ({
       ...provided,
-      background: 'linear-gradient(170deg,#0579ed, #00BFFF, #acd0dccf, #426ab4ab, #5534b77d)',
-      color: 'white',
-      width: 200,
-      border: 'none',
-      boxShadow: 'none',
-      bottom: '5px',
-  }),
+      background: "transparent",
+      color: "white",
+      width: 150,
+      border: "#5534b74a solid 1.5px ",
+      boxShadow: "none",
+      bottom: "5px",
+      borderRadius: '20px',
+      padding:'3px',
+    }),
     singleValue: (provided, state) => {
       const opacity = state.isDisabled ? 0.5 : 1;
-      const transition = 'opacity 300ms';
-  
-      return { ...provided, opacity, transition, color: 'white' };
-    }
-  }
+      const transition = "opacity 300ms";
+
+      return { ...provided, opacity, transition, color: "white" };
+    },
+  };
   return (
     <div className="recommendation-container">
-    <Sidebar />
-    {apiLimitReached || noAccess ? (
+      <Sidebar />
+      {apiLimitReached || noAccess ? (
         <div className="apilimit-modal-container">
           <span className="close-button" onClick={onClose}>
             ×
           </span>
           <div className="apilimit-modal">
-          {apiLimitReached && "Subscription limit reached. Please "}
-
-          {noAccess && errorMessage === "Please select a subscription plan to access this resource." && 
-          "Please select a subscription plan to access this resource. "}
-
-          {noAccess && errorMessage === "Your subscription has expired. Please renew to continue." &&
-          "Your subscription has expired. Please renew to continue. "}
-
-         
-          <Link to="/subscription">Click here</Link> to manage your subscription.
+            {apiLimitReached && "Subscription limit reached. Please "}
+            {noAccess &&
+              errorMessage ===
+                "Please select a subscription plan to access this resource." &&
+              "Please select a subscription plan to access this resource. "}
+            {noAccess &&
+              errorMessage ===
+                "Your subscription has expired. Please renew to continue." &&
+              "Your subscription has expired. Please renew to continue. "}
+            <Link to="/subscription">Click here</Link> to manage your
+            subscription.
           </div>
         </div>
-      ): (
+      ) : (
         <>
-       
-      
-      
-     
-      <div className="guide">
-      <div className="date-picker-container">
-      <ReactDatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
-      <ReactDatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
-      <Select
-           styles={customStyles}
-           options={topics}
-           onChange={handleTopicChange}
-           placeholder="Topic"
-           menuPortalTarget={document.body}
-          menuPosition={'fixed'} 
-         />
-      </div>
-        <div className="incorrect-recommendation">
-       
-          <h4>
-          
-            <Typewriter
-              options={{
-                strings: ["Areas for Improvement"],
-                autoStart: true,
-                loop: false,
-                deleteSpeed: 9999999,
-                delay: 20,
-              }}
-            />
-          </h4>
-          
-          {subject ? (
-            incorrectAssessments?.map((incorrectAssessment, index) => {
-              const date = new Date(incorrectAssessment.timestamp);
-              const formattedDate = `${date.getFullYear()}-${String(
-                date.getMonth() + 1
-              ).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+          <div className="insight-container"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: '10px',
+            }}
+          >
+           <Select
+                styles={customStyles}
+                options={topics}
+                onChange={handleTopicChange}
+                placeholder="Topic"
+                menuPortalTarget={document.body}
+                menuPosition={"fixed"}
+              />
+            <div className="date-picker-container">
+              <ReactDatePicker
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+              />
+              <ReactDatePicker
+                selected={endDate}
+                onChange={(date) => setEndDate(date)}
+              />
+             
+            </div>
+            <div className="guide">
+              <div className="incorrect-recommendation">
+                <h4>
+                  <Typewriter
+                    options={{
+                      strings: ["Areas for Improvement"],
+                      autoStart: true,
+                      loop: false,
+                      deleteSpeed: 9999999,
+                      delay: 20,
+                    }}
+                  />
+                </h4>
 
-              return (
-                <div key={index}>
-                  <div>
-                    <Typewriter
-                      options={{
-                        strings: [
-                          `Difficulty Level: ${incorrectAssessment.level}`,
-                        ],
-                        autoStart: true,
-                        loop: false,
-                        deleteSpeed: 9999999,
-                        delay: 20,
-                      }}
-                    />
-                  </div>
-                  <div>
-                    <Typewriter
-                      options={{
-                        strings: [
-                          `Question Topic: ${incorrectAssessment.question}`,
-                        ],
-                        autoStart: true,
-                        loop: false,
-                        deleteSpeed: 9999999,
-                        delay: 20,
-                      }}
-                    />
-                  </div>
-                  <div>
-                    <Typewriter
-                      options={{
-                        strings: [`Assessment Date: ${formattedDate}`],
-                        autoStart: true,
-                        loop: false,
-                        deleteSpeed: 9999999,
-                        delay: 20,
-                      }}
-                    />
-                  </div>
-                  <br />
-                </div>
-              );
-            })
-          ) : (
-            <div>Select a subject and date range to retrieve the latest 10 evaluations.</div>
-          )}
-        </div>
-        <div className="recommendation">
-          <h4>
-            <Typewriter
-              options={{
-                strings: ["Personalized Recommendation"],
-                autoStart: true,
-                loop: false,
-                deleteSpeed: 9999999,
-                delay: 20,
-              }}
-            />
-          </h4>
+                {subject ? (
+                  incorrectAssessments?.map((incorrectAssessment, index) => {
+                    const date = new Date(incorrectAssessment.timestamp);
+                    const formattedDate = `${date.getFullYear()}-${String(
+                      date.getMonth() + 1
+                    ).padStart(2, "0")}-${String(date.getDate()).padStart(
+                      2,
+                      "0"
+                    )}`;
 
-          {recommendation ? (
-            <div>
-              <Typewriter
-                options={{
-                  strings: [`${recommendation}`],
-                  autoStart: true,
-                  loop: false,
-                  deleteSpeed: 9999999,
-                  delay: 10,
-                  stopBlinkinOnComplete: true,
-                }}
+                    return (
+                      <div key={index}>
+                        <div>
+                          <Typewriter
+                            options={{
+                              strings: [
+                                `Difficulty Level: ${incorrectAssessment.level}`,
+                              ],
+                              autoStart: true,
+                              loop: false,
+                              deleteSpeed: 9999999,
+                              delay: 20,
+                            }}
+                          />
+                        </div>
+                        <div>
+                          <Typewriter
+                            options={{
+                              strings: [
+                                `Question Topic: ${incorrectAssessment.question}`,
+                              ],
+                              autoStart: true,
+                              loop: false,
+                              deleteSpeed: 9999999,
+                              delay: 20,
+                            }}
+                          />
+                        </div>
+                        <div>
+                          <Typewriter
+                            options={{
+                              strings: [`Assessment Date: ${formattedDate}`],
+                              autoStart: true,
+                              loop: false,
+                              deleteSpeed: 9999999,
+                              delay: 20,
+                            }}
+                          />
+                        </div>
+                        <br />
+                      </div>
+                    );
+                  })
+                ) : (
+                  <div>
+                    Select a subject and date range to retrieve the latest 10
+                    evaluations.
+                  </div>
+                )}
+              </div>
+              <div className="recommendation">
+                <h4>
+                  <Typewriter
+                    options={{
+                      strings: ["Personalized Recommendation"],
+                      autoStart: true,
+                      loop: false,
+                      deleteSpeed: 9999999,
+                      delay: 20,
+                    }}
+                  />
+                </h4>
+
+                {recommendation ? (
+                  <div>
+                    <Typewriter
+                      options={{
+                        strings: [`${recommendation}`],
+                        autoStart: true,
+                        loop: false,
+                        deleteSpeed: 9999999,
+                        delay: 10,
+                        stopBlinkinOnComplete: true,
+                      }}
+                    />
+                  </div>
+                ) : (
+                  <div>
+                    Suggestions will appear once a subject and a date are
+                    selected.
+                  </div>
+                )}
+              </div>
+            </div>
+            <button className="review-button" onClick={startFlashcards}>
+              Quick review? Try these flashcards!
+            </button>
+          </div>
+
+          {showFlashcards && (
+            <div className="flashcard-overlay">
+              <span
+                className="close material-symbols-outlined"
+                onClick={() => setShowFlashcards(false)}
+              >
+                Close
+              </span>
+              <Flashcard
+                showFlashcards={showFlashcards}
+                setShowFlashcards={setShowFlashcards}
+                userId={userId}
+                recommendation={recommendation}
+                apiLimitReached={apiLimitReached}
+                noAccess={noAccess}
+                errorMessage={errorMessage}
               />
             </div>
-          ) : (
-            <div>Suggestions will appear once a subject and a date are selected.</div>
           )}
-          
-        </div>
-        <button className="review-button" onClick={startFlashcards}>
-        Want a quick review? Try these flashcards!
-      </button>
-      </div>
-    
-      {showFlashcards && (
-        <div className="flashcard-overlay">
-        <span className="close material-symbols-outlined" onClick={() => setShowFlashcards(false)}>Close</span>
-          <Flashcard
-            showFlashcards={showFlashcards}
-            setShowFlashcards={setShowFlashcards}
-            userId={userId}
-            recommendation={recommendation}
-            apiLimitReached={apiLimitReached}
-            noAccess={noAccess}
-            errorMessage={errorMessage}
-          />
-        </div>
-      )}
-      </>
+        </>
       )}
     </div>
   );

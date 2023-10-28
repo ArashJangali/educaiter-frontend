@@ -219,15 +219,15 @@ const levels = [
           {topic && (
             <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
             {(result === 'correct')  && <Lottie
-            data-aos="fade-up"
-            data-aos-duration="1500"
+            data-aos="zoom-in"
+            data-aos-duration="1100"
             className="lottie-quiz"
             animationData={correctAnimation}
             loop={true}
           />}
 {(result === 'incorrect')  && <Lottie
-            data-aos="fade-up"
-            data-aos-duration="1500"
+            data-aos="zoom-in"
+            data-aos-duration="1100"
             className="lottie-quiz"
             animationData={incorrectAnimation}
             loop={true}

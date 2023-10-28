@@ -174,7 +174,7 @@ const options = {
 
 return data ? (
     <div className="linechart">
-      <h3>Performance Timeline</h3>
+     
       <select className="select" value={viewOption} onChange={handleOptionChange}>
         <option value='percentage'>Percentage Correct</option>
         <option value='cumulative'>Cumulative Score</option>

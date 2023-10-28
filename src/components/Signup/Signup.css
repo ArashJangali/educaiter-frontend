@@ -116,7 +116,7 @@ background: linear-gradient(to bottom,#5534b7d0, #6699CC);
 
 /* Modal close button */
 .modal-content button {
-    padding: 0.em;
+ 
     font-size: 1em;
     cursor: pointer;
     box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset !important;
@@ -150,7 +150,7 @@ background: linear-gradient(to bottom,#5534b7d0, #6699CC);
         }
 
         .modal-content button {
-            padding: 0.em;
+           
             font-size: 1em;
             cursor: pointer;
             box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset !important;
@@ -183,7 +183,7 @@ background: linear-gradient(to bottom,#5534b7d0, #6699CC);
         }
 
         .modal-content button {
-            padding: 0.em;
+       
             font-size: 1em;
             cursor: pointer;
             box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset !important;

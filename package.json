@@ -44,6 +44,8 @@
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-datepicker": "^4.16.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18.2.0",
     "react-fast-marquee": "^1.6.1",
     "react-heatmap-grid": "^0.9.0",
