@@ -131,7 +131,7 @@ background: linear-gradient(170deg,#0579ed, #00BFFF, #acd0dc, #986edb89, #1085d9
   
   /* Modal close button */
   .modal-content button {
-    padding: 0.em;
+    padding: 0em;
     font-size: 1em;
     cursor: pointer;
     box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset !important;
