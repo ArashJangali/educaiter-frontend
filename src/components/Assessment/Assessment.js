@@ -17,6 +17,7 @@ import { CSSTransition } from 'react-transition-group';
 
 const Assessment = () => {
   const [topic, setTopic] = useState(null);
+  const [language, setLanguage] = useState(null);
   const [level, setLevel] = useState(null);
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
@@ -40,6 +41,7 @@ const Assessment = () => {
       { value: "Mobile App Development", label: "Mobile App Development" },
       { value: "Data Science & Analytics", label: "Data Science & Analytics" },
       { value: "Machine Learning & AI", label: "Machine Learning & AI" },
+      { value: "Game Dev", label: "Game Dev" },
       // { value: "Cloud Computing & DevOps", label: "Cloud Computing & DevOps" },
       // { value: "Cybersecurity", label: "Cybersecurity" },
       // { value: "Mathematics", label: "Mathematics" },
@@ -49,38 +51,59 @@ const Assessment = () => {
       // { value: "Internet of Things (IoT)", label: "Internet of Things (IoT)" },
     ]
     
-
+    const languages = [
+      { value: 'JavaScript', label: 'JavaScript' },  // Relevant for Web Development
+      { value: 'Python', label: 'Python' },  // Relevant for Web Development, Data Science, Machine Learning & AI
+      { value: 'Java', label: 'Java' },  // Relevant for Web Development, Mobile App Development
+      { value: 'Swift', label: 'Swift' },  // Relevant for Mobile App Development (iOS)
+      { value: 'Kotlin', label: 'Kotlin' },  // Relevant for Mobile App Development (Android)
+      { value: 'C++', label: 'C++' },  // Relevant for Software Development, Machine Learning
+      { value: 'C%23', label: 'C#' },  // Relevant for Software Development, Mobile App Development, AR/VR
+      { value: 'R', label: 'R' },  // Relevant for Data Science & Analytics
+      { value: 'SQL', label: 'SQL' },  // Relevant for Data Science & Analytics, Web Development
+      { value: 'Go', label: 'Go' },  // Relevant for Software Development, Cloud Computing & DevOps
+      { value: 'Ruby', label: 'Ruby' },  // Relevant for Web Development
+      { value: 'PHP', label: 'PHP' },  // Relevant for Web Development
+      { value: 'TypeScript', label: 'TypeScript' },  // Relevant for Web Development
+      { value: 'MATLAB', label: 'MATLAB' },  // Relevant for Data Science, Machine Learning & AI
+      { value: 'Scala', label: 'Scala' },  // Relevant for Data Science, Machine Learning
+      { value: 'Rust', label: 'Rust' },  // Relevant for Software Development
+  ];
 
 //   level
 
 const levels = [
     { value: "Foundational", label: "Foundational" },
-    { value: "Undergraduate", label: "Undergraduate" },
-    { value: "Postgraduate", label: "Postgraduate" },
+    { value: "Intermediate", label: "Intermediate" },
+    { value: "Advanced", label: "Advanced" },
     // { value: "Doctorate", label: "Doctorate" },
     // { value: "Researcher", label: "Researcher" },
     { value: "Expert", label: "Expert" },
+    { value: "Master", label: "Master" },
     // { value: "Master", label: "Master" },
     // { value: "Visionary", label: "Visionary" },
   ];
 
   useEffect(() => {
     
-    if (topic && level) {
+    if (topic && level && language) {
         setResult('')
       // Get a question from the server
       axios
-        .get(`/assessment/generateQuestion/${topic}/${level}`, {
+        .get(`/assessment/generateQuestion/${language}/${topic}/${level}`, {
           withCredentials: true
           })
         .then((response) => {
           setQuestion(response.data.question);
+          setLanguage(null)
+          setLevel(null)
+          setTopic(null)
         })
         .catch((error) => {
           console.error("Error fetching question:", error);
           if (
             error.response?.data.message ===
-            "Usage limit reached. Please upgrade."
+            "No credits left. Please upgrade."
           ) {
             setApiLimitReached(true);
           }
@@ -94,12 +117,12 @@ const levels = [
           }
         })
     }
-  }, [topic, level]);
+  }, [topic, level, language]);
 
   const submitAnswer = () => {
     // Evaluate the answer on the server
     axios
-      .post(`/assessment/evaluateAnswer/${topic}/${level}`, { answer, question, userId }, {
+      .post(`/assessment/evaluateAnswer/${language}/${topic}/${level}`, { answer, question, userId }, {
         withCredentials: true
       })
       .then((response) => {
@@ -117,7 +140,7 @@ const levels = [
         console.error("Error evaluating answer:", error);
         if (
           error.response?.data.message ===
-          "Usage limit reached. Please upgrade."
+          "No credits left. Please upgrade."
         ) {
           setApiLimitReached(true);
         } else if (
@@ -130,7 +153,7 @@ const levels = [
         }
       });
   };
-
+  
   const handleTopicChange = (selectedOption) => {
     setTopic(selectedOption.value);
   };
@@ -139,6 +162,10 @@ const levels = [
     setLevel(selectedOption.value);
   };
 
+  const handleLanguageChange = (selectedOption) => {
+    setLanguage(selectedOption.value)
+    console.log(selectedOption)
+  }
 
 
   function onClose() {
@@ -200,6 +227,11 @@ const levels = [
         <div className="assessment-container">
           <h1 className="assessment-title"></h1>
           <div className="topic-selection">
+            <Select styles={customStyles}
+                    options={languages}
+                    onChange={handleLanguageChange}
+                    placeholder='Language'
+           />
             <Select
               styles={customStyles}
               options={topics}

@@ -2,82 +2,135 @@ import React, { useEffect, useState, useContext } from 'react';
 import { Bar } from "react-chartjs-2";
 import axios from "../../Api/axiosInstance"
 import UserContext from "../../../contexts/UserContext";
-import Chart from 'chart.js/auto'
 import "./BarChart.css";
 
 
 
 const BarChart = () => {
-    const [data, setData] = useState({ labels: [], datasets: [] });
+    const [chartData, setChartData] = useState({
+        labels: [],
+        datasets: []
+    });
     const {user, setUser} = useContext(UserContext)
     const userId = user?._id
 
+    const prepareChartData = (data) => {
+       const chartData = {
+        labels: [],
+        datasets: []
+       }
+
+       const uniqueTopics = [...new Set(data?.map(data => data.topic))]
+       const uniqueLanguages = [...new Set(data?.map(data => data.language))]
+       const uniqueLevels = [...new Set(data?.map(data => data.level))]
+
+       console.log('Unique Topics:', uniqueTopics);
+console.log('Unique Languages:', uniqueLanguages);
+console.log('Unique Levels:', uniqueLevels);
+
+
+       chartData.labels = uniqueTopics;
+
+       uniqueLanguages?.forEach(language => {
+        uniqueLevels?.forEach(level => {
+            const dataset = {
+                label: `${language} (${level})`,
+                data: [],
+            }
+
+            uniqueTopics?.forEach(topic => {
+                const item = data?.find(r => r.topic === topic && r.language === language && r.level === level)
+                dataset.data.push(item ? item.percentageCorrect : 0)
+            })
+            chartData.datasets.push(dataset);
+        })
+
+       })
+
+       return chartData
+    }
+    console.log('Final Chart Data:', chartData);
+
+    const fetchAggregatedData = async(userId) => {
+        try {
+            const response = await axios.get(`/assessment/${userId}`, {
+                withCredentials: true
+              })
+              console.log('Fetched Data:', response.data);
+              return await response.data
+        } catch(error) {
+            console.error('Error fetching data:', error);
+            return [];
+        }
+        
+    }
 
     useEffect(() => {
-        axios.get(`/assessment/${userId}`, {
-            withCredentials: true
-          })
-        .then(res => {
-            const assessments = res?.data;
-           
-            const grouped = assessments?.reduce((acc, assessment) => {
-                const key = assessment?.topic;
-                if (!acc[key]) {
-                    acc[key] = { correct: 0, incorrect: 0 }
-                }
-                if (assessment?.correct) {
-                    acc[key].correct++
-                } else {
-                    acc[key].incorrect++
-                }
-                return acc
-            }, {})
-          if (grouped) {
-            const labels = Object?.keys(grouped);
-            const correctData = labels?.map(label => grouped[label]?.correct || 0);
-            const incorrectData = labels?.map(label => grouped[label]?.incorrect || 0);
-      
-            setData({
-                labels,
-                datasets: [
-                    {
-                        label: 'Correct',
-                        data: correctData,
-                        backgroundColor: 'rgba(0, 255, 0, 1)',
-                        borderColor: 'rgba(0, 255, 0, 1)',
-                        borderWidth: 1
-                    },
-                    {
-                        label: 'Incorrect',
-                        data: incorrectData,
-                        backgroundColor: 'rgba(255, 0, 0, 1)',
-                        borderColor: 'rgba(255, 0, 0, 1)',
-                        borderWidth: 1
-                    }
-                ]
-            })
-            
+        const fetchData = async () => {
+            if (userId) {
+                const data = await fetchAggregatedData(userId)
+                console.log('Data to be processed:', data);
+            setChartData(prepareChartData(data))
+            }
         }
-
-        })
-        
-        .catch(error => console.error('error', error))
+        fetchData()
+      
     }, [userId])
 
 
+    const options = {
+        responsive: true,
+        scales: {
+            x: {
+                stacked:true
+            },
+            y: {
+                stacked: true,
+                beginAtZero: true,
+                max: 100,
+                ticks: {
+                    callback: function (value) {
+                        return value + "%"
+                    },
+                    stepSize: 10
+                },
+                grid: {
+                    display: false
+                },
+            },
+        },
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        return context.dataset.label + ": " + context.parsed.y + "%"
+                    },
+                },
+            },
+        },
+        animation: {
+            duration: 1000,
+            delay: 500,
+            easing: "easeOutBounce",
+        },
+    }
+
 
     return (
-        <div className="bar-chart">
-          <h2 className="chart-title">Progress</h2>
-          <div className="chart-container">
-            <Bar data={data} className="chart" options={{ responsive: true, borderRadius: 5, animation: {
-                duration: 1000,
-                delay:500,
-                easing: 'easeOutBounce',
-            } }} />
-          </div>
+      <div className="bar-chart">
+        <h2 className="chart-title"></h2>
+        <div className="chart-container">
+          <Bar
+            data={chartData}
+            className="chart"
+            options={options}
+          />
         </div>
-      );
+      </div>
+    );
 }
 
 export default BarChart

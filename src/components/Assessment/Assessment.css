@@ -247,16 +247,19 @@ button {
     color: white;
   }
 
+  /* dropdown styles */
+
   .css-b62m3t-container {
-    min-width: 0px !important;
+      min-width: 50px !important;
   }
+
+  
 
   .css-1dekisi-control {
-    border: 0.5px solid rgb(241, 241, 241) !important;
-    border-radius: 20px;
-    padding: 5px;
+      border: 0.5px solid rgb(241, 241, 241) !important;
+      border-radius: 20px;
+      padding: 5px;
   }
-
   .close-button {
     position: absolute;
     top: 1px;

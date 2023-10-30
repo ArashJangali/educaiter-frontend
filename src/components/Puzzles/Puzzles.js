@@ -71,7 +71,7 @@ const Puzzles = () => {
       <div className="puzzle">
       <img src="/icons/strategy.svg" className="icon" />
         <div onClick={() => handlePuzzleClick('strategy')}>
-          <h3 >Strategy Room</h3>
+          <h3>Strategy Room</h3>
           <p>
             Take command in your personal strategy room, where you have the
             freedom to customize your training regimen. Handpick puzzles based
