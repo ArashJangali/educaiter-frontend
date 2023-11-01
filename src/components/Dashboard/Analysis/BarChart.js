@@ -82,7 +82,10 @@ console.log('Unique Levels:', uniqueLevels);
         responsive: true,
         scales: {
             x: {
-                stacked:true
+                stacked:true,
+                ticks: {
+                    display: false
+                }
             },
             y: {
                 stacked: true,
@@ -101,7 +104,9 @@ console.log('Unique Levels:', uniqueLevels);
         },
         plugins: {
             legend: {
-                position: 'top',
+                display: false,
+               
+               
             },
             tooltip: {
                 callbacks: {
