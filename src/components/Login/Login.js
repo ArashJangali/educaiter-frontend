@@ -22,24 +22,28 @@ export default function Login() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
     const userData = { email, password };
-
-
+  
     try {
-        const response = await axios.post('/login', userData, { withCredentials: true })
-        
-        if (response.status === 200) {
-            setUser(response.data.user)
-            navigate('/user-profile');
-          }
-       
-    } catch(error) {
+      const response = await axios.post('/login', userData, { withCredentials: true });
+  
+      if (response && response.status === 200 && response.data && response.data.user) {
+        setUser(response.data.user);
+        navigate('/user-profile');
+      } else {
+        console.error('Invalid response format:', response);
+        setShowModal(true);
+        setError('Unexpected server response');
+      }
+      
+    } catch (error) {
+      console.error('Error during login:', error);
       setShowModal(true);
-      setError(error.response.data.error)
+      setError(error.response ? error.response.data.error : 'An error occurred');
     }
-
   };
+  
 
  
 
