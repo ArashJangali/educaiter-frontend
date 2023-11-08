@@ -12,12 +12,12 @@ module.exports = {
         "21/9": [21, 9],
       },
       colors: {
-        primary: "#003366",
+        "primary": "#003366",
         "secondary-light-blue": "#6699CC",
         "light-gray": "#E0E0E0",
         "medium-gray": "#A0A0A0",
         "dark-gray": "#333333",
-        white: "#FFFFFF",
+        "white": "#FFFFFF",
         //added for example
         "brand-grey": {
           DEFAULT: "#787878",
