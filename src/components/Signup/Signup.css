@@ -32,6 +32,7 @@
     padding: 2.2em;
     border-radius: 2em;
     color: #ffffff;
+    padding-bottom: 0.3em;
 }
 
 .signup input {
@@ -73,9 +74,10 @@
 .oauth {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     text-align: center;
+    padding-bottom: 1em;
 }
 
 .oauth-buttons {
