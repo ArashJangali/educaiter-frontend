@@ -12,19 +12,17 @@ export default function UserLoader({ children }) {
     
 
       try {
-        // make a request to an authenticated endpoint that verifies the JWT and returns user's data
+   
         const response = await axios.get("/me", { withCredentials: true });
 
-   
 
-        // If token is valid, the server should return the user data
         if (response.status === 200) {
         
           setUser(response.data);
      
         } else {
           
-          // If the server returns a status code other than 200, the token is not valid
+       
           navigate("/login");
         }
       } catch (error) {
@@ -34,7 +32,7 @@ export default function UserLoader({ children }) {
     };
 
     fetchUserData();
-  }, [setUser, navigate]);
+  }, []);
 
   return children;
 }

@@ -25,6 +25,7 @@
     align-items: center;
     background: transparent;
     padding: 2.2em;
+    padding-top: 1em;
     border-radius: 2em;
     color: #ffffff;
 }
@@ -47,7 +48,6 @@
     cursor: pointer;
     box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 25px, rgba(255, 255, 255, 0.8) 0px 0px 5px inset !important;
     background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
-  
     border: none;
     transition: background-color 0.3s ease;
     width: 40%;
@@ -65,19 +65,21 @@
     padding: 0.2em;
 }
 
-.oauth {
+.login .oauth {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
     text-align: center;
+    padding-bottom: 0.1em;
 }
 
-.oauth-buttons {
+.login .oauth-buttons {
     margin-left: 1rem;
     margin-right: 1rem;
     cursor: pointer;
     font-size: 2rem;
+    padding-top: 1em;
 }
 
 .forgot-password {

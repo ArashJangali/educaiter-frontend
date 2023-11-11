@@ -1,8 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "../Api/axiosInstance";
+import UserContext from "../../contexts/UserContext";
 import { Link, useNavigate } from "react-router-dom";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  GithubAuthProvider,
+} from "firebase/auth";
+import firebase from "../../config/firebaseConfig";
 import "./Signup.css";
-import { FaGoogle, FaFacebook, FaGithub } from "react-icons/fa";
+import { FaGoogle, FaGithub } from "react-icons/fa";
+
+const auth = getAuth(firebase);
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -12,39 +22,83 @@ export default function Signup() {
   const [showVerificationModal, setShowVerificationModal] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [error, setError] = useState(null);
+  const { setUser } = useContext(UserContext)
+
+  const handleGoogleSignUp = async () => {
+    const provider = new GoogleAuthProvider();
+
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const idToken = await result.user.getIdToken();
+      const response = await axios.post("/social-auth", {
+        token: idToken,
+      }, {withCredentials: true});
+      if (response.status === 200) {
+        const user = response.data.user;
+        console.log(user)
+        setUser(user);
+        navigate("/subscription");
+      }
+    } catch (error) {
+      console.error(error);
+      setError(error.message);
+      setShowModal(true);
+    }
+  };
+
+  const handleGithubSignUp = async () => {
+    const provider = new GithubAuthProvider();
+
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const idToken = await result.user.getIdToken();
+      const response = await axios.post("/social-auth", {
+        token: idToken,
+      },{withCredentials:true});
+      if (response.status === 200) {
+        const user = response.data.user;
+        console.log(user)
+        setUser(user);
+        navigate("/subscription");
+      }
+    } catch (error) {
+      console.error(error);
+      setError(error.message);
+      setShowModal(true);
+    }
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-  
+
     const userData = { name, email, password };
-  
+
     try {
-      const response = await axios.post("/signup", userData, { withCredentials: true });
-      
+      const response = await axios.post("/signup", userData, {
+        withCredentials: true,
+      });
+
       if (response.status === 200) {
         setShowVerificationModal(true);
       }
     } catch (error) {
       if (error.response && error.response.status === 400) {
         setShowModal(true);
-        setError(error.response.data.error); 
+        setError(error.response.data.error);
       } else {
         setShowModal(true);
         setError(error.response.data.error);
       }
     }
   };
-  
 
   const handleVerificationModalClose = () => {
     setShowVerificationModal(false);
-   
-  }
+  };
 
   const handleCloseModal = async () => {
-    setShowModal(false)
-  }
-
+    setShowModal(false);
+  };
 
   return (
     <div className="signup">
@@ -69,14 +123,12 @@ export default function Signup() {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">Sign up</button>
-
-        {/* <p className="or">OR</p> */}
-        {/* <div className="oauth">
-          <FaGoogle className="oauth-buttons" />
-          <FaFacebook className="oauth-buttons" />
-          <FaGithub className="oauth-buttons" />
-        </div> */}
       </form>
+      <p className="or">OR</p>
+      <div className="oauth">
+        <FaGoogle onClick={handleGoogleSignUp} className="oauth-buttons" />
+        <FaGithub onClick={handleGithubSignUp} className="oauth-buttons" />
+      </div>
       <p>
         Already have an account? <Link to="/login">Log in</Link>
       </p>
