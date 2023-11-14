@@ -294,12 +294,8 @@ const HomePage = () => {
           <div className="item">
             <div className="reviewer">
               <h3>Jordan A</h3>
-              <img src="/Jordan.png" />
-              <StarIcon />
-              <StarIcon />
-              <StarIcon />
-              <StarIcon />
-              <StarIcon />
+              {/* <img src="/Jordan.png" /> */}
+           
             </div>
             <div className="content">
               <p>
@@ -313,12 +309,8 @@ const HomePage = () => {
           <div className="item">
             <div className="reviewer">
               <h3>Carlos V</h3>
-              <img src="/Carlos.png" />
-              <StarIcon />
-              <StarIcon />
-              <StarIcon />
-              <StarIcon />
-              <StarIcon />
+              {/* <img src="/Carlos.png" /> */}
+           
             </div>
             <div className="content">
               <p>
@@ -332,12 +324,8 @@ const HomePage = () => {
           <div className="item">
             <div className="reviewer">
               <h3>Elena M</h3>
-              <img src="/Elena.png" />
-              <StarIcon />
-              <StarIcon />
-              <StarIcon />
-              <StarIcon />
-              <StarIcon />
+              {/* <img src="/Elena.png" /> */}
+            
             </div>
             <div className="content">
               <p>
@@ -350,12 +338,8 @@ const HomePage = () => {
           <div className="item">
             <div className="reviewer">
               <h3>Aditya S</h3>
-              <img src="/Aditya.png" />
-              <StarIcon />
-              <StarIcon />
-              <StarIcon />
-              <StarIcon />
-              <StarIcon />
+              {/* <img src="/Aditya.png" /> */}
+             
             </div>
             <div className="content">
               <p>
@@ -373,7 +357,7 @@ const HomePage = () => {
         <div className="faq-div">
           <h2>Frequently Asked Questions</h2>
           {faqs.map((faq, index) => (
-            <div key={index} className="faq-item">
+            <div key={index} className="mb-6 max-w-3/4 mx-auto">
               <h4
                 className="faq-question"
                 onClick={() => {

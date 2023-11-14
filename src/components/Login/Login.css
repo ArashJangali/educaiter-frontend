@@ -80,6 +80,8 @@
     cursor: pointer;
     font-size: 2rem;
     padding-top: 1em;
+    width: 4rem !important;
+    height: 4rem !important;
 }
 
 .forgot-password {

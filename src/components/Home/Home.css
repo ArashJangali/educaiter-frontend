@@ -295,6 +295,7 @@
 
 .feature-item.big h3 {
     font-size: 52px;
+     color: var(--white);
 }
 
 .feature-item.mid {
@@ -394,6 +395,7 @@
 
 .item .reviewer {
     margin-top: 0px;
+    flex-direction: row;
 }
 
 .item .content {
@@ -412,6 +414,7 @@
     margin-left: auto;
     margin-right: auto;
     font-family: 'Ubuntu', sans-serif;
+    margin-bottom: 30px;
 }
 
 .faq {
@@ -428,7 +431,7 @@
 .faq-div {
     width: 60%;
     margin: 0 auto;
-    max-height: 30em;
+    max-height: 32em;
     overflow-y: scroll;
     background-color: transparent;
 }
@@ -449,7 +452,7 @@
 }
 
 .faq-item {
-    margin-bottom: 15px;
+    margin-bottom: 3em;
     max-width: 75%;
     margin: 0 auto;
 }
